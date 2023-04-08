@@ -17,4 +17,6 @@
     #:caaaar #:caaadr #:caadar #:caaddr
     #:cadaar #:cadadr #:caddar #:cadddr
     #:cdaaar #:cdaadr #:cdadar #:cdaddr
-    #:cddaar #:cddadr #:cdddar #:cddddr))
+    #:cddaar #:cddadr #:cdddar #:cddddr
+    #:first #:second #:third #:fourth #:fifth
+    #:sixth #:seventh #:eighth #:ninth #:tenth))
