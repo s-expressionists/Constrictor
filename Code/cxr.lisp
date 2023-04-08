@@ -124,3 +124,43 @@
 (defun cddddr (list)
   (check-c*r-type-for list "dddd")
   (cdr (cdddr list)))
+
+(defun first (list)
+  (check-c*r-type-for list "a")
+  (car list))
+
+(defun second (list)
+  (check-c*r-type-for list "ad")
+  (cadr list))
+
+(defun third (list)
+  (check-c*r-type-for list "add")
+  (caddr list))
+
+(defun fourth (list)
+  (check-c*r-type-for list "addd")
+  (cadddr list))
+
+(defun fifth (list)
+  (check-c*r-type-for list "adddd")
+  (car (cddddr list)))
+
+(defun sixth (list)
+  (check-c*r-type-for list "addddd")
+  (cadr (cddddr list)))
+
+(defun seventh (list)
+  (check-c*r-type-for list "adddddd")
+  (caddr (cddddr list)))
+
+(defun eighth (list)
+  (check-c*r-type-for list "addddddd")
+  (cadddr (cddddr list)))
+
+(defun ninth (list)
+  (check-c*r-type-for list "adddddddd")
+  (car (cdddr (cddddr list))))
+
+(defun tenth (list)
+  (check-c*r-type-for list "addddddddd")
+  (cadr (cdddr (cddddr list))))
