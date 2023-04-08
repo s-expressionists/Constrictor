@@ -164,3 +164,16 @@
 (defun tenth (list)
   (check-c*r-type-for list "addddddddd")
   (cadr (cdddr (cddddr list))))
+
+(eval-when (:compile-toplevel :load-toplevel :execute)
+  (defun make-setf-c*r-type-descriptor (string index)
+    (if (zerop index)
+        'cons
+        (let ((subtype (make-setf-c*r-type-descriptor string (1- index))))
+          (ecase (char string index)
+            (#\a `(cons ,subtype))
+            (#\d `(cons t ,subtype)))))))
+
+(defmacro check-setf-c*r-type-for (parameter string)
+  `(check-type ,parameter
+               ,(make-setf-c*r-type-descriptor string (1- (length string)))))
