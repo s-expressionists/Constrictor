@@ -3,4 +3,5 @@
 (defsystem constrictor-common
   :serial t
   :components
-  ((:file "accessors")))
+  ((:file "accessors")
+   (:file "consp")))
