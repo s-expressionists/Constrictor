@@ -5,4 +5,5 @@
   :components
   ((:file "accessors")
    (:file "consp")
-   (:file "copy-tree")))
+   (:file "copy-tree")
+   (:file "subst")))
