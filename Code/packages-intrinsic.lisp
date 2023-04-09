@@ -2,4 +2,6 @@
 
 (defpackage constrictor
   (:use #:common-lisp)
-  (:export . #.constrictor-asdf:*string-designators*))
+  (:shadow #:error)
+  (:export . #.constrictor-asdf:*string-designators*)
+  (:export #:error))
