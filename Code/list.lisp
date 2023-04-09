@@ -7,22 +7,31 @@
 
 (declaim (notinline list))
 
+(define-compiler-macro list
+    (&whole form &rest object-forms)
+  (if (> (length object-forms) 10)
+      form
+      (labels ((nest (forms)
+                 (if (null forms)
+                     '()
+                     `(cons ,(car forms)
+                            ,(nest (cdr forms))))))
+        (nest object-forms))))
+
 (declaim (inline list*))
 
 (defun list* (object &rest objects)
-  (cons object (reverse objects)))
-  ;; (if (null objects)
-  ;;     object
-  ;;     (loop with head = (cons object nil)
-  ;;           for tail = head then (cdr tail)
-  ;;           for rest = objects then first
-  ;;           for first = (cdr objects) then (cdr first)
-  ;;           until (null first)
-  ;;           do (setf (cdr tail)
-  ;;                    (cons (car rest) nil))
-  ;;           finally (setf (cdr tail) (car rest))
-  ;;                   (return head))))
-
+  (if (null objects)
+      object
+      (loop with head = (cons object nil)
+            for tail = head then (cdr tail)
+            for rest = objects then first
+            for first = (cdr objects) then (cdr first)
+            until (null first)
+            do (setf (cdr tail)
+                     (cons (car rest) nil))
+            finally (setf (cdr tail) (car rest))
+                    (return head))))
 
 (declaim (notinline list*))
 
@@ -40,5 +49,3 @@
                                ,(nest (cdr forms))))))
            `(cons ,object-form
                   ,(nest object-forms))))))
-    
-  
