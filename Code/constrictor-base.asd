@@ -21,7 +21,7 @@
     #:cddaar #:cddadr #:cdddar #:cddddr
     #:first #:second #:third #:fourth #:fifth
     #:sixth #:seventh #:eighth #:ninth #:tenth
-    #:consp #:atom
+    #:consp #:atom #:listp
     #:copy-tree
     #:subst #:subst-if #:subst-if-not
     #:nsubst #:nsubst-if #:nsubst-if-not))
