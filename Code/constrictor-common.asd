@@ -6,5 +6,7 @@
   ((:file "error")
    (:file "accessors")
    (:file "consp")
+   (:file "copy-list")
    (:file "copy-tree")
+   (:file "list")
    (:file "subst")))
