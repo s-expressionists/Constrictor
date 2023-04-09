@@ -4,4 +4,5 @@
   :serial t
   :components
   ((:file "accessors")
-   (:file "consp")))
+   (:file "consp")
+   (:file "copy-tree")))
