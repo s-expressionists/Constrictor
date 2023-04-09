@@ -11,7 +11,8 @@
 (cl:in-package #:constrictor-asdf)
 
 (defparameter *string-designators*
-  '(#:caar #:cadr #:cdar #:cddr
+  '(#:error
+    #:caar #:cadr #:cdar #:cddr
     #:caaar #:caadr #:cadar #:caddr
     #:cdaar #:cdadr #:cddar #:cdddr
     #:caaaar #:caaadr #:caadar #:caaddr
