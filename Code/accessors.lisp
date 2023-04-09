@@ -380,11 +380,17 @@
 ;;   (rplacd cons new-value)
 ;;   new-value)
 
+(declaim (inline (setf caar)))
+
 (defun (setf caar) (new-value cons)
   (declare (inline rplaca car ))
   (check-setf-c*r-type-for cons "aa")
   (rplaca (car cons) new-value)
   new-value)
+
+(declaim (notinline (setf caar)))
+
+(declaim (inline (setf cadr)))
 
 (defun (setf cadr) (new-value cons)
   (declare (inline rplaca cdr))
@@ -392,11 +398,19 @@
   (rplaca (cdr cons) new-value)
   new-value)
 
+(declaim (notinline (setf cadr)))
+
+(declaim (inline (setf cdar)))
+
 (defun (setf cdar) (new-value cons)
   (declare (inline rplacd car))
   (check-setf-c*r-type-for cons "da")
   (rplacd (car cons) new-value)
   new-value)
+
+(declaim (notinline (setf cdar)))
+
+(declaim (inline (setf cddr)))
 
 (defun (setf cddr) (new-value cons)
   (declare (inline rplacd cdr))
@@ -404,11 +418,19 @@
   (rplacd (cdr cons) new-value)
   new-value)
 
+(declaim (notinline (setf cddr)))
+
+(declaim (inline (setf caaar)))
+
 (defun (setf caaar) (new-value cons)
   (declare (inline rplaca caar))
   (check-setf-c*r-type-for cons "aaa")
   (rplaca (caar cons) new-value)
   new-value)
+
+(declaim (notinline (setf caaar)))
+
+(declaim (inline (setf caadr)))
 
 (defun (setf caadr) (new-value cons)
   (declare (inline rplaca cadr))
@@ -416,11 +438,19 @@
   (rplaca (cadr cons) new-value)
   new-value)
 
+(declaim (notinline (setf caadr)))
+
+(declaim (inline (setf cadar)))
+
 (defun (setf cadar) (new-value cons)
   (declare (inline rplaca cdar))
   (check-setf-c*r-type-for cons "ada")
   (rplaca (cdar cons) new-value)
   new-value)
+
+(declaim (notinline (setf cadar)))
+
+(declaim (inline (setf caddr)))
 
 (defun (setf caddr) (new-value cons)
   (declare (inline rplaca cddr))
@@ -428,11 +458,19 @@
   (rplaca (cddr cons) new-value)
   new-value)
 
+(declaim (notinline (setf caddr)))
+
+(declaim (inline (setf cdaar)))
+
 (defun (setf cdaar) (new-value cons)
   (declare (inline rplacd caar))
   (check-setf-c*r-type-for cons "daa")
   (rplacd (caar cons) new-value)
   new-value)
+
+(declaim (notinline (setf cdaar)))
+
+(declaim (inline (setf cdadr)))
 
 (defun (setf cdadr) (new-value cons)
   (declare (inline rplacd cadr))
@@ -440,11 +478,19 @@
   (rplacd (cadr cons) new-value)
   new-value)
 
+(declaim (notinline (setf cdadr)))
+
+(declaim (inline (setf cddar)))
+
 (defun (setf cddar) (new-value cons)
   (declare (inline rplacd cdar))
   (check-setf-c*r-type-for cons "dda")
   (rplacd (cdar cons) new-value)
   new-value)
+
+(declaim (notinline (setf cddar)))
+
+(declaim (inline (setf cdddr)))
 
 (defun (setf cdddr) (new-value cons)
   (declare (inline rplacd cddr))
@@ -452,11 +498,19 @@
   (rplacd (cddr cons) new-value)
   new-value)
 
+(declaim (notinline (setf cdddr)))
+
+(declaim (inline (setf caaaar)))
+
 (defun (setf caaaar) (new-value cons)
   (declare (inline rplaca caaar))
   (check-setf-c*r-type-for cons "aaaa")
   (rplaca (caaar cons) new-value)
   new-value)
+
+(declaim (notinline (setf caaaar)))
+
+(declaim (inline (setf caaadr)))
 
 (defun (setf caaadr) (new-value cons)
   (declare (inline rplaca caadr))
@@ -464,11 +518,19 @@
   (rplaca (caadr cons) new-value)
   new-value)
 
+(declaim (notinline (setf caaadr)))
+
+(declaim (inline (setf caadar)))
+
 (defun (setf caadar) (new-value cons)
   (declare (inline rplaca cadar))
   (check-setf-c*r-type-for cons "aada")
   (rplaca (cadar cons) new-value)
   new-value)
+
+(declaim (notinline (setf caadar)))
+
+(declaim (inline (setf caaddr)))
 
 (defun (setf caaddr) (new-value cons)
   (declare (inline rplaca caddr))
@@ -476,11 +538,19 @@
   (rplaca (caddr cons) new-value)
   new-value)
 
+(declaim (notinline (setf caaddr)))
+
+(declaim (inline (setf cadaar)))
+
 (defun (setf cadaar) (new-value cons)
   (declare (inline rplaca cdaar))
   (check-setf-c*r-type-for cons "adaa")
   (rplaca (cdaar cons) new-value)
   new-value)
+
+(declaim (notinline (setf cadaar)))
+
+(declaim (inline (setf cadadr)))
 
 (defun (setf cadadr) (new-value cons)
   (declare (inline rplaca cdadr))
@@ -488,11 +558,19 @@
   (rplaca (cdadr cons) new-value)
   new-value)
 
+(declaim (notinline (setf cadadr)))
+
+(declaim (inline (setf caddar)))
+
 (defun (setf caddar) (new-value cons)
   (declare (inline rplaca cddar))
   (check-setf-c*r-type-for cons "adda")
   (rplaca (cddar cons) new-value)
   new-value)
+
+(declaim (notinline (setf caddar)))
+
+(declaim (inline (setf cadddr)))
 
 (defun (setf cadddr) (new-value cons)
   (declare (inline rplaca cdddr))
@@ -500,11 +578,19 @@
   (rplaca (cdddr cons) new-value)
   new-value)
 
+(declaim (notinline (setf cadddr)))
+
+(declaim (inline (setf cdaaar)))
+
 (defun (setf cdaaar) (new-value cons)
   (declare (inline rplacd caaar))
   (check-setf-c*r-type-for cons "daaa")
   (rplacd (caaar cons) new-value)
   new-value)
+
+(declaim (notinline (setf cdaaar)))
+
+(declaim (inline (setf cdaadr)))
 
 (defun (setf cdaadr) (new-value cons)
   (declare (inline rplacd caadr))
@@ -512,11 +598,19 @@
   (rplacd (caadr cons) new-value)
   new-value)
 
+(declaim (notinline (setf cdaadr)))
+
+(declaim (inline (setf cdadar)))
+
 (defun (setf cdadar) (new-value cons)
   (declare (inline rplacd cadar))
   (check-setf-c*r-type-for cons "dada")
   (rplacd (cadar cons) new-value)
   new-value)
+
+(declaim (notinline (setf cdadar)))
+
+(declaim (inline (setf cdaddr)))
 
 (defun (setf cdaddr) (new-value cons)
   (declare (inline rplacd caddr))
@@ -524,11 +618,19 @@
   (rplacd (caddr cons) new-value)
   new-value)
 
+(declaim (notinline (setf cdaddr)))
+
+(declaim (inline (setf cddaar)))
+
 (defun (setf cddaar) (new-value cons)
   (declare (inline rplacd cdaar))
   (check-setf-c*r-type-for cons "ddaa")
   (rplacd (cdaar cons) new-value)
   new-value)
+
+(declaim (notinline (setf cddaar)))
+
+(declaim (inline (setf cddadr)))
 
 (defun (setf cddadr) (new-value cons)
   (declare (inline rplacd cdadr))
@@ -536,11 +638,19 @@
   (rplacd (cdadr cons) new-value)
   new-value)
 
+(declaim (notinline (setf cddadr)))
+
+(declaim (inline (setf cdddar)))
+
 (defun (setf cdddar) (new-value cons)
   (declare (inline rplacd cddar))
   (check-setf-c*r-type-for cons "ddda")
   (rplacd (cddar cons) new-value)
   new-value)
+
+(declaim (notinline (setf cdddar)))
+
+(declaim (inline (setf cddddr)))
 
 (defun (setf cddddr) (new-value cons)
   (declare (inline rplacd cdddr))
@@ -548,11 +658,19 @@
   (rplacd (cdddr cons) new-value)
   new-value)
 
+(declaim (notinline (setf cddddr)))
+
+(declaim (inline (setf first)))
+
 (defun (setf first) (new-value cons)
   (declare (inline rplaca cdr))
   (check-setf-c*r-type-for cons "a")
   (rplaca (cdr cons) new-value)
   new-value)
+
+(declaim (notinline (setf first)))
+
+(declaim (inline (setf second)))
 
 (defun (setf second) (new-value cons)
   (declare (inline rplaca cdr))
@@ -560,11 +678,19 @@
   (rplaca (cdr cons) new-value)
   new-value)
 
+(declaim (notinline (setf second)))
+
+(declaim (inline (setf third)))
+
 (defun (setf third) (new-value cons)
   (declare (inline rplaca cddr))
   (check-setf-c*r-type-for cons "add")
   (rplaca (cddr cons) new-value)
   new-value)
+
+(declaim (notinline (setf third)))
+
+(declaim (inline (setf fourth)))
 
 (defun (setf fourth) (new-value cons)
   (declare (inline rplaca cdddr))
@@ -572,11 +698,19 @@
   (rplaca (cdddr cons) new-value)
   new-value)
 
+(declaim (notinline (setf fourth)))
+
+(declaim (inline (setf fifth)))
+
 (defun (setf fifth) (new-value cons)
   (declare (inline rplaca cddddr))
   (check-setf-c*r-type-for cons "adddd")
   (rplaca (cddddr cons) new-value)
   new-value)
+
+(declaim (notinline (setf fifth)))
+
+(declaim (inline (setf sixth)))
 
 (defun (setf sixth) (new-value cons)
   (declare (inline rplaca cdr cddddr))
@@ -584,11 +718,19 @@
   (rplaca (cdr (cddddr cons)) new-value)
   new-value)
 
+(declaim (notinline (setf sixth)))
+
+(declaim (inline (setf seventh)))
+
 (defun (setf seventh) (new-value cons)
   (declare (inline rplaca cddr cddddr))
   (check-setf-c*r-type-for cons "adddddd")
   (rplaca (cddr (cddddr cons)) new-value)
   new-value)
+
+(declaim (notinline (setf seventh)))
+
+(declaim (inline (setf eighth)))
 
 (defun (setf eighth) (new-value cons)
   (declare (inline rplaca cdddr cddddr))
@@ -596,14 +738,24 @@
   (rplaca (cdddr (cddddr cons)) new-value)
   new-value)
 
+(declaim (notinline (setf eighth)))
+
+(declaim (inline (setf ninth)))
+
 (defun (setf ninth) (new-value cons)
   (declare (inline rplaca cddddr))
   (check-setf-c*r-type-for cons "adddddddd")
   (rplaca (cddddr (cddddr cons)) new-value)
   new-value)
 
+(declaim (notinline (setf ninth)))
+
+(declaim (inline (setf tenth)))
+
 (defun (setf tenth) (new-value cons)
   (declare (inline rplaca cdr cddddr))
   (check-setf-c*r-type-for cons "addddddddd")
   (rplaca (cdr (cddddr (cddddr cons))) new-value)
   new-value)
+
+(declaim (notinline (setf tenth)))
