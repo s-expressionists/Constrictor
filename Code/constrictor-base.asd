@@ -19,4 +19,6 @@
     #:cdaaar #:cdaadr #:cdadar #:cdaddr
     #:cddaar #:cddadr #:cdddar #:cddddr
     #:first #:second #:third #:fourth #:fifth
-    #:sixth #:seventh #:eighth #:ninth #:tenth))
+    #:sixth #:seventh #:eighth #:ninth #:tenth
+    #:consp #:atom
+    #:copy-tree))
