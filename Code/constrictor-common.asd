@@ -9,4 +9,5 @@
    (:file "copy-list")
    (:file "copy-tree")
    (:file "list")
-   (:file "subst")))
+   (:file "subst")
+   (:file "nthcdr")))
