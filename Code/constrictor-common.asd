@@ -12,4 +12,5 @@
    (:file "list")
    (:file "subst")
    (:file "nthcdr")
-   (:file "member")))
+   (:file "member")
+   (:file "assoc")))
