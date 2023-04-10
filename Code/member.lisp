@@ -1,5 +1,7 @@
 (cl:in-package #:constrictor)
 
+(declaim (inline member))
+
 (defun member
     (item list
      &key
@@ -53,6 +55,10 @@
                    (special-function
                     (not (funcall test-not item (funcall key (car rest)))))))))))
 
+(declaim (notinline member))
+
+(declaim (inline member-if))
+
 (defun member-if (predicate list &key key)
   (macrolet ((special-function (test)
                `(with-proper-list-rests (rest list)
@@ -64,6 +70,10 @@
         (special-function
          (funcall predicate (funcall key (car rest)))))))
 
+(declaim (notinline member-if))
+
+(declaim (inline member-if-not))
+
 (defun member-if-not (predicate list &key key)
   (macrolet ((special-function (test)
                `(with-proper-list-rests (rest list)
@@ -74,3 +84,5 @@
          (funcall predicate (car rest)))
         (special-function
          (funcall predicate (funcall key (car rest)))))))
+
+(declaim (notinline member-if-not))
