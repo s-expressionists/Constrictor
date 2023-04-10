@@ -28,4 +28,5 @@
     #:subst #:subst-if #:subst-if-not
     #:nsubst #:nsubst-if #:nsubst-if-not
     #:member #:member-if #:member-if-not
-    #:assoc #:assoc-if #:assoc-if-not))
+    #:assoc #:assoc-if #:assoc-if-not
+    #:rassoc #:rassoc-if #:rassoc-if-not))
