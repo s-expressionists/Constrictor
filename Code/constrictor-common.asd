@@ -13,4 +13,5 @@
    (:file "subst")
    (:file "nthcdr")
    (:file "member")
-   (:file "assoc")))
+   (:file "assoc")
+   (:file "rassoc")))
