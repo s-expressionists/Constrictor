@@ -2,7 +2,8 @@
 
 (defparameter *must-be-proper-list-message*
   "A proper list was exptected, but the~@
-   following was found instead:~@")
+   following was found instead:~@
+   ~s")
 
 ;;; This macro can be used to traverse a list that must be a proper
 ;;; list, when each element of the list must be examined.  Client code
