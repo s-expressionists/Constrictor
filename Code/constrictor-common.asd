@@ -11,4 +11,5 @@
    (:file "copy-tree")
    (:file "list")
    (:file "subst")
-   (:file "nthcdr")))
+   (:file "nthcdr")
+   (:file "member")))
