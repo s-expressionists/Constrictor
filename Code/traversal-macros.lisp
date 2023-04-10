@@ -41,3 +41,21 @@
                      (error 'must-be-proper-list
                             *must-be-proper-list-message*
                             ,list-variable)))))
+
+(defmacro with-alist-elements ((element-variable alist) &body body)
+  ;; We can use for ... on, because it uses atom to test the end
+  ;; of the list
+  (let ((rest-variable (gensym))
+        (alist-variable (gensym)))
+    `(loop with ,alist-variable = ,alist
+           for ,rest-variable on ,alist-variable
+           do (let ((,element-variable (car ,rest-variable)))
+                (cond ((consp ,element-variable)
+                       ,@body)
+                      (t
+                       (error 'must-be-alist
+                              "" ,element-variable))))
+           finally (unless (null ,rest-variable)
+                     (error 'must-be-proper-list
+                            *must-be-proper-list-message*
+                            ,alist-variable)))))
