@@ -27,4 +27,4 @@
     #:list #:list*
     #:subst #:subst-if #:subst-if-not
     #:nsubst #:nsubst-if #:nsubst-if-not
-    #:member))
+    #:member #:member-if #:member-if-not))
