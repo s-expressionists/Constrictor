@@ -26,4 +26,5 @@
     #:copy-tree
     #:list #:list*
     #:subst #:subst-if #:subst-if-not
-    #:nsubst #:nsubst-if #:nsubst-if-not))
+    #:nsubst #:nsubst-if #:nsubst-if-not
+    #:member))
