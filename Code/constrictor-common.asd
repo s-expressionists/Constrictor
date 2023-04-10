@@ -15,4 +15,5 @@
    (:file "member")
    (:file "assoc")
    (:file "rassoc")
-   (:file "last")))
+   (:file "last")
+   (:file "make-list")))
