@@ -1,7 +1,5 @@
 (cl:in-package #:constrictor)
 
-(cl:in-package #:constrictor)
-
 (declaim (inline rassoc))
 
 (defun rassoc
