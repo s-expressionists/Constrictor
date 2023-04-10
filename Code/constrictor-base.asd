@@ -21,6 +21,7 @@
     #:first #:second #:third #:fourth #:fifth
     #:sixth #:seventh #:eighth #:ninth #:tenth
     #:consp #:atom #:listp
+    #:nth #:nthcdr
     #:copy-list
     #:copy-tree
     #:list #:list*
