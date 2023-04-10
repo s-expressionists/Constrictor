@@ -2,9 +2,9 @@
 
 (cl:in-package #:constrictor)
 
-(declaim (inline assoc))
+(declaim (inline rassoc))
 
-(defun assoc
+(defun rassoc
     (item alist
      &key
        key
@@ -57,11 +57,11 @@
                    (special-function
                     (not (funcall test-not item (funcall key (cdr element)))))))))))
 
-(declaim (notinline assoc))
+(declaim (notinline rassoc))
 
-(declaim (inline assoc-if))
+(declaim (inline rassoc-if))
 
-(defun assoc-if (predicate alist &key key)
+(defun rassoc-if (predicate alist &key key)
   (macrolet ((special-function (test)
                `(with-alist-elements (element alist)
                   (when ,test
@@ -72,11 +72,11 @@
         (special-function
          (funcall predicate (funcall key (cdr element)))))))
 
-(declaim (notinline assoc-if))
+(declaim (notinline rassoc-if))
 
-(declaim (inline assoc-if-not))
+(declaim (inline rassoc-if-not))
 
-(defun assoc-if-not (predicate alist &key key)
+(defun rassoc-if-not (predicate alist &key key)
   (macrolet ((special-function (test)
                `(with-alist-elements (element alist)
                   (unless ,test
@@ -87,4 +87,4 @@
         (special-function
          (funcall predicate (funcall key (cdr element)))))))
 
-(declaim (notinline assoc-if-not))
+(declaim (notinline rassoc-if-not))
