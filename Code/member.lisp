@@ -52,6 +52,14 @@
                   (t
                    (special-function
                     (not (funcall test-not item (funcall key (car rest)))))))))))
-        
-            
-                   
+
+(defun member-if (predicate list &key key)
+  (macrolet ((special-function (test)
+               `(with-proper-list-rests (rest list)
+                  (when ,test
+                    (return rest)))))
+    (if (or (null key) (eq key #'identity) (eq key 'identity))
+        (special-function
+         (funcall predicate (car rest)))
+        (special-function
+         (funcall predicate (funcall key (car rest)))))))
