@@ -2,6 +2,7 @@
 
 (defun test ()
   (test-subst)
+  (test-assoc)
   (test-last)
   (test-butlast)
   (values))
