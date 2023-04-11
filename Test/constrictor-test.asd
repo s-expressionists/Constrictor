@@ -8,5 +8,6 @@
   ((:file "packages")
    (:file "prepare")
    (:file "subst")
+   (:file "assoc")
    (:file "last")
    (:file "test")))
