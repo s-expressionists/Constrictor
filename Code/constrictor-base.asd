@@ -26,6 +26,7 @@
     #:make-list
     #:copy-list
     #:copy-tree
+    #:copy-alist
     #:list #:list*
     #:subst #:subst-if #:subst-if-not
     #:nsubst #:nsubst-if #:nsubst-if-not
