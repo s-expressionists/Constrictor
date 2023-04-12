@@ -4,6 +4,7 @@
   :serial t
   :components
   ((:file "error")
+   (:file "conditions")
    (:file "traversal-macros")
    (:file "accessors")
    (:file "consp")
