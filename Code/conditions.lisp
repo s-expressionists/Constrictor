@@ -48,3 +48,11 @@
                       ~s~@
                       is a circular list."
                      (type-error-datum condition)))))
+
+(define-condition both-test-and-test-not-supplied (cl:error)
+  ()
+  (:report (lambda (condition stream)
+             (format stream
+                     "At most one of the keyword arguments~@
+                      :TEST and :TEST-NOT can be supplied,~@
+                      but both were supplied."))))
