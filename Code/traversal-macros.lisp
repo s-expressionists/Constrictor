@@ -84,3 +84,17 @@
                                 :offending-element ,rest-variable)
                        (treat-as-nil ()
                          :report "Treat the element as NIL."))))))
+
+(defmacro check-test-and-test-not
+    (test-supplied-p-variable test-not-supplied-p-variable)
+  `(when (and ,test-supplied-p-variable ,test-not-supplied-p-variable)
+     (loop while (and ,test-supplied-p-variable
+                      ,test-not-supplied-p-variable)
+           do (restart-case
+                  (error 'both-test-and-test-not-supplied)
+                (unsupply-test ()
+                  :report "Unsupply :TEST."
+                  (setf ,test-supplied-p-variable nil))
+                (unsupply-test-not ()
+                  :report "Unsupply :TEST-NOT."
+                  (setf ,test-not-supplied-p-variable nil))))))
