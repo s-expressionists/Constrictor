@@ -9,6 +9,7 @@
    (:file "consp")
    (:file "copy-list")
    (:file "copy-tree")
+   (:file "copy-alist")
    (:file "list")
    (:file "subst")
    (:file "nthcdr")
