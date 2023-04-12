@@ -56,3 +56,13 @@
                      "At most one of the keyword arguments~@
                       :TEST and :TEST-NOT can be supplied,~@
                       but both were supplied."))))
+
+(define-condition list-expected (type-error)
+  ()
+  (:report (lambda (condition stream)
+             (format stream
+                     "An object of type LIST was expcected~@
+                      but the following was found instead:~@
+                      ~s"
+                     (type-error-datum condition))))
+  (:default-initargs :expected-type 'list))
