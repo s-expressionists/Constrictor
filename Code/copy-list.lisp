@@ -6,9 +6,7 @@
   (cond ((null list)
          '())
         ((atom list)
-         (cl:error 'type-error
-                   :expect-type 'list
-                   :datum list))
+         (error 'list-expected :datum list))
         (t
          (loop with head = (cons (car list) nil)
                for tail = head then (cdr tail)
