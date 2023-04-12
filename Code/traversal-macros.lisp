@@ -76,8 +76,11 @@
                                        ,new-cons-variable))
                                (ignore ()
                                  :report "Ignore the element."
-                                 (return)))
-                             (finally (progn ,@body)))))
+                                 (return))
+                               (use ()
+                                 :report "Use the element anyway."
+                                 (loop-finish)))
+                          finally (progn ,@body))))
            finally (unless (null ,rest-variable)
                      (restart-case
                          (error 'alist-must-not-be-a-dotted-list
