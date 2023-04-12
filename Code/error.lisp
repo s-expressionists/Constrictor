@@ -1,16 +1,20 @@
 (cl:in-package #:constrictor)
 
 ;;; We define a version of ERROR that is specific to this library.  It
-;;; differs from the standard function in that it has two required
-;;; parameters, a symbol naming a condition and a FORMAT control.  The
-;;; default method on this generic function ignores the name and uses
-;;; the format control and the remaining arguments to call CL:ERROR
-;;; which then signals a condition of type SIMPLE-ERROR.  Clients that
-;;; want more specific conditions to be signaled can define methods on
-;;; this generic function.  Such methods would then have an EQL
-;;; specializer for the name parameter.
+;;; differs from the standard function in that it is generic.  It has
+;;; a single required parameter which is a symbol naming a condition
+;;; type.  In most cases, that symbol is specific to this library, and
+;;; it names a condition defined in this library.  The default method
+;;; of ERROR calls CL:ERROR with the same arguments as it received, so
+;;; a reasonable error report is issued.
+;;;
+;;; However, some clients may prefer that a condition of their own
+;;; type is signaled, instead of a condition of a type defined here.
+;;; Such a client can then define a method on ERROR with an EQL
+;;; specializer for the first parameter.  This method can then signal
+;;; its own error, selecting the additional arguments that it needs.
 
-(defgeneric error (condition-name format-control &rest arguments))
+(defgeneric error (condition-name &rest arguments))
 
-(defmethod error (condition-name format-control &rest arguments)
-  (apply #'cl:error format-control arguments))
+(defmethod error (condition-name &rest arguments)
+  (apply #'cl:error condition-name arguments))
