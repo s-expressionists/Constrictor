@@ -13,7 +13,7 @@
   (macrolet ((special-function (test)
                `(with-alist-elements (element alist)
                   (when ,test
-                    (return element)))))
+                    (return-from assoc element)))))
     (when (and test-supplied-p test-not-supplied-p)
       (error 'both-test-and-test-not-supplied
              "Both :TEST and :TEST-NOT supplied."))
@@ -65,7 +65,7 @@
   (macrolet ((special-function (test)
                `(with-alist-elements (element alist)
                   (when ,test
-                    (return element)))))
+                    (return-from assoc-if element)))))
     (if (or (null key) (eq key #'identity) (eq key 'identity))
         (special-function
          (funcall predicate (car element)))
@@ -80,7 +80,7 @@
   (macrolet ((special-function (test)
                `(with-alist-elements (element alist)
                   (unless ,test
-                    (return element)))))
+                    (return-from assoc-if-not element)))))
     (if (or (null key) (eq key #'identity) (eq key 'identity))
         (special-function
          (funcall predicate (car element)))
