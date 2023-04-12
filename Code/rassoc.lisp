@@ -12,9 +12,7 @@
                `(with-alist-elements (element alist)
                   (when ,test
                     (return element)))))
-    (when (and test-supplied-p test-not-supplied-p)
-      (error 'both-test-and-test-not-supplied
-             "Both :TEST and :TEST-NOT supplied."))
+    (check-test-and-test-not test-supplied-p test-not-supplied-p)
     (if (or (null key) (eq key #'identity) (eq key 'identity))
         (if (not test-not-supplied-p)
             (cond ((or (eq test #'eq) (eq test 'eq))
