@@ -42,20 +42,45 @@
                             *must-be-proper-list-message*
                             ,list-variable)))))
 
+(defun read-new-cons ()
+  (format *query-io*
+          "Enter a CONS: "
+          (finish-output *query-io*))
+  (list (read *query-io*)))
+
 (defmacro with-alist-elements ((element-variable alist) &body body)
   ;; We can use for ... on, because it uses atom to test the end
   ;; of the list
   (let ((rest-variable (gensym))
-        (alist-variable (gensym)))
+        (alist-variable (gensym))
+        (position-variable (gensym))
+        (new-cons-variable (gensym)))
     `(loop with ,alist-variable = ,alist
            for ,rest-variable on ,alist-variable
+           for ,position-variable from 0
            do (let ((,element-variable (car ,rest-variable)))
-                (cond ((consp ,element-variable)
-                       ,@body)
-                      (t
-                       (error 'must-be-alist
-                              "" ,element-variable))))
+                (if (consp ,element-variable)
+                    (progn ,@body)
+                    (loop until (consp ,element-variable)
+                          do (restart-case
+                                 (error 'invalid-alist-element
+                                        :datum ,alist-variable
+                                        :offending-element
+                                        ,element-variable
+                                        :offending-element-position
+                                        ,position-variable)
+                               (replace (,new-cons-variable)
+                                 :report "Supply a new CONS cell."
+                                 :interactive read-new-cons
+                                 (setf ,element-variable
+                                       ,new-cons-variable))
+                               (ignore ()
+                                 :report "Ignore the element."
+                                 (return)))
+                             (finally (progn ,@body)))))
            finally (unless (null ,rest-variable)
-                     (error 'must-be-proper-list
-                            *must-be-proper-list-message*
-                            ,alist-variable)))))
+                     (restart-case
+                         (error 'alist-must-not-be-a-dotted-list
+                                :offending-element ,rest-variable)
+                       (treat-as-nil ()
+                         :report "Treat the element as NIL."))))))
