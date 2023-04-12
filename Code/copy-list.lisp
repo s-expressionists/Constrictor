@@ -16,4 +16,5 @@
                         (cons (car rest) nil))
                finally (setf (cdr tail) rest)
                        (return head)))))
-               
+
+(declaim (notinline copy-list))
