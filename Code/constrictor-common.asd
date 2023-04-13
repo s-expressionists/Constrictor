@@ -20,4 +20,5 @@
    (:file "last")
    (:file "make-list")
    (:file "endp")
-   (:file "mapcar")))
+   (:file "mapcar")
+   (:file "maplist")))
