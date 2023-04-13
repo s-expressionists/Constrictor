@@ -17,6 +17,8 @@
    (:file "subst")
    (:file "nthcdr")
    (:file "member")
+   (:file "member-if")
+   (:file "member-if-not")
    (:file "assoc")
    (:file "assoc-if")
    (:file "assoc-if-not")
