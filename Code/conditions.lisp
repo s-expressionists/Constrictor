@@ -84,3 +84,15 @@
                       ~s"
                      (type-error-datum condition))))
   (:default-initargs :expected-type 'cl:list))
+
+(define-condition keys-and-data-must-have-the-same-length (cl:error)
+  ((%keys :initarg :keys :reader keys)
+   (%data :initarg :data :reader data))
+  (:report (lambda (condition stream)
+             (format stream
+                     "The list of keys and the list of data must~@
+                      have the same length.  But the given list of~@
+                      keys has length ~d, and the give list of data~@
+                      has the length ~d"
+                     (length (keys condition))
+                     (length (data condition))))))
