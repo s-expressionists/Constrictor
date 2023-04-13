@@ -86,6 +86,7 @@
            finally (unless (null ,rest-variable)
                      (restart-case
                          (error 'alist-must-not-be-a-dotted-list
+                                :datum ,alist-variable
                                 :offending-element ,rest-variable)
                        (treat-as-nil ()
                          :report "Treat the element as NIL."))))))
