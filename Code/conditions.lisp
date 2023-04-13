@@ -96,3 +96,13 @@
                       has the length ~d"
                      (length (keys condition))
                      (length (data condition))))))
+
+(define-condition list-must-be-proper-or-circular (type-error)
+  ()
+  (:report (lambda (condition stream)
+             (format stream
+                     "A proper list or a circular list must be supplied,~@
+                      but the following was found instead:~@
+                      ~s"
+                     (type-error-datum condition))))
+  (:default-initargs :expected-type 'cl:list))
