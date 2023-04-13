@@ -52,6 +52,7 @@
 (define-condition both-test-and-test-not-supplied (cl:error)
   ()
   (:report (lambda (condition stream)
+             (declare (ignore condition))
              (format stream
                      "At most one of the keyword arguments~@
                       :TEST and :TEST-NOT can be supplied,~@
@@ -70,6 +71,7 @@
 (define-condition at-least-one-list-must-be-supplied (cl:error)
   ()
   (:report (lambda (condition stream)
+             (declare (ignore condition))
              (format stream
                      "At least one list must be supplied"))))
 
