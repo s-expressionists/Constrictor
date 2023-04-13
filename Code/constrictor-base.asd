@@ -33,4 +33,5 @@
     #:member #:member-if #:member-if-not
     #:assoc #:assoc-if #:assoc-if-not
     #:rassoc #:rassoc-if #:rassoc-if-not
-    #:last #:butlast #:nbutlast))
+    #:last #:butlast #:nbutlast
+    #:mapcar #:mapc #:mapcan #:maplist #:mapl #:mapcon))
