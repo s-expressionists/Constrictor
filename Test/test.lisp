@@ -5,4 +5,5 @@
   (test-assoc)
   (test-last)
   (test-butlast)
+  (test-mapcar)
   (values))
