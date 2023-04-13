@@ -23,4 +23,6 @@
    (:file "mapcar")
    (:file "maplist")
    (:file "mapc")
-   (:file "mapl")))
+   (:file "mapl")
+   (:file "mapcan")
+   (:file "mapcon")))
