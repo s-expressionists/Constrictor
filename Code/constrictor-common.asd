@@ -17,6 +17,8 @@
    (:file "nthcdr")
    (:file "member")
    (:file "assoc")
+   (:file "assoc-if")
+   (:file "assoc-if-not")
    (:file "rassoc")
    (:file "last")
    (:file "butlast")
