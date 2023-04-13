@@ -21,4 +21,5 @@
    (:file "make-list")
    (:file "endp")
    (:file "mapcar")
-   (:file "maplist")))
+   (:file "maplist")
+   (:file "mapc")))
