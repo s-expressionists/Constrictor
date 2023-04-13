@@ -49,6 +49,3 @@
                                  :datum (elt lists position))))))))))
 
 (declaim (notinline mapcar))
-
-           
-           
