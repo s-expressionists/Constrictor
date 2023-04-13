@@ -66,3 +66,19 @@
                       ~s"
                      (type-error-datum condition))))
   (:default-initargs :expected-type 'list))
+
+(define-condition at-least-one-list-must-be-supplied (cl:error)
+  ()
+  (:report (lambda (condition stream)
+             (format stream
+                     "At least one list must be supplied"))))
+
+(define-condition list-must-be-proper (type-error)
+  ()
+  (:report (lambda (condition stream)
+             (format stream
+                     "A proper list must be given, but the~@
+                      following was found instead:~@
+                      ~s"
+                     (type-error-datum condition))))
+  (:default-initargs :expected-type 'list))
