@@ -22,4 +22,5 @@
    (:file "endp")
    (:file "mapcar")
    (:file "maplist")
-   (:file "mapc")))
+   (:file "mapc")
+   (:file "mapl")))
