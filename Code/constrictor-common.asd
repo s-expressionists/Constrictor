@@ -9,6 +9,7 @@
    (:file "accessors")
    (:file "consp")
    (:file "copy-list")
+   (:file "list-length")
    (:file "copy-tree")
    (:file "copy-alist")
    (:file "pairlis")
