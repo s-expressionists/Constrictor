@@ -25,6 +25,7 @@
     #:endp
     #:make-list
     #:copy-list
+    #:list-length
     #:copy-tree
     #:copy-alist
     #:list #:list*
