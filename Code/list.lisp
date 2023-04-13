@@ -1,12 +1,5 @@
 (cl:in-package #:constrictor)
 
-(declaim (inline list))
-
-(defun list (&rest objects)
-  (copy-list objects))
-
-(declaim (notinline list))
-
 (define-compiler-macro list
     (&whole form &rest object-forms)
   (if (> (length object-forms) 10)
@@ -17,6 +10,28 @@
                      `(cons ,(car forms)
                             ,(nest (cdr forms))))))
         (nest object-forms))))
+
+(declaim (inline list))
+
+(defun list (&rest objects)
+  (copy-list objects))
+
+(declaim (notinline list))
+
+(define-compiler-macro list*
+    (&whole form object-form &rest object-forms)
+  (cond ((null object-forms)
+         object-form)
+        ((> (length object-forms) 10)
+         form)
+        (t
+         (labels ((nest (forms)
+                    (if (null (cdr forms))
+                        (car forms)
+                        `(cons ,(car forms)
+                               ,(nest (cdr forms))))))
+           `(cons ,object-form
+                  ,(nest object-forms))))))
 
 (declaim (inline list*))
 
@@ -34,18 +49,3 @@
                     (return head))))
 
 (declaim (notinline list*))
-
-(define-compiler-macro list*
-    (&whole form object-form &rest object-forms)
-  (cond ((null object-forms)
-         object-form)
-        ((> (length object-forms) 10)
-         form)
-        (t
-         (labels ((nest (forms)
-                    (if (null (cdr forms))
-                        (car forms)
-                        `(cons ,(car forms)
-                               ,(nest (cdr forms))))))
-           `(cons ,object-form
-                  ,(nest object-forms))))))

@@ -1,5 +1,11 @@
 (cl:in-package #:constrictor)
 
+(define-compiler-macro mapc (&whole form function &rest lists)
+  (case (length lists)
+    (1 `(mapc1 ,function ,(first lists)))
+    (2 `(mapc2 ,function ,(first lists) ,(second lists)))
+    (otherwise form)))
+
 (declaim (inline mapc1))
 
 (defun mapc1 (function list)
@@ -52,9 +58,3 @@
          (first lists))))
 
 (declaim (notinline mapc))
-
-(define-compiler-macro mapc (&whole form function &rest lists)
-  (case (length lists)
-    (1 `(mapc1 ,function ,(first lists)))
-    (2 `(mapc2 ,function ,(first lists) ,(second lists)))
-    (otherwise form)))
