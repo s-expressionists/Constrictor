@@ -20,6 +20,8 @@
    (:file "assoc-if")
    (:file "assoc-if-not")
    (:file "rassoc")
+   (:file "rassoc-if")
+   (:file "rassoc-if-not")
    (:file "last")
    (:file "butlast")
    (:file "make-list")
