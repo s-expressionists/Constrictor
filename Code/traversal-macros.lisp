@@ -44,8 +44,8 @@
 
 (defun read-new-cons ()
   (format *query-io*
-          "Enter a CONS: "
-          (finish-output *query-io*))
+          "Enter a CONS: ")
+  (finish-output *query-io*)
   (list (read *query-io*)))
 
 (defmacro with-alist-elements ((element-variable alist) &body body)
