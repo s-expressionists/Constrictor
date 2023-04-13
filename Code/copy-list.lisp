@@ -18,3 +18,19 @@
                        (return head)))))
 
 (declaim (notinline copy-list))
+
+(setf (documentation 'copy-list 'function)
+      (format nil
+              "Copy an association list.~@
+               ~@
+               The argument LIST much be an association list.~@
+               If LIST is an atom other than NIL, an error of~@
+               (a subtype of) type TYPE-ERROR is signaled.~@
+               ~@
+               If an element of LIST is not a CONS, then an error~@
+               of (a subtype of) type TYPE-ERROR is signaled.~@
+               ~@
+               Several restarts are then available:~@
+               REPLACE -- to supply a CONS cell~@
+               IGNORE -- to ignore the element~@
+               USE -- to use the element anyway."))
