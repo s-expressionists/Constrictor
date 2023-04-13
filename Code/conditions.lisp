@@ -66,7 +66,7 @@
                       but the following was found instead:~@
                       ~s"
                      (type-error-datum condition))))
-  (:default-initargs :expected-type 'list))
+  (:default-initargs :expected-type 'cl:list))
 
 (define-condition at-least-one-list-must-be-supplied (cl:error)
   ()
@@ -83,4 +83,4 @@
                       following was found instead:~@
                       ~s"
                      (type-error-datum condition))))
-  (:default-initargs :expected-type 'list))
+  (:default-initargs :expected-type 'cl:list))
