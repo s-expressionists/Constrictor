@@ -68,7 +68,7 @@
                      (type-error-datum condition))))
   (:default-initargs :expected-type 'cl:list))
 
-(define-condition at-least-one-list-must-be-supplied (cl:error)
+(define-condition at-least-one-list-must-be-supplied (program-error)
   ()
   (:report (lambda (condition stream)
              (declare (ignore condition))
