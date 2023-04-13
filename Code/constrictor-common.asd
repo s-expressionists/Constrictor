@@ -19,4 +19,5 @@
    (:file "rassoc")
    (:file "last")
    (:file "make-list")
-   (:file "endp")))
+   (:file "endp")
+   (:file "mapcar")))
