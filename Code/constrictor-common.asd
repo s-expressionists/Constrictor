@@ -15,6 +15,8 @@
    (:file "pairlis")
    (:file "list")
    (:file "subst")
+   (:file "subst-if")
+   (:file "subst-if-not")
    (:file "nthcdr")
    (:file "member")
    (:file "member-if")

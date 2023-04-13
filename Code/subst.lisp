@@ -9,8 +9,7 @@
        (test #'eql test-supplied-p)
        (test-not #'eql test-not-supplied-p))
   (when (and test-supplied-p test-not-supplied-p)
-    (error 'both-test-and-test-not-supplied
-           "Both keyword arguments :TEST and :TEST-NOT supplied."))
+    (error 'both-test-and-test-not-supplied))
   (macrolet ((make-local (test)
                `(labels ((subst-local (tree)
                            (cond (,test new)
