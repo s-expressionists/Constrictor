@@ -40,3 +40,20 @@
                (make-local (not (funcall test (funcall key tree) old))))))))
 
 (declaim (notinline subst))
+
+(setf (documentation 'subst 'function)
+      (format nil
+              "(subst new old tree &key key test test-not)~@
+               TREE is a tree where the leaves are atoms and~@
+               the other nodes are CONS cells.  This function~@
+               traverses TREE, and if an occurrence of OLD is found,~@
+               then SUBST returns NEW.~@
+               ~@
+               If a node in TREE is not an occurrence of OLD, then~@
+               if the node is an atom, it is returned.  If the node~@
+               in TREE is not an occurrence of OLD, then if the node~@
+               is a CONS cell, then a new CONS cell is created such that~@
+               the CAR of the new CONS cell contains the result of~@
+               calling SUBST recursively on the CAR of the old CONS cell,~@
+               and the CDR of the new CONS cell contains the result of~@
+               calling SUBST recursively on the CDR of the old CONS cell."))
