@@ -18,6 +18,7 @@
    (:file "assoc")
    (:file "rassoc")
    (:file "last")
+   (:file "butlast")
    (:file "make-list")
    (:file "endp")
    (:file "mapcar")
