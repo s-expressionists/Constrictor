@@ -11,6 +11,7 @@
    (:file "copy-list")
    (:file "copy-tree")
    (:file "copy-alist")
+   (:file "pairlis")
    (:file "list")
    (:file "subst")
    (:file "nthcdr")
