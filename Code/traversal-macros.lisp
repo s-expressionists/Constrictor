@@ -59,6 +59,8 @@
            for ,rest-variable on ,alist-variable
            for ,position-variable from 0
            do (let ((,element-variable (car ,rest-variable)))
+                #+sbcl
+                (declare (sb-ext:muffle-conditions sb-ext:compiler-note))
                 (if (consp ,element-variable)
                     (progn ,@body)
                     (loop until (consp ,element-variable)
@@ -91,13 +93,16 @@
 (defmacro check-test-and-test-not
     (test-supplied-p-variable test-not-supplied-p-variable)
   `(when (and ,test-supplied-p-variable ,test-not-supplied-p-variable)
-     (loop while (and ,test-supplied-p-variable
-                      ,test-not-supplied-p-variable)
-           do (restart-case
-                  (error 'both-test-and-test-not-supplied)
-                (unsupply-test ()
-                  :report "Unsupply :TEST."
-                  (setf ,test-supplied-p-variable nil))
-                (unsupply-test-not ()
-                  :report "Unsupply :TEST-NOT."
-                  (setf ,test-not-supplied-p-variable nil))))))
+     (locally
+         #+sbcl (declare (sb-ext:muffle-conditions sb-ext:compiler-note))
+       (loop while (and ,test-supplied-p-variable
+                        ,test-not-supplied-p-variable)
+             do (restart-case
+                    (error 'both-test-and-test-not-supplied)
+                  (unsupply-test ()
+                    :report "Unsupply :TEST."
+                    (setf ,test-supplied-p-variable nil))
+                  (unsupply-test-not ()
+                    :report "Unsupply :TEST-NOT."
+                    (setf ,test-not-supplied-p-variable nil)))))))
+  
