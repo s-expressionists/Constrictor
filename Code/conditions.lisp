@@ -49,6 +49,16 @@
                       is a circular list."
                      (type-error-datum condition)))))
 
+(define-condition list-must-not-be-a-circular-list (type-error)
+  ()
+  (:default-initargs :expected-type 'cl:list)
+  (:report (lambda (condition stream)
+             (format stream
+                     "A circular list was supplied where a proper list~@
+                      or a dotted list is required:~@
+                      ~s"
+                     (type-error-datum condition)))))
+
 (define-condition both-test-and-test-not-supplied (cl:error)
   ()
   (:report (lambda (condition stream)
@@ -122,13 +132,3 @@
                       ~s"
                      (minimum-cons-cell-count condition)
                      (offending-list condition)))))
-
-(define-condition must-be-list (type-error)
-  ()
-  (:report (lambda (condition stream)
-             (format stream
-                     "An object of type LIST was expected,~@
-                      but the following was found instead:~@
-                      ~s"
-                     (type-error-datum condition))))
-  (:default-initargs :expected-type 'cl:list))
