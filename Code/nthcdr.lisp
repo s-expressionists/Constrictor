@@ -14,10 +14,5 @@
                       ((null result)
                        (return nil))
                       (t (error 'dotted-list-with-too-few-cons-cells
-                                "Either a dotted list with at least ~s CONS~@
-                                 cells, a proper list, or a circular list~@
-                                 was expected but the following was given:~@
-                                 ~s" n list)))))
-
-
-           
+                                :minimum-cons-cell-count n
+                                :offending-list list)))))
