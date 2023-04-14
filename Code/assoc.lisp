@@ -1,5 +1,54 @@
 (cl:in-package #:constrictor)
 
+(declaim (inline assoc-core))
+
+(defun assoc-core (item alist key test test-not)
+  (macrolet ((assoc-local (test)
+               `(with-alist-elements (element alist)
+                  (when ,test
+                    (return-from assoc-core element)))))
+    (if (eq key #'identity)
+        (if (null test-not)
+            (cond ((eq test #'eq)
+                   (assoc-local
+                    (eq item (car element))))
+                  ((eq test #'eql)
+                   (assoc-local
+                    (eql item (car element))))
+                  (t
+                   (assoc-local
+                    (funcall test item (car element)))))
+            (cond ((eq test-not #'eq)
+                   (assoc-local
+                    (not (eq item (car element)))))
+                  ((eq test-not #'eql)
+                   (assoc-local
+                    (not (eql item (car element)))))
+                  (t
+                   (assoc-local
+                    (not (funcall test-not item (car element)))))))
+        (if (null test-not)
+            (cond ((eq test #'eq)
+                   (assoc-local
+                    (eq item (funcall key (car element)))))
+                  ((eq test #'eql)
+                   (assoc-local
+                    (eql item (funcall key (car element)))))
+                  (t
+                   (assoc-local
+                    (funcall test item (funcall key (car element))))))
+            (cond ((eq test-not #'eq)
+                   (assoc-local
+                    (not (eq item (funcall key (car element))))))
+                  ((eq test-not #'eql)
+                   (assoc-local
+                    (not (eql item (funcall key (car element))))))
+                  (t
+                   (assoc-local
+                    (not (funcall test-not item (funcall key (car element)))))))))))
+
+(declaim (notinline assoc-core))
+
 (declaim (inline assoc))
 
 (defun assoc
