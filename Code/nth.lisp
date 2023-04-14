@@ -1,5 +1,7 @@
 (cl:in-package #:constrictor)
 
+(declaim (inline nth))
+
 (defun nth (n list)
   (unless (listp list)
     (error 'must-be-list :datum list))
@@ -14,3 +16,5 @@
                       (t (error 'dotted-list-with-too-few-cons-cells
                                 :minimum-cons-cell-count (1+ n)
                                 :offending-list list)))))
+
+(declaim (notinline nth))
