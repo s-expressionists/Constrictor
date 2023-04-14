@@ -2,9 +2,7 @@
 
 (defun nthcdr (n list)
   (unless (listp list)
-    (cl:error 'type-error
-              :datum list
-              :expected-type 'cl:list))
+    (error 'must-be-list :datum list))
   (loop for result on list
         repeat n
         until (atom result)
