@@ -27,8 +27,8 @@
                  (pop slow)
               until (eq slow tail)
               finally (if (eq slow tail)
-                          (error 'circular-list
-                                 "Circular list ~s" list)
+                          (error 'list-must-not-be-a-circular-list
+                                 :datum list)
                           (return head))))))
 
 (declaim (notinline last))
