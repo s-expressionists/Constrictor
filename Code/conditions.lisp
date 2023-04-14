@@ -122,3 +122,13 @@
                       ~s"
                      (minimum-cons-cell-count condition)
                      (offending-list condition)))))
+
+(define-condition must-be-list (type-error)
+  ()
+  (:report (lambda (condition stream)
+             (format stream
+                     "An object of type LIST was expected,~@
+                      but the following was found instead:~@
+                      ~s"
+                     (type-error-datum condition))))
+  (:default-initargs :expected-type 'cl:list))
