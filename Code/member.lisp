@@ -13,8 +13,7 @@
                   (when ,test
                     (return rest)))))
     (when (and test-supplied-p test-not-supplied-p)
-      (error 'both-test-and-test-not-supplied
-             "Both :TEST and :TEST-NOT supplied."))
+      (error 'both-test-and-test-not-supplied))
     (if (or (null key) (eq key #'identity) (eq key 'identity))
         (if (not test-not-supplied-p)
             (cond ((or (eq test #'eq) (eq test 'eq))
