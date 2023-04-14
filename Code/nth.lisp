@@ -4,7 +4,7 @@
 
 (defun nth (n list)
   (unless (listp list)
-    (error 'must-be-list :datum list))
+    (error 'list-expected :datum list))
   (loop for result on list
         repeat n
         until (atom result)
