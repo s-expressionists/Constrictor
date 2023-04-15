@@ -1,16 +1,19 @@
 (cl:in-package #:constrictor)
 
+(declaim (inline member-if-core))
+
+(defun member-if-core (predicate list key)
+  (with-key (key)
+    (with-proper-list-rests (rest list)
+      (when (funcall predicate (apply-key (car rest)))
+        (return-from member-if-core rest)))))
+
+(declaim (notinline member-if-core))
+
 (declaim (inline member-if))
 
 (defun member-if (predicate list &key key)
-  (macrolet ((special-function (test)
-               `(with-proper-list-rests (rest list)
-                  (when ,test
-                    (return rest)))))
-    (if (or (null key) (eq key #'identity) (eq key 'identity))
-        (special-function
-         (funcall predicate (car rest)))
-        (special-function
-         (funcall predicate (funcall key (car rest)))))))
+  (with-canonical-key (key)
+    (member-core predicate list key)))
 
 (declaim (notinline member-if))
