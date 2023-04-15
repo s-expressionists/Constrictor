@@ -141,6 +141,14 @@
                            `(not (funcall ,',test-not ,form1 ,form2))))
                 ,@body)))))
 
+(defmacro with-canonical-key ((key-variable) &body body)
+  `(if (or (null ,key-variable)
+           (eq ,key-variable #'identity)
+           (eq ,key-variable 'identity))
+       (let ((,key-variable #'identity))
+         ,@body)
+       (progn ,@body)))
+
 (defmacro with-canonical-key-test-test-not
     ((key-variable
       test-variable test-supplied-p-variable
