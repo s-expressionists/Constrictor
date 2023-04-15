@@ -2,56 +2,29 @@
 
 (declaim (inline member))
 
+(cl:in-package #:constrictor)
+
+(declaim (inline member-core))
+
+(defun member-core (item list key test test-not)
+  (with-key (key)
+    (with-test (test test-not)
+      (with-proper-list-rests (rest list)
+        (when (apply-test item (apply-key (car rest)))
+          (return-from member-core rest))))))
+
+(declaim (notinline member-core))
+
+(declaim (inline member))
+
 (defun member
     (item list
      &key
        key
        (test #'eql test-supplied-p)
        (test-not #'eql test-not-supplied-p))
-  (macrolet ((special-function (test)
-               `(with-proper-list-rests (rest list)
-                  (when ,test
-                    (return rest)))))
-    (when (and test-supplied-p test-not-supplied-p)
-      (error 'both-test-and-test-not-supplied))
-    (if (or (null key) (eq key #'identity) (eq key 'identity))
-        (if (not test-not-supplied-p)
-            (cond ((or (eq test #'eq) (eq test 'eq))
-                   (special-function
-                    (eq item (car rest))))
-                  ((or (eq test #'eql) (eq test 'eql))
-                   (special-function
-                    (eql item (car rest))))
-                  (t
-                   (special-function
-                    (funcall test item (car rest)))))
-            (cond ((or (eq test-not #'eq) (eq test-not 'eq))
-                   (special-function
-                    (not (eq item (car rest)))))
-                  ((or (eq test-not #'eql) (eq test-not 'eql))
-                   (special-function
-                    (not (eql item (car rest)))))
-                  (t
-                   (special-function
-                    (not (funcall test-not item (car rest)))))))
-        (if (not test-not-supplied-p)
-            (cond ((or (eq test #'eq) (eq test 'eq))
-                   (special-function
-                    (eq item (funcall key (car rest)))))
-                  ((or (eq test #'eql) (eq test 'eql))
-                   (special-function
-                    (eql item (funcall key (car rest)))))
-                  (t
-                   (special-function
-                    (funcall test item (funcall key (car rest))))))
-            (cond ((or (eq test-not #'eq) (eq test-not 'eq))
-                   (special-function
-                    (not (eq item (funcall key (car rest))))))
-                  ((or (eq test-not #'eql) (eq test-not 'eql))
-                   (special-function
-                    (not (eql item (funcall key (car rest))))))
-                  (t
-                   (special-function
-                    (not (funcall test-not item (funcall key (car rest)))))))))))
+  (with-canonical-key-test-test-not
+      (key test test-supplied-p test-not test-not-supplied-p)
+    (member-core item list key test test-not)))
 
 (declaim (notinline member))
