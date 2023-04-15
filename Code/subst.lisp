@@ -1,5 +1,20 @@
 (cl:in-package #:constrictor)
 
+(declaim (inline subst-core))
+
+(defun subst-core (new old tree key test test-not)
+  (with-key (key)
+    (with-test (test test-not)
+      (labels ((subst-local (tree)
+                 (cond ((apply-test (apply-key tree) old)
+                        new)
+                       ((atom tree) tree)
+                       (t (cons (subst-local (car tree))
+                                (subst-local (cdr tree)))))))
+                  (subst-local tree)))))
+
+(declaim (notinline subst-core))
+
 (declaim (inline subst))
 
 (defun subst
@@ -8,36 +23,9 @@
        (key nil)
        (test #'eql test-supplied-p)
        (test-not #'eql test-not-supplied-p))
-  (when (and test-supplied-p test-not-supplied-p)
-    (error 'both-test-and-test-not-supplied))
-  (macrolet ((make-local (test)
-               `(labels ((subst-local (tree)
-                           (cond (,test new)
-                                 ((atom tree) tree)
-                                 (t (cons (subst-local (car tree))
-                                          (subst-local (cdr tree)))))))
-                  (subst-local tree))))
-    (if (or (null key) (eq key #'identity) (eq key 'identity))
-        (cond ((and (not test-not-supplied-p)
-                    (or (eq test #'eql) (eq test 'eql)))
-               (make-local (eql tree old)))
-              ((and (not test-not-supplied-p)
-                    (or (eq test #'eq) (eq test 'eq)))
-               (make-local (eq tree old)))
-              ((not test-not-supplied-p)
-               (make-local (funcall test tree old)))
-              (t
-               (make-local (not (funcall test-not tree old)))))
-        (cond ((and (not test-not-supplied-p)
-                    (or (eq test #'eql) (eq test 'eql)))
-               (make-local (eql (funcall key tree) old)))
-              ((and (not test-not-supplied-p)
-                    (or (eq test #'eq) (eq test 'eq)))
-               (make-local (eq (funcall key tree) old)))
-              ((not test-not-supplied-p)
-               (make-local (funcall test (funcall key tree) old)))
-              (t
-               (make-local (not (funcall test (funcall key tree) old))))))))
+  (with-canonical-key-test-test-not
+      (key test test-supplied-p test-not test-not-supplied-p)
+    (subst-core new old tree key test test-not)))
 
 (declaim (notinline subst))
 
