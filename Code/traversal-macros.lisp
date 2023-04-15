@@ -105,3 +105,11 @@
                     :report "Unsupply :TEST-NOT."
                     (setf ,test-not-supplied-p-variable nil)))))))
   
+(defmacro with-key ((key) &body body )
+  `(if (eq ,key #'identity)
+       (macrolet ((apply-key (form)
+                    form))
+         ,@body)
+       (macrolet ((apply-key (form)
+                    `(funcall ,',key ,form)))
+         ,@body)))
