@@ -22,7 +22,8 @@
            do ,@body
            finally (unless (null ,rest-variable)
                      (error 'list-must-be-proper
-                            :datum ,list-variable)))))
+                            :offending-list ,list-variable
+                            :datum ,rest-variable)))))
 
 ;;; This macro can be used to traverse a list that must be a proper
 ;;; list, when each tail of the list must be examined.  Client code
@@ -38,7 +39,8 @@
            do ,@body
            finally (unless (null ,rest-variable)
                      (error 'list-must-be-proper
-                            :datum ,list-variable)))))
+                            :offending-list ,list-variable
+                            :datum ,rest-variable)))))
 
 (defun read-new-cons ()
   (format *query-io*
@@ -64,9 +66,8 @@
                     (loop until (consp ,element-variable)
                           do (restart-case
                                  (error 'invalid-alist-element
-                                        :datum ,alist-variable
-                                        :offending-element
-                                        ,element-variable
+                                        :datum ,element-variable
+                                        :offending-list ,alist-variable
                                         :offending-element-position
                                         ,position-variable)
                                (replace (,new-cons-variable)
@@ -84,8 +85,8 @@
            finally (unless (null ,rest-variable)
                      (restart-case
                          (error 'alist-must-not-be-a-dotted-list
-                                :datum ,alist-variable
-                                :offending-element ,rest-variable)
+                                :datum ,rest-variable
+                                :offending-element ,alist-variable)
                        (treat-as-nil ()
                          :report "Treat the element as NIL."))))))
 
