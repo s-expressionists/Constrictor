@@ -1,9 +1,9 @@
 (cl:in-package #:constrictor)
 
 (define-condition invalid-alist-element (type-error)
-  ((%offending-element
-    :initarg :offending-element
-    :reader offending-element)
+  ((%offending-list
+    :initarg :offending-list
+    :reader offending-list)
    (%offending-element-position
     :initarg :offending-element-position
     :reader offending-element-position))
@@ -17,14 +17,14 @@
                       contains an invalid element:~@
                       ~s~@
                       in position ~d."
+                     (offending-list condition)
                      (type-error-datum condition)
-                     (offending-element condition)
                      (offending-element-position condition)))))
 
 (define-condition alist-must-not-be-a-dotted-list (type-error)
-  ((%offending-element
-    :initarg :offending-element
-    :reader offending-element))
+  ((%offending-list
+    :initarg :offending-list
+    :reader offending-list))
   (:default-initargs :expected-type 'cl:list)
   (:report (lambda (condition stream)
              (format stream
@@ -34,8 +34,8 @@
                       ~s~@
                       is not terminated by NIL, but instead by the atom:
                       ~s."
-                     (type-error-datum condition)
-                     (offending-element condition)))))
+                     (offending-list condition)
+                     (type-error-datum condition)))))
 
 (define-condition alist-must-not-be-a-circular-list (type-error)
   ()
@@ -86,13 +86,15 @@
                      "At least one list must be supplied"))))
 
 (define-condition list-must-be-proper (type-error)
-  ()
+  ((%offending-list
+    :initarg :offending-list
+    :reader offending-list))
   (:report (lambda (condition stream)
              (format stream
                      "A proper list must be given, but the~@
                       following was found instead:~@
                       ~s"
-                     (type-error-datum condition))))
+                     (offending-list condition))))
   (:default-initargs :expected-type 'cl:list))
 
 (define-condition keys-and-data-must-have-the-same-length (cl:error)
