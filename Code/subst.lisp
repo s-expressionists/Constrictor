@@ -11,7 +11,7 @@
                        ((atom tree) tree)
                        (t (cons (subst-local (car tree))
                                 (subst-local (cdr tree)))))))
-                  (subst-local tree)))))
+        (subst-local tree)))))
 
 (declaim (notinline subst-core))
 
