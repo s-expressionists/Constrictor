@@ -16,7 +16,7 @@
 (defun assoc
     (item alist
      &key
-       key
+       (key #'identity)
        (test #'eql test-supplied-p)
        (test-not #'eql test-not-supplied-p))
   (with-canonical-key-test-test-not
