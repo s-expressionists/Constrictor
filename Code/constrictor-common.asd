@@ -19,6 +19,7 @@
    (:file "subst-if-not")
    (:file "nsubst")
    (:file "nsubst-if")
+   (:file "nsubst-if-not")
    (:file "nthcdr")
    (:file "nth")
    (:file "member")
