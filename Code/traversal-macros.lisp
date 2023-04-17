@@ -150,11 +150,3 @@
                      (macrolet ((apply-test (form1 form2)
                                   `(not (funcall ,',test-not ,form1 ,form2))))
                        ,@body))))))
-
-(defmacro with-canonical-key ((key-variable) &body body)
-  `(if (or (null ,key-variable)
-           (eq ,key-variable #'identity)
-           (eq ,key-variable 'identity))
-       (let ((,key-variable #'identity))
-         ,@body)
-       (progn ,@body)))
