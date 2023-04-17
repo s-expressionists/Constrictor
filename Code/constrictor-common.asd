@@ -6,6 +6,7 @@
   ((:file "error")
    (:file "conditions")
    (:file "traversal-macros")
+   (:file "compiler-macro-support")
    (:file "accessors")
    (:file "consp")
    (:file "copy-list")
