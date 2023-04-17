@@ -26,9 +26,9 @@
     ;; are done and we can return the triples.  We recognize only T
     ;; here, because it is too complicated to figure out whether the
     ;; value is simultaneously a constant and not NIL.
-    (when (loop for (keyword value) in triples
+    (when (loop for (keyword value-form) in triples
                   thereis (and (eq keyword :allow-other-keys)
-                               (eq value 't)))
+                               (eq value-form 't)))
       (return-from process-keyword-arguments triples))
     ;; Otherwise check that every keyword is a member of the list
     ;; ALLOWED-KEYWORDS.
@@ -40,3 +40,14 @@
                     always (allowed-keyword-p keyword))
         (return-from process-keyword-arguments :unacceptable)))
     triples))
+
+;;; Given a list of triples computed by PROCESS-KEYWORD-ARGUMENTS,
+;;; return two values: a list of LET bindings and an IGNORABLE
+;;; declaration for the GENSYMs in the tripls.
+(defun compute-let-bindings-and-declarations (triples)
+  (values (loop for (nil value-form gensym) in triples
+                collect `(,gensym ,value-form))
+          `(declare
+            (ignorable
+             ,@(loop for (nil nil gensym) in triples
+                     collect gensym)))))
