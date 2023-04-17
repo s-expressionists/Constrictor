@@ -17,7 +17,6 @@
 (declaim (inline subst-if))
 
 (defun subst-if (new predicate tree &key key)
-  (with-canonical-key (key)
-    (subst-if-core new predicate tree key)))
+  (subst-if-core new predicate tree key))
 
 (declaim (notinline subst-if))

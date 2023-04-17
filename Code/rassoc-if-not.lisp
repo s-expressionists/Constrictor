@@ -13,7 +13,6 @@
 (declaim (inline rassoc-if-not))
 
 (defun rassoc-if-not (predicate alist &key key)
-  (with-canonical-key (key)
-    (rassoc-core predicate alist key)))
+  (rassoc-core predicate alist key))
 
 (declaim (notinline rassoc-if-not))

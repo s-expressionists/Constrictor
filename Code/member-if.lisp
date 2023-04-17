@@ -13,7 +13,6 @@
 (declaim (inline member-if))
 
 (defun member-if (predicate list &key key)
-  (with-canonical-key (key)
-    (member-core predicate list key)))
+  (member-core predicate list key))
 
 (declaim (notinline member-if))

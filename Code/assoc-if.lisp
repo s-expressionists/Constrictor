@@ -13,7 +13,6 @@
 (declaim (inline assoc-if))
 
 (defun assoc-if (predicate alist &key key)
-  (with-canonical-key (key)
-    (assoc-core predicate alist key)))
+  (assoc-core predicate alist key))
 
 (declaim (notinline assoc-if))

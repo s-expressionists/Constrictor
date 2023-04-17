@@ -29,7 +29,6 @@
 (declaim (inline nsubst-if-not))
 
 (defun nsubst-if-not (new predicate tree &key key)
-  (with-canonical-key (key)
-    (nsubst-if-not-core new predicate tree key)))
+  (nsubst-if-not-core new predicate tree key))
 
 (declaim (notinline nsubst-if-not))
