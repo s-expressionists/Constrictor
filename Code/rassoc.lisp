@@ -2,9 +2,10 @@
 
 (declaim (inline rassoc-core))
 
-(defun rassoc-core (item alist key test test-not)
+(defun rassoc-core
+    (item alist key test test-supplied-p test-not test-not-supplied-p)
   (with-key (key)
-    (with-test (test test-not)
+    (with-test (test test-supplied-p test-not test-not-supplied-p)
       (with-alist-elements (element alist)
         (when (apply-test item (apply-key (cdr element)))
           (return-from rassoc-core element))))))
@@ -21,6 +22,9 @@
        (test-not #'eql test-not-supplied-p))
   (with-canonical-key-test-test-not
       (key test test-supplied-p test-not test-not-supplied-p)
-    (rassoc-core item alist key test test-not)))
+    (rassoc-core item alist
+                 key
+                 test test-supplied-p
+                 test-not test-not-supplied-p)))
 
 (declaim (notinline rassoc))

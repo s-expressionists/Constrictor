@@ -107,7 +107,9 @@
                     (setf ,test-not-supplied-p-variable nil)))))))
   
 (defmacro with-key ((key) &body body )
-  `(if (eq ,key #'identity)
+  `(if (or (null ,key)
+           (eq ,key #'identity)
+           (eq ,key 'identity))
        (macrolet ((apply-key (form)
                     form))
          ,@body)
@@ -115,7 +117,8 @@
                     `(funcall ,',key ,form)))
          ,@body)))
 
-(defmacro with-test ((test test-not) &body body)
+(defmacro with-test
+    ((test test-supplied-p test-not test-not-supplied-p) &body body)
   `(if (null ,test-not)
        (cond ((eq ,test #'eq)
               (macrolet ((apply-test (form1 form2)
