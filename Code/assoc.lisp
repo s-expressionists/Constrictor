@@ -20,11 +20,9 @@
        (key #'identity)
        (test #'eql test-supplied-p)
        (test-not #'eql test-not-supplied-p))
-  (with-canonical-key-test-test-not
-      (key test test-supplied-p test-not test-not-supplied-p)
-    (assoc-core item alist
-                key
-                test test-supplied-p
-                test-not test-not-supplied-p)))
+  (assoc-core item alist
+              key
+              test test-supplied-p
+              test-not test-not-supplied-p))
 
 (declaim (notinline assoc))
