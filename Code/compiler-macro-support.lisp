@@ -51,3 +51,12 @@
             (ignorable
              ,@(loop for (nil nil gensym) in triples
                      collect gensym)))))
+
+;;; given a keyword, determine whether there is a triple with that
+;;; keyword in its CAR, and if so, return that triple.  Otherwise,
+;;; return NIL.
+(defun find-triple (keyword triples)
+  (loop for triple in triples
+        when (eq (car triple) keyword)
+          return triple
+        finally (return nil)))
