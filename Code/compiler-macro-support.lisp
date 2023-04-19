@@ -68,4 +68,5 @@
             (loop for keyword in keyword-arguments by #'cddr
                   unless (loop for (allowed-keyword) in key
                                  thereis (eq keyword allowed-keyword))
-                    do (return-from check-call-site nil))))))))
+                    do (return-from check-call-site nil)))))))
+  t)
