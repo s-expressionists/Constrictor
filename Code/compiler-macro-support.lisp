@@ -33,6 +33,7 @@
 (defun check-call-site (arguments lambda-list)
   (destructuring-bind (required optional rest key allow-other-keys)
       lambda-list
+    (declare (ignore rest))
     ;; There must be at least as many arguments as there are required
     ;; parameters.
     (unless (>= (length arguments) (length required))
