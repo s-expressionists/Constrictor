@@ -43,4 +43,12 @@
     (when (and (null key)
                (> (length arguments)
                   (+ (length required) (length optional))))
+      (return-from check-call-site nil))
+    ;; Check that there is an even number of arguments beyond the
+    ;; required and the optional arguments.  If there are no keyword
+    ;; parameters, and the previous test succeeds, then there are no
+    ;; remaining arguments, and zero is even so we are fine.
+    (unless (evenp (- (length arguments)
+                      (length required)
+                      (length optional)))
       (return-from check-call-site nil))))
