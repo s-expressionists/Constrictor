@@ -46,12 +46,25 @@
         (return-from check-call-site nil))
       (let ((keyword-arguments (subseq arguments required+optional-count)))
         ;; Check that there is an even number of keyword arguments.
-        ;; If there are no keyword parameters, and the previous test
-        ;; succeeds, then there are no remaining arguments, and zero
-        ;; is even so we are fine.
+        ;; If there are no keyword parameters, and the previous check
+        ;; passes, then there are no remaining arguments, and zero is
+        ;; even so we are fine.
         (unless (evenp (length keyword-arguments))
           (return-from check-call-site nil))
         ;; Check that every even keyword argument is a keyword.
         (loop for putative-keyword in keyword-arguments by #'cddr
               unless (keywordp putative-keyword)
-                do (return-from check-call-site nil))))))
+                do (return-from check-call-site nil))
+        (let ((other-keys-allowed-p
+                (or allow-other-keys
+                    (loop for (keyword value) on keyword-arguments by #'cddr
+                            thereis (and (eq keyword :allow-other-keys)
+                                         (eq value 't))))))
+          ;; If other keys are not allowed, then check that every
+          ;; keyword in the keyword arguments is in the list of
+          ;; keyword parameters in the lambda list.
+          (unless other-keys-allowed-p
+            (loop for keyword in keyword-arguments by #'cddr
+                  unless (loop for (allowed-keyword) in key
+                                 thereis (eq keyword allowed-keyword))
+                    do (return-from check-call-site nil))))))))
