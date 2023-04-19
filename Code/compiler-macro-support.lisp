@@ -35,5 +35,12 @@
       lambda-list
     ;; There must be at least as many arguments as there are required
     ;; parameters.
-    (unless (>= (length arguments) required)
+    (unless (>= (length arguments) (length required))
+      (return-from check-call-site nil))
+    ;; If there are no keyword parameters, then there can be at most
+    ;; as many arguments as there are required and optional
+    ;; parameters.
+    (when (and (null key)
+               (> (length arguments)
+                  (+ (length required) (length optional))))
       (return-from check-call-site nil))))
