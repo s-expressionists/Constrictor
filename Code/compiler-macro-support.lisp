@@ -37,18 +37,21 @@
     ;; parameters.
     (unless (>= (length arguments) (length required))
       (return-from check-call-site nil))
-    ;; If there are no keyword parameters, then there can be at most
-    ;; as many arguments as there are required and optional
-    ;; parameters.
-    (when (and (null key)
-               (> (length arguments)
-                  (+ (length required) (length optional))))
-      (return-from check-call-site nil))
-    ;; Check that there is an even number of arguments beyond the
-    ;; required and the optional arguments.  If there are no keyword
-    ;; parameters, and the previous test succeeds, then there are no
-    ;; remaining arguments, and zero is even so we are fine.
-    (unless (evenp (- (length arguments)
-                      (length required)
-                      (length optional)))
-      (return-from check-call-site nil))))
+    (let ((required+optional-count (+ (length required) (length optional))))
+      ;; If there are no keyword parameters, then there can be at most
+      ;; as many arguments as there are required and optional
+      ;; parameters.
+      (when (and (null key)
+                 (> (length arguments) required+optional-count))
+        (return-from check-call-site nil))
+      (let ((keyword-arguments (subseq arguments required+optional-count)))
+        ;; Check that there is an even number of keyword arguments.
+        ;; If there are no keyword parameters, and the previous test
+        ;; succeeds, then there are no remaining arguments, and zero
+        ;; is even so we are fine.
+        (unless (evenp (length keyword-arguments))
+          (return-from check-call-site nil))
+        ;; Check that every even keyword argument is a keyword.
+        (loop for putative-keyword in keyword-arguments by #'cddr
+              unless (keywordp putative-keyword)
+                do (return-from check-call-site nil))))))
