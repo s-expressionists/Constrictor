@@ -26,6 +26,7 @@
     #:make-list
     #:copy-list
     #:list-length
+    #:tree-equal
     #:copy-tree
     #:copy-alist
     #:list #:list*
