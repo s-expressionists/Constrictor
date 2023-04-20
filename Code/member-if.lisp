@@ -2,8 +2,8 @@
 
 (declaim (inline member-if-core))
 
-(defun member-if-core (predicate list key)
-  (with-key (key)
+(defun member-if-core (predicate list key key-supplied-p)
+  (with-key (key key-supplied-p)
     (with-proper-list-rests (rest list)
       (when (funcall predicate (apply-key (car rest)))
         (return-from member-if-core rest)))))
@@ -12,7 +12,7 @@
 
 (declaim (inline member-if))
 
-(defun member-if (predicate list &key key)
-  (member-core predicate list key))
+(defun member-if (predicate list &key (key nil key-supplied-p))
+  (member-core predicate list key key-supplied-p))
 
 (declaim (notinline member-if))

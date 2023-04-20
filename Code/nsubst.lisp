@@ -3,8 +3,8 @@
 (declaim (inline nsubst-core))
 
 (defun nsubst-core
-    (new old tree key test test-supplied-p test-not test-not-supplied-p)
-  (with-key (key)
+    (new old tree key key-supplied-p test test-supplied-p test-not test-not-supplied-p)
+  (with-key (key key-supplied-p)
     (with-test (test test-supplied-p test-not test-not-supplied-p)
       (labels ((nsubst-local (tree)
                  (cond ((apply-test (apply-key (car tree)) old)
@@ -33,11 +33,11 @@
 (defun nsubst
     (new old tree
      &key
-       (key nil)
+       (key nil key-supplied-p)
        (test #'eql test-supplied-p)
        (test-not #'eql test-not-supplied-p))
   (nsubst-core new old tree
-               key
+               key key-supplied-p
                test test-supplied-p
                test-not test-not-supplied-p))
 

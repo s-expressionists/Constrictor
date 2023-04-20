@@ -106,8 +106,8 @@
                     :report "Unsupply :TEST-NOT."
                     (setf ,test-not-supplied-p-variable nil)))))))
   
-(defmacro with-key ((key) &body body )
-  `(if (or (null ,key)
+(defmacro with-key ((key key-supplied-p) &body body )
+  `(if (or (not ,key-supplied-p)
            (eq ,key #'identity)
            (eq ,key 'identity))
        (macrolet ((apply-key (form)

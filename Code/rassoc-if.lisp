@@ -2,8 +2,8 @@
 
 (declaim (inline rassoc-if-core))
 
-(defun rassoc-if-core (predicate alist key)
-  (with-key (key)
+(defun rassoc-if-core (predicate alist key key-supplied-p)
+  (with-key (key key-supplied-p)
     (with-alist-elements (element alist)
       (when (funcall predicate (apply-key (cdr element)))
         (return-from rassoc-if-core element)))))
@@ -12,7 +12,7 @@
 
 (declaim (inline rassoc-if))
 
-(defun rassoc-if (predicate alist &key key)
-  (rassoc-core predicate alist key))
+(defun rassoc-if (predicate alist &key (key nil key-supplied-p))
+  (rassoc-core predicate alist key key-supplied-p))
 
 (declaim (notinline rassoc-if))

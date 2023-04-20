@@ -2,8 +2,8 @@
 
 (declaim (inline assoc-if-core))
 
-(defun assoc-if-core (predicate alist key)
-  (with-key (key)
+(defun assoc-if-core (predicate alist key key-supplied-p)
+  (with-key (key key-supplied-p)
     (with-alist-elements (element alist)
       (when (funcall predicate (apply-key (car element)))
         (return-from assoc-if-core element)))))
@@ -12,7 +12,7 @@
 
 (declaim (inline assoc-if))
 
-(defun assoc-if (predicate alist &key key)
-  (assoc-core predicate alist key))
+(defun assoc-if (predicate alist &key (key nil key-supplied-p))
+  (assoc-core predicate alist key key-supplied-p))
 
 (declaim (notinline assoc-if))

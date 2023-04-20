@@ -3,8 +3,8 @@
 (declaim (inline subst-core))
 
 (defun subst-core
-    (new old tree key test test-supplied-p test-not test-not-supplied-p)
-  (with-key (key)
+    (new old tree key key-supplied-p test test-supplied-p test-not test-not-supplied-p)
+  (with-key (key key-supplied-p)
     (with-test (test test-supplied-p test-not test-not-supplied-p)
       (labels ((subst-local (tree)
                  (cond ((apply-test (apply-key tree) old)
@@ -21,11 +21,11 @@
 (defun subst
     (new old tree
      &key
-       (key nil)
+       (key nil key-supplied-p)
        (test #'eql test-supplied-p)
        (test-not #'eql test-not-supplied-p))
   (subst-core new old tree
-              key
+              key key-supplied-p
               test test-supplied-p
               test-not test-not-supplied-p))
 

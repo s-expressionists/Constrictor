@@ -2,8 +2,8 @@
 
 (declaim (inline nsubst-if-core))
 
-(defun nsubst-if-core (new predicate tree key)
-  (with-key (key)
+(defun nsubst-if-core (new predicate tree key key-supplied-p)
+  (with-key (key key-supplied-p)
     (labels ((nsubst-if-local (tree)
                  (cond ((funcall predicate (apply-key (car tree)))
                         (rplaca tree new))
@@ -28,7 +28,7 @@
 
 (declaim (inline nsubst-if))
 
-(defun nsubst-if (new predicate tree &key key)
-  (nsubst-if-core new predicate tree key))
+(defun nsubst-if (new predicate tree &key (key nil key-supplied-p))
+  (nsubst-if-core new predicate tree key key-supplied-p))
 
 (declaim (notinline nsubst-if))
