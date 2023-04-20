@@ -11,6 +11,7 @@
    (:file "consp")
    (:file "copy-list")
    (:file "list-length")
+   (:file "tree-equal")
    (:file "copy-tree")
    (:file "copy-alist")
    (:file "pairlis")
