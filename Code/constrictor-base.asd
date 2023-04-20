@@ -28,6 +28,7 @@
     #:list-length
     #:tree-equal
     #:copy-tree
+    #:append
     #:copy-alist
     #:list #:list*
     #:subst #:subst-if #:subst-if-not
