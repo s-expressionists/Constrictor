@@ -70,3 +70,57 @@
                                  thereis (eq keyword allowed-keyword))
                     do (return-from check-call-site nil)))))))
   t)
+
+(defun find-entry (parameter dictionary)
+  (loop for entry in dictionary
+        when (eq (car entry) parameter)
+          return entry))
+
+(defun find-keyword-parameter (keyword keyword-parameters)
+  (loop for parameter in keyword-parameters
+        when (eq (car parameter) keyword)
+          return (cdr parameter)))
+
+(defun already-seen-p (keyword seen-keywords)
+  (loop for seen-keyword in seen-keywords
+        thereis (eq keyword seen-keyword)))
+
+(defun compute-compiler-macro-body (arguments lambda-list entry-point)
+  (let ((dictionary (loop for parameter in (rest entry-point)
+                          collect (cons parameter (gensym))))
+        (bindings '())
+        (ignores '())
+        (remaining arguments))
+    (destructuring-bind (required optional rest key)
+        lambda-list
+      (declare (ignore rest))
+      (loop for parameter in required
+            for entry = (find-entry parameter dictionary)
+            do (push (list (cdr entry) (pop remaining)) bindings))
+      (loop for (parameter supplied-p)  in optional
+            for entry1 = (find-entry parameter dictionary)
+            for entry2 = (find-entry supplied-p dictionary)
+            do (push (list (cdr entry1) (pop remaining)) bindings)
+               (push (list (cdr entry2) 't) bindings))
+      (let ((seen-keywords '()))
+        (loop for (keyword form) on remaining by #'cddr
+              for parameter = (find-keyword-parameter keyword key)
+              do (if (or (null parameter)
+                         (already-seen-p keyword seen-keywords))
+                     (let ((variable (gensym)))
+                       (push variable ignores)
+                       (push (list variable form) bindings))
+                     (let ((entry1 (find-entry (car parameter) dictionary))
+                           (entry2 (find-entry (cadr parameter) dictionary)))
+                       (push keyword seen-keywords)
+                       (push (list (cdr entry1) form) bindings)
+                       (push (list (cdr entry2) 't) bindings)))))
+      `(let ,(loop for entry in dictionary
+                   collect (cdr entry))
+         (declare (ignorable ,@(loop for entry in dictionary
+                                     collect (cdr entry))))
+         (let ,(reverse bindings)
+           (declare (ignore ,@ignores))
+           ,(cons (car entry-point)
+                  (loop for (parameter . variable) in dictionary
+                        collect variable)))))))
