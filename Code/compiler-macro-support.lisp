@@ -91,6 +91,12 @@
   (loop for parameter in parameters
         collect (cons parameter (gensym))))
 
+;;; We can't use function that have compiler macros associated with
+;;; them, so we must write our own versions of some such functions.
+(defun extract-gensyms (dictionary)
+  (loop for entry in dictionary
+        collect (cdr entry)))
+
 (defun compute-compiler-macro-body (arguments lambda-list entry-point)
   (let ((dictionary (make-dictionary (rest entry-point)))
         (bindings '())
@@ -120,10 +126,8 @@
                        (push keyword seen-keywords)
                        (push (list (cdr entry1) form) bindings)
                        (push (list (cdr entry2) 't) bindings)))))
-      `(let ,(loop for entry in dictionary
-                   collect (cdr entry))
-         (declare (ignorable ,@(loop for entry in dictionary
-                                     collect (cdr entry))))
+      `(let ,(extract-gensyms dictionary)
+         (declare (ignorable ,@(extract-gensyms dictionary)))
          (let ,(reverse bindings)
            (declare (ignore ,@ignores))
            ,(cons (car entry-point)
