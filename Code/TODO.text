@@ -24,7 +24,7 @@ pop
 * endp
 null
 nconc
-append
+* append
 revappend
 nreconc
 * butlast
