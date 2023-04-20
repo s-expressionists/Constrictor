@@ -85,9 +85,14 @@
   (loop for seen-keyword in seen-keywords
         thereis (eq keyword seen-keyword)))
 
+;;; Given a list of parameters, create a dictionary for translating
+;;; each one into a unique generated symbol.
+(defun make-dictionary (parameters)
+  (loop for parameter in parameters
+        collect (cons parameter (gensym))))
+
 (defun compute-compiler-macro-body (arguments lambda-list entry-point)
-  (let ((dictionary (loop for parameter in (rest entry-point)
-                          collect (cons parameter (gensym))))
+  (let ((dictionary (make-dictionary (rest entry-point)))
         (bindings '())
         (ignores '())
         (remaining arguments))
