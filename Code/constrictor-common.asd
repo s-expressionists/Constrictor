@@ -13,6 +13,7 @@
    (:file "list-length")
    (:file "tree-equal")
    (:file "copy-tree")
+   (:file "append")
    (:file "copy-alist")
    (:file "pairlis")
    (:file "list")
