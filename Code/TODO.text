@@ -18,8 +18,8 @@ nsublis
 * list-length
 * listp
 * make-list
-push
-pop
+* push
+* pop
 * nth
 * endp
 null
