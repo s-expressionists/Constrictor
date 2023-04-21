@@ -30,7 +30,7 @@ nreconc
 * butlast
 nbutlast
 * last
-ldiff
+* ldiff
 * tailp
 * nthcdr
 * member
