@@ -46,4 +46,5 @@
    (:file "mapcon")
    (:file "tailp")
    (:file "ldiff")
-   (:file "push")))
+   (:file "push")
+   (:file "pop")))
