@@ -43,4 +43,5 @@
    (:file "mapc")
    (:file "mapl")
    (:file "mapcan")
-   (:file "mapcon")))
+   (:file "mapcon")
+   (:file "tailp")))
