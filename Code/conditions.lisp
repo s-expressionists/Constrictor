@@ -85,6 +85,16 @@
              (format stream
                      "At least one list must be supplied"))))
 
+(define-condition must-be-list (type-error)
+  ()
+  (:report (lambda (condition stream)
+             (format stream
+                     "A list must be given, but the~@
+                      following was found instead:~@
+                      ~s"
+                     (type-error-datum condition))))
+  (:default-initargs :expected-type 'cl:list))
+
 (define-condition list-must-be-proper (type-error)
   ((%offending-list
     :initarg :offending-list
