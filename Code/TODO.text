@@ -31,7 +31,7 @@ nreconc
 nbutlast
 * last
 ldiff
-tailp
+* tailp
 * nthcdr
 * member
 * member-if
