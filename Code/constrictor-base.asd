@@ -39,4 +39,5 @@
     #:pairlis
     #:last #:butlast #:nbutlast
     #:mapcar #:mapc #:mapcan #:maplist #:mapl #:mapcon
-    #:tailp #:ldiff))
+    #:tailp #:ldiff
+    #:push #:pop))
