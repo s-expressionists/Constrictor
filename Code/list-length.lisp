@@ -28,3 +28,13 @@
                                        :datum list))))))))
 
 (declaim (notinline list-length))
+
+(setf (documentation 'list-length 'function)
+      (format nil
+              "LIST-LENGTH LIST~@
+               Return the length of LIST if LIST is a proper list.~@
+               Return NIL if LIST is a circular list.~@
+               Signal an error of type TYPE-ERROR if LIST is either~@
+               not a list, or if it is a dotted list."))
+
+
