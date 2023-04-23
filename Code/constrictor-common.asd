@@ -11,6 +11,7 @@
    (:file "pop")
    (:file "accessors")
    (:file "consp")
+   (:file "atom")
    (:file "listp")
    (:file "copy-list")
    (:file "list-length")
