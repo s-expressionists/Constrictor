@@ -11,3 +11,14 @@
              ,writer-form)
            (error 'must-be-list
                   :datum ',(car store-vars))))))
+
+(setf (documentation 'pop 'function)
+      (format nil "POP PLACE~@
+                   PLACE must be a CONS cell.  Modify PLACE so that~@
+                   it contains what was previously the CDR of PLACE.~@
+                   Return the CAR of PLACE before it was modified.~@
+                   ~@
+                   (POP PLACE) has the same effect and the same return~@
+                   value as (PROG1 (CAR PLACE) (SETF PLACE (CDR PLACE)))~@
+                   except that POP evaluates sub-forms of PLACE only once."))
+                   
