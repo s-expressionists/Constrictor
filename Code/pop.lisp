@@ -20,5 +20,7 @@
                    ~@
                    (POP PLACE) has the same effect and the same return~@
                    value as (PROG1 (CAR PLACE) (SETF PLACE (CDR PLACE)))~@
-                   except that POP evaluates sub-forms of PLACE only once."))
-                   
+                   except that POP evaluates sub-forms of PLACE only once.~@
+                   ~@
+                   An error of type TYPE-ERROR is signaled if PLACE is not~@
+                   of type LIST."))
