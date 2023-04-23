@@ -49,3 +49,8 @@
                     (return head))))
 
 (declaim (notinline list*))
+
+(setf (documentation 'list 'function)
+      (format nil "LIST &REST OBJECTS~@
+                   Return a proper list containing the object given as arguments~@
+                   in the same order as the arguments."))
