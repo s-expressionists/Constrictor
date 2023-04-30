@@ -62,3 +62,17 @@
          (first lists))))
 
 (declaim (notinline mapc))
+
+(setf (documentation 'mapc 'function)
+      (format nil
+              "mapc function &rest lists~@
+               Apply FUNCTION to the FIRST of each LIST~@
+               then to the SECOND of each LIST, and so on.~@
+               Return the first list in LISTS.~@
+               Iteration stops when the shortest LIST is exhausted.~@
+               Each LIST must be a proper list.  If one of the ~@
+               shortest lists is a dotted list, then an error~@
+               of type TYPE-ERROR is signaled.  If every list in~@
+               LISTS is a circular list, then this function will~@
+               not terminate.  If LISTS is empty then an error~@
+               is signaled."))
