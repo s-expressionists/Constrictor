@@ -22,6 +22,7 @@
     #:sixth #:seventh #:eighth #:ninth #:tenth
     #:consp #:atom #:listp
     #:nth #:nthcdr
+    #:null
     #:endp
     #:make-list
     #:copy-list
