@@ -3,7 +3,7 @@
 (defgeneric listp (object)
   (:method (object) nil)
   (:method ((object cons)) t)
-  (:method ((object null)) t))
+  (:method ((object cl:null)) t))
 
 (setf (documentation 'listp 'function)
       (format nil "LISTP OBJECT~@
