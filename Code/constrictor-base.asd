@@ -38,6 +38,7 @@
     #:rassoc #:rassoc-if #:rassoc-if-not
     #:pairlis
     #:last #:butlast #:nbutlast
+    #:acons
     #:mapcar #:mapc #:mapcan #:maplist #:mapl #:mapcon
     #:tailp #:ldiff
     #:push #:pop))

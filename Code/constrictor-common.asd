@@ -48,5 +48,6 @@
    (:file "mapl")
    (:file "mapcan")
    (:file "mapcon")
+   (:file "acons")
    (:file "tailp")
    (:file "ldiff")))

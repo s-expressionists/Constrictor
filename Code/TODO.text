@@ -37,7 +37,7 @@ nbutlast
 * member-if
 * member-if-not
 * mapc...
-acons
+* acons
 * assoc
 * assoc-if
 * assoc-if-not
