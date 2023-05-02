@@ -52,3 +52,17 @@
                                :datum (elt local-lists position)))))))))
 
 (declaim (notinline mapcon))
+(setf (documentation 'maplist 'function)
+      (format nil
+              "maplist function &rest lists~@
+               Apply FUNCTION to first to each list in LISTS~@
+               then to the REST of each list in LISTS, and so on.~@
+               Return a list that is constructed by applying~@
+               NCONC to the results of the function application.~@
+               Iteration stops when the shortest LIST is exhausted.~@
+               Each LIST must be a proper list.  If one of the ~@
+               shortest lists is a dotted list, then an error~@
+               of type TYPE-ERROR is signaled.  If every list in~@
+               LISTS is a circular list, then this function will~@
+               not terminate.  If LISTS is empty then an error~@
+               is signaled."))
