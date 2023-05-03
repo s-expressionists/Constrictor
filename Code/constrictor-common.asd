@@ -18,6 +18,7 @@
    (:file "tree-equal")
    (:file "copy-tree")
    (:file "append")
+   (:file "revappend")
    (:file "copy-alist")
    (:file "pairlis")
    (:file "list")
