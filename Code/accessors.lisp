@@ -3,11 +3,11 @@
 (eval-when (:compile-toplevel :load-toplevel :execute)
   (defun make-c*r-type-descriptor (string index)
     (if (zerop index)
-        '(or null cons)
+        '(or cl:null cons)
         (let ((subtype (make-c*r-type-descriptor string (1- index))))
           (ecase (char string index)
-            (#\a `(or null (cons ,subtype)))
-            (#\d `(or null (cons t ,subtype))))))))
+            (#\a `(or cl:null (cons ,subtype)))
+            (#\d `(or cl:null (cons t ,subtype))))))))
 
 (defmacro check-c*r-type-for (parameter string)
   `(check-type ,parameter
