@@ -30,6 +30,7 @@
     #:tree-equal
     #:copy-tree
     #:append
+    #:revappend
     #:copy-alist
     #:list #:list*
     #:subst #:subst-if #:subst-if-not
