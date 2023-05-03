@@ -17,3 +17,14 @@
                              :expected-type 'list)))))
 
 (declaim (notinline nreconc))
+
+(setf (documentation 'nreconc 'function)
+      (format nil
+              "nreconc list tail~@
+               Destructively modify LIST by prepending the~@
+               CONS cells of LIST to TAIL in reverse order.~@
+               If LIST is not a list, an error of type TYPE-ERROR~@
+               is signaled.  If LIST is a dotted list, also signal~@
+               an error of type TYPE-ERROR, but LIST will be~@
+               destructively modified anyway.  If LIST is a circulat~@
+               list, then this function will not terminate."))
