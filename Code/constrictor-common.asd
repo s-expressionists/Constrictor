@@ -19,6 +19,7 @@
    (:file "copy-tree")
    (:file "append")
    (:file "revappend")
+   (:file "nreconc")
    (:file "copy-alist")
    (:file "pairlis")
    (:file "list")
