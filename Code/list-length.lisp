@@ -31,7 +31,7 @@
 
 (setf (documentation 'list-length 'function)
       (format nil
-              "LIST-LENGTH LIST~@
+              "Syntax: list-length list~@
                Return the length of LIST if LIST is a proper list.~@
                Return NIL if LIST is a circular list.~@
                Signal an error of type TYPE-ERROR if LIST is either~@

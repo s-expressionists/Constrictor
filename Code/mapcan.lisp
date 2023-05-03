@@ -56,7 +56,7 @@
 
 (setf (documentation 'mapcan 'function)
       (format nil
-              "mapcan function &rest lists~@
+              "Syntax: mapcan function &rest lists~@
                Apply FUNCTION to the FIRST of each LIST~@
                then to the SECOND of each LIST, and so on.~@
                Return a list that is constructed by applying~@

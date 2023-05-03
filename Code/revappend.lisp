@@ -12,7 +12,7 @@
 
 (setf (documentation 'revappend 'function)
       (format nil
-              "revappend list tail~@
+              "Syntax: revappend list tail~@
                Prepend the elements of LIST to TAIL in reverse~@
                order and return the result.  If LIST is not a list~@
                or if LIST is a dotted list, then an error of type~@

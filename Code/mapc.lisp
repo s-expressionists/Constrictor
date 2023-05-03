@@ -65,7 +65,7 @@
 
 (setf (documentation 'mapc 'function)
       (format nil
-              "mapc function &rest lists~@
+              "Syntax: mapc function &rest lists~@
                Apply FUNCTION to the FIRST of each LIST~@
                then to the SECOND of each LIST, and so on.~@
                Return the first list in LISTS.~@

@@ -5,6 +5,6 @@
   (:method ((object cons)) t))
 
 (setf (documentation 'consp 'function)
-      (format nil "CONSP OBJECT~@
-                   Return T if the object given as an argument is a CONS cell.~@
+      (format nil "Syntax: consp object~@
+                   Return T if OBJECT is a CONS cell.~@
                    Otherwise, return NIL."))

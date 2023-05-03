@@ -13,7 +13,7 @@
          ,writer-form))))
 
 (setf (documentation 'push 'function)
-      (format nil "PUSH ITEM PLACE~@
+      (format nil "Syntax: push item place~@
                    Modify PLACE so that it contains a CONS cell with~@
                    ITEM in the CAR slot and the old value of PLACE in~@
                    the CDR slot.  Return the new contents of PLACE.~@

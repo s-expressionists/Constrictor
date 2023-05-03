@@ -54,7 +54,7 @@
 (declaim (notinline mapcon))
 (setf (documentation 'maplist 'function)
       (format nil
-              "maplist function &rest lists~@
+              "Syntax: maplist function &rest lists~@
                Apply FUNCTION to first to each list in LISTS~@
                then to the REST of each list in LISTS, and so on.~@
                Return a list that is constructed by applying~@
