@@ -31,6 +31,7 @@
     #:copy-tree
     #:append
     #:revappend
+    #:nreconc
     #:copy-alist
     #:list #:list*
     #:subst #:subst-if #:subst-if-not
