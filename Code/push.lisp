@@ -5,7 +5,10 @@
       (get-setf-expansion place environment)
     (let ((item-var (gensym)))
       `(let* ((,item-var ,item)
-              ,@(mapcar #'list vars vals)
+              ;; Avoid using MAPCAR and LIST here. 
+              ,@(loop for var in vars
+                      for val in vals
+                      collect `(,var ,val))
               (,(car store-vars) (cons ,item-var ,reader-form)))
          ,writer-form))))
 
