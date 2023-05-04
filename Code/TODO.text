@@ -4,7 +4,7 @@
 * first, second, ...
 * copy-tree
 * sublis
-nsublis
+* nsublis
 * subst
 * subst-if
 * subst-if-not
