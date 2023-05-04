@@ -5,10 +5,17 @@
 (defun nconc (&rest lists)
   (if (null lists)
       nil
-      (loop for (l1 l2) on lists
-            until (null l2)
-            do (rplacd (last l1) l2)
-            finally (return (first lists)))))
+      (labels ((local-nconc (lists)
+                 (destructuring-bind (first . rest) lists
+                   (cond ((null rest) first)
+                         ((null first) (local-nconc rest))
+                         ((atom first)
+                          (error 'type-error
+                                 :datum first
+                                 :expected-type 'list))
+                         (t (rplacd (last first) (local-nconc rest))
+                            first)))))
+        (local-nconc lists))))
 
 (declaim (notinline nconc))
 
