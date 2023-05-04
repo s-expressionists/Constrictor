@@ -57,4 +57,5 @@
    (:file "acons")
    (:file "tailp")
    (:file "ldiff")
-   (:file "getf")))
+   (:file "getf")
+   (:file "setf-getf")))
