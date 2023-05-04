@@ -46,4 +46,5 @@
     #:acons
     #:mapcar #:mapc #:mapcan #:maplist #:mapl #:mapcon
     #:tailp #:ldiff
-    #:push #:pop))
+    #:push #:pop
+    #:getf))
