@@ -760,30 +760,41 @@
 
 (declaim (notinline (setf tenth)))
 
-(setf (documentation 'caar 'function)
-      (format nil
-              "Syntax: caar list~@
-               (CAAR LIST) is equivalent to (CAR (CAR LIST))~@
-               except that errors are reported directly from~@
-               this function, as opposed to from CAR."))
+(defun split (string start)
+  (cond ((eq start (length string))
+         'list)
+        ((eql (char string start) #\A)
+         `(car ,(split string (1+ start))))
+        (t
+         `(cdr ,(split string (1+ start))))))
 
-(setf (documentation 'cadr 'function)
-      (format nil
-              "Syntax: cadr list~@
-               (CADR LIST) is equivalent to (CAR (CDR LIST))~@
-               except that errors are reported directly from~@
-               this function, as opposed to from CAR or CDR."))
+(defun car-or-cdr (string)
+  (let ((position1 (position #\A string))
+        (position2 (position #\D string)))
+    (cond ((null position1)
+           "CDR")
+          ((null position2)
+           "CAR")
+          (t
+           "CAR or CDR"))))
 
-(setf (documentation 'cdar 'function)
-      (format nil
-              "Syntax: cdar list~@
-               (CDAR LIST) is equivalent to (CDR (CAR LIST))~@
-               except that errors are reported directly from~@
-               this function, as opposed to from CAR or CDR."))
+(defun c*r-documentation (symbol)
+  (let* ((name (symbol-name symbol))
+         (string (subseq name 1 (1- (length name)))))
+    (setf (documentation symbol 'function)
+          (format nil
+                  "Syntax: c~ar list~@
+                   (C~aR LIST) is equivalent to ~s~@
+                   except that errors are reported directly from~@
+                   this function, as opposed to from ~a."
+                  (string-downcase string)
+                  string
+                  (split string 0)
+                  (car-or-cdr string)))))
 
-(setf (documentation 'cddr 'function)
-      (format nil
-              "Syntax: cddr list~@
-               (CDDR LIST) is equivalent to (CDR (CDR LIST))~@
-               except that errors are reported directly from~@
-               this function, as opposed to from CDR."))
+(loop for symbol in
+      '(caar cadr cdar cddr
+        caaar caadr cadar caddr cdaar cdadr cddar cdddr
+        caaaar caaadr caadar caaddr cadaar cadadr caddar cadddr
+        cdaaar cdaadr cdadar cdaddr cddaar cddadr cdddar cddddr)
+      do (c*r-documentation symbol))
