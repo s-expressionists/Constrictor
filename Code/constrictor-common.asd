@@ -56,4 +56,5 @@
    (:file "mapcon")
    (:file "acons")
    (:file "tailp")
-   (:file "ldiff")))
+   (:file "ldiff")
+   (:file "getf")))

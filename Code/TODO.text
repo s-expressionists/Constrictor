@@ -47,7 +47,7 @@ nbutlast
 * rassoc-if
 * rassoc-if-not
 get-properties
-getf
+* getf
 remf
 intersection
 nintersection
