@@ -144,3 +144,16 @@
                       ~s"
                      (minimum-cons-cell-count condition)
                      (offending-list condition)))))
+
+(define-condition must-be-property-list (type-error)
+  ((%offending-list
+    :initarg :offending-list
+    :reader offending-list))
+  (:report (lambda (condition stream)
+             (format stream
+                     "A property list (i.e., a list with an even~@
+                      number of elements) must be given, but the~@
+                      following was found instead:~@
+                      ~s"
+                     (offending-list condition))))
+  (:default-initargs :expected-type 'cons))
