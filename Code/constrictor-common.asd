@@ -30,6 +30,7 @@
    (:file "nsubst")
    (:file "nsubst-if")
    (:file "nsubst-if-not")
+   (:file "sublis")
    (:file "nthcdr")
    (:file "nth")
    (:file "member")
