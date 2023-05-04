@@ -759,3 +759,31 @@
   new-value)
 
 (declaim (notinline (setf tenth)))
+
+(setf (documentation 'caar 'function)
+      (format nil
+              "Syntax: caar list~@
+               (CAAR LIST) is equivalent to (CAR (CAR LIST))~@
+               except that errors are reported directly from~@
+               this function, as opposed to from CAR."))
+
+(setf (documentation 'cadr 'function)
+      (format nil
+              "Syntax: cadr list~@
+               (CADR LIST) is equivalent to (CAR (CDR LIST))~@
+               except that errors are reported directly from~@
+               this function, as opposed to from CAR or CDR."))
+
+(setf (documentation 'cdar 'function)
+      (format nil
+              "Syntax: cdar list~@
+               (CDAR LIST) is equivalent to (CDR (CAR LIST))~@
+               except that errors are reported directly from~@
+               this function, as opposed to from CAR or CDR."))
+
+(setf (documentation 'cddr 'function)
+      (format nil
+              "Syntax: cddr list~@
+               (CDDR LIST) is equivalent to (CDR (CDR LIST))~@
+               except that errors are reported directly from~@
+               this function, as opposed to from CDR."))
