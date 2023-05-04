@@ -30,6 +30,7 @@
     #:tree-equal
     #:copy-tree
     #:append
+    #:nconc
     #:revappend
     #:nreconc
     #:copy-alist
