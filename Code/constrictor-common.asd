@@ -18,6 +18,7 @@
    (:file "tree-equal")
    (:file "copy-tree")
    (:file "append")
+   (:file "nconc")
    (:file "revappend")
    (:file "nreconc")
    (:file "copy-alist")

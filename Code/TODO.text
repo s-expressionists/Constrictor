@@ -23,7 +23,7 @@ nsublis
 * nth
 * endp
 * null
-nconc
+* nconc
 * append
 * revappend
 * nreconc
