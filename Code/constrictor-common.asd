@@ -58,4 +58,5 @@
    (:file "tailp")
    (:file "ldiff")
    (:file "getf")
-   (:file "setf-getf")))
+   (:file "setf-getf")
+   (:file "adjoin")))

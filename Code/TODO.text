@@ -51,7 +51,7 @@ get-properties
 remf
 intersection
 nintersection
-adjoin
+* adjoin
 pushnew
 set-difference
 nset-difference
