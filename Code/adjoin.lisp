@@ -27,3 +27,23 @@
                key key-supplied-p
                test test-supplied-p
                test-not test-not-supplied-p))
+
+(define-compiler-macro adjoin (&whole form &rest arguments)
+  (let ((lambda-list
+          '((item list) ; required
+            ()          ; optional
+            nil         ; rest
+            ((:key key key-supplied-p)
+             (:test test test-supplied-p)
+             (:test-not test-not test-not-supplied-p))
+            nil)))
+    (unless (check-call-site arguments lambda-list)
+      (return-from adjoin form))
+    (compute-compiler-macro-body
+     arguments
+     (butlast lambda-list)
+     '(adjoin-core
+       item alist
+       key key-supplied-p
+       test test-supplied-p
+       test-not test-not-supplied-p))))
