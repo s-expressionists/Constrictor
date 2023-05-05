@@ -47,4 +47,5 @@
     #:mapcar #:mapc #:mapcan #:maplist #:mapl #:mapcon
     #:tailp #:ldiff
     #:push #:pop
-    #:getf))
+    #:getf
+    #:adjoin))
