@@ -5,6 +5,7 @@
 (defun nth (n list)
   (unless (listp list)
     (error 'list-expected :datum list))
+  (check-type n (integer 0))
   (loop for result on list
         repeat n
         until (atom result)
