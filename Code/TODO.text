@@ -49,7 +49,7 @@ nbutlast
 get-properties
 * getf
 remf
-intersection
+* intersection
 nintersection
 * adjoin
 pushnew

@@ -59,4 +59,5 @@
    (:file "ldiff")
    (:file "getf")
    (:file "setf-getf")
-   (:file "adjoin")))
+   (:file "adjoin")
+   (:file "intersection")))
