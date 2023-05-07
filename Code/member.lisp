@@ -1,9 +1,5 @@
 (cl:in-package #:constrictor)
 
-(declaim (inline member))
-
-(cl:in-package #:constrictor)
-
 (declaim (inline member-core))
 
 (defun member-core
