@@ -694,8 +694,7 @@
                    (C~aR LIST) is equivalent to ~s."
                   (string-downcase string)
                   string
-                  (split string 0)
-                  (car-or-cdr string)))))
+                  (split string 0)))))
 
 (loop for symbol in
       '(caar cadr cdar cddr
