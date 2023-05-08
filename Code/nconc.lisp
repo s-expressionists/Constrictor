@@ -12,9 +12,14 @@
                          ((atom first)
                           (error 'type-error
                                  :datum first
-                                 :expected-type 'list))
-                         (t (rplacd (last first) (local-nconc rest))
-                            first)))))
+                                 :expected-type 'cl:list))
+                         ((null (cdr rest))
+                          (rplacd (last first) (car rest))
+                          first)
+                         (t
+                          (local-nconc
+                           (cons (local-nconc (list first (car rest)))
+                                 (cdr rest))))))))
         (local-nconc lists))))
 
 (declaim (notinline nconc))
