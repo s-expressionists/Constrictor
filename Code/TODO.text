@@ -57,6 +57,6 @@ set-difference
 nset-difference
 set-exclusive-or
 nset-exclusive-or
-subsetp
+* subsetp
 union
 nunion
