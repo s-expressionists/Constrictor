@@ -10,48 +10,10 @@
 (declaim (inline mapcon))
 
 (defun mapcon (function &rest lists)
-  (cond ((null lists)
-         (error 'at-least-one-list-must-be-supplied))
-        ((null (rest lists))
-         ;; We have exactly one list.  This is of couse a very
-         ;; common special case.
-         (let ((list (first lists)))
-           (loop for rest on list
-                 until (atom rest)
-                 nconc (funcall function rest)
-                 finally (unless (listp rest)
-                           (error 'list-must-be-proper
-                                  :offending-list list
-                                  :datum rest)))))
-        ((null (rest (rest lists)))
-         ;; We have exactly two lists.  Another common special case.
-         (let ((list1 (first lists))
-               (list2 (second lists)))
-           (loop for rest1 on list1
-                 for rest2 on list2
-                 until (or (atom rest1) (atom rest2))
-                 nconc (funcall function rest1 rest2)
-                 finally (unless (listp rest1)
-                           (error 'list-must-be-proper
-                                  :offending-list list1
-                                  :datum rest1))
-                         (unless (listp rest2)
-                           (error 'list-must-be-proper
-                                  :offending-list list2
-                                  :datum rest2)))))
-        (t
-         (let ((local-lists lists))
-           (loop until (some #'atom local-lists)
-                 nconc (apply function local-lists)
-                 do (setf local-lists (mapcar #'rest local-lists))
-                 finally
-                    (let ((position (position-if-not #'listp local-lists)))
-                      (unless (null position)
-                        (error 'list-must-be-proper
-                               :offending-list (elt lists position)
-                               :datum (elt local-lists position)))))))))
+  (apply #'nconc (apply #'maplist function lists)))
 
 (declaim (notinline mapcon))
+
 (setf (documentation 'maplist 'function)
       (format nil
               "Syntax: maplist function &rest lists~@
