@@ -16,7 +16,7 @@
 
 (declaim (inline intersection))
 
-(defun instersection
+(defun intersection
     (list-1 list-2
      &key
        (key #'identity key-supplied-p)
