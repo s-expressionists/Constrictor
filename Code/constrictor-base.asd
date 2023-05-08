@@ -49,4 +49,5 @@
     #:push #:pop
     #:getf
     #:adjoin
-    #:intersection #:nintersection))
+    #:intersection #:nintersection
+    #:subsetp))
