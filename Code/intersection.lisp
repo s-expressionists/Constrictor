@@ -4,13 +4,15 @@
 
 (defun intersection-core
     (list-1 list-2 key key-supplied-p test test-supplied-p test-not test-not-supplied-p)
-  (loop for element-1 in list-1
-        when (member-core
-              element-1 list-2
-              key key-supplied-p
-              test test-supplied-p
-              test-not test-not-supplied-p)
-          collect element-1))
+  (with-key (key key-supplied-p)
+    (with-test (test test-supplied-p test-not test-not-supplied-p)
+      (loop with result = '()
+            for element-1 in list-1
+            do (loop for element-2 in list-2
+                     when (apply-test (apply-key element-1)
+                                      (apply-key element-2))
+                       do (push element-2 result))
+            finally (return result)))))
 
 (declaim (notinline intersection-core))
 
