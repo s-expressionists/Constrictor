@@ -1,5 +1,14 @@
 (cl:in-package #:constrictor)
 
+(define-condition warn-both-test-and-test-not-supplied (warning)
+  ()
+  (:report (lambda (condition stream)
+             (declare (ignore condition))
+             (format stream
+                     "At most one of the keyword arguments~@
+                      :TEST and :TEST-NOT can be supplied,~@
+                      but both were supplied."))))
+
 (define-condition invalid-alist-element (type-error)
   ((%offending-list
     :initarg :offending-list
