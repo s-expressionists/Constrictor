@@ -62,4 +62,5 @@
    (:file "adjoin")
    (:file "pushnew")
    (:file "intersection")
+   (:file "union")
    (:file "subsetp")))
