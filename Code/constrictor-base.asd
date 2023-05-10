@@ -51,4 +51,5 @@
     #:adjoin
     #:pushnew
     #:intersection #:nintersection
+    #:union #:nunion
     #:subsetp))
