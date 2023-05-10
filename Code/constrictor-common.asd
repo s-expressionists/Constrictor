@@ -60,5 +60,6 @@
    (:file "getf")
    (:file "setf-getf")
    (:file "adjoin")
+   (:file "pushnew")
    (:file "intersection")
    (:file "subsetp")))

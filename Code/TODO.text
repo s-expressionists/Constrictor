@@ -52,7 +52,7 @@ remf
 * intersection
 nintersection
 * adjoin
-pushnew
+* pushnew
 set-difference
 nset-difference
 set-exclusive-or
