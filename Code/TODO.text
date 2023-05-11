@@ -53,7 +53,7 @@ remf
 nintersection
 * adjoin
 * pushnew
-set-difference
+* set-difference
 nset-difference
 set-exclusive-or
 nset-exclusive-or
