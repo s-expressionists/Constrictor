@@ -33,19 +33,7 @@
 (setf (documentation 'set-difference 'function)
       (format nil
               "Syntax: set-difference list-1 list-2 &key key test test-not~@
-               ~@
-               ~a~@
-               ~@
-               ~a~@
-               ~@
-               The function denoted by KEY is applied to each element~@
-               of LIST-1 and LIST-2 before the test is applied.  KEY~@
-               is typically used to extract a slot from an element of~@
-               either LIST-1 or LIST-2 to be used for the test, but~@
-               this is not a requirement.~@
-               ~@
-               ~a~@
-               ~@
+               ~%~a~%~%~a~%~%~a~%~%~a~%~@
                Either TEST or TEST-NOT is applied to the result of~@
                applying KEY to an element of LIST-1 and and the result~@
                of applying KEY to an element of LIST-2 in that order.~@
@@ -66,4 +54,5 @@
                this function will also contain duplicate elements."
               *list-1-and-list-2-must-be-proper*
               *key*
+              *key-applied-to-elements-of-list-1-and-list-1*
               *test-and-test-not*))
