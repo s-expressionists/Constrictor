@@ -48,6 +48,7 @@
     #:tailp #:ldiff
     #:push #:pop
     #:getf
+    #:remf
     #:adjoin
     #:pushnew
     #:intersection #:nintersection
