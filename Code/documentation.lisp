@@ -15,6 +15,14 @@
            argument.  If KEY is NIL or not provided, it defaults to~@
            the function named IDENTITY."))
 
+(defparameter *key-applied-to-elements-of-list-1-and-list-1*
+  (format nil
+          "The function denoted by KEY is applied to each element~@
+           of LIST-1 and LIST-2 before the test is applied.  KEY~@
+           is typically used to extract a slot from an element of~@
+           either LIST-1 or LIST-2 to be used for the test, but~@
+           this is not a requirement."))
+
 (defparameter *test-and-test-not*
   (format nil
           "TEST and TEST-NOT are designators for functions of two~@
