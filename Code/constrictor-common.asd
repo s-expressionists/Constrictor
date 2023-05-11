@@ -3,7 +3,8 @@
 (defsystem constrictor-common
   :serial t
   :components
-  ((:file "error")
+  ((:file "documentation")
+   (:file "error")
    (:file "conditions")
    (:file "traversal-macros")
    (:file "push")
