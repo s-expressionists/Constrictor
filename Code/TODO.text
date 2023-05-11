@@ -48,7 +48,7 @@ nbutlast
 * rassoc-if-not
 get-properties
 * getf
-remf
+* remf
 * intersection
 nintersection
 * adjoin

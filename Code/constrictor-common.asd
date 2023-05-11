@@ -59,6 +59,7 @@
    (:file "tailp")
    (:file "ldiff")
    (:file "getf")
+   (:file "remf")
    (:file "setf-getf")
    (:file "adjoin")
    (:file "pushnew")
