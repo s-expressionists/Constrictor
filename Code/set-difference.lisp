@@ -41,7 +41,7 @@
                LIST-2, the test is satisfied, then E1 is excluded from~@
                the return value of this function.  Otherwise, i.e., if~@
                for every element E2 of LIST-2 the test is not satisfied,~@
-               then E1 is include in the return value of this function.~@
+               then E1 is included in the return value of this function.~@
                ~@
                The order of the elements in the return value of~@
                this function should not be relied upon.  The only~@
