@@ -64,6 +64,7 @@
    (:file "adjoin")
    (:file "pushnew")
    (:file "intersection")
+   (:file "nintersection")
    (:file "set-difference")
    (:file "nset-difference")
    (:file "union")

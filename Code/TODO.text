@@ -50,7 +50,7 @@ get-properties
 * getf
 * remf
 * intersection
-nintersection
+* nintersection
 * adjoin
 * pushnew
 * set-difference
