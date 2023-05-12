@@ -54,7 +54,7 @@ nintersection
 * adjoin
 * pushnew
 * set-difference
-nset-difference
+* nset-difference
 set-exclusive-or
 nset-exclusive-or
 * subsetp
