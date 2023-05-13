@@ -17,7 +17,7 @@
                        do (pop remaining)
                           (return nil)
                        finally (rotatef (cdr remaining) result remaining))
-            finally (return result))))
+            finally (return result)))))
 
 (declaim (notinline nunion-core))
 
