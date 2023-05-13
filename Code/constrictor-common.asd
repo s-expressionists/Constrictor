@@ -71,4 +71,5 @@
    (:file "union")
    (:file "nunion")
    (:file "set-exclusive-or")
+   (:file "nset-exclusive-or")
    (:file "subsetp")))

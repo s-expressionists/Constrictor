@@ -56,7 +56,7 @@ get-properties
 * set-difference
 * nset-difference
 * set-exclusive-or
-nset-exclusive-or
+* nset-exclusive-or
 * subsetp
 * union
 * nunion
