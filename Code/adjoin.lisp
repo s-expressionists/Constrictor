@@ -12,7 +12,6 @@
             finally (if (null remaining)
                         (return (cons item list))
                         (error 'list-must-be-proper
-                               :datum remaining
                                :offending-list list))))))
 
 (declaim (notinline adjoin-core))

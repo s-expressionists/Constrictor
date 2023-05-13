@@ -10,7 +10,6 @@
            nil)
           ((not (listp (car remaining)))
            (error 'list-must-be-proper
-                  :datum (car remaining)
                   :offending-list (car remaining)))
           (t
            (let* ((list-to-copy (car remaining))
@@ -32,8 +31,6 @@
                                   (go copy-element))))
                       (t
                        (error 'list-must-be-proper
-                              :datum list-to-copy
-                              ;; Do this better.
                               :offending-list list-to-copy)))
               done)
              result)))))

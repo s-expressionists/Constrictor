@@ -18,7 +18,6 @@
             finally (if (null remaining)
                         (return result)
                         (error 'list-must-be-proper
-                               :datum remaining
                                :offending-list list-1))))))
 
 (declaim (notinline nunion-core))

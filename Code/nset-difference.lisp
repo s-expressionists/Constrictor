@@ -8,7 +8,6 @@
     (return-from nset-difference-core '()))
   (when (atom list-1)
     (error 'list-must-be-proper
-           :datum list-1
            :offending-list list-1))
   (with-key (key key-supplied-p)
     (with-test (test test-supplied-p test-not test-not-supplied-p)
@@ -24,7 +23,6 @@
                      finally (pop rest))
             finally (unless (null (cdr rest))
                       (error 'list-must-be-proper
-                             :datum (cdr rest)
                              :offending-list list-1)))
       ;; At this point, we have excluded every element in LIST-1 that
       ;; is also an element of LIST-1, except we haven't checked the

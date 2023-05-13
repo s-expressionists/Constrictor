@@ -14,8 +14,7 @@
         do (funcall function (first rest))
         finally (unless (listp rest)
                   (error 'list-must-be-proper
-                         :offending-list list
-                         :datum rest)))
+                         :offending-list list)))
   list)
 
 (declaim (notinline mapc1))
@@ -29,12 +28,10 @@
         do (funcall function (first rest1) (first rest2))
         finally (unless (listp rest1)
                   (error 'list-must-be-proper
-                         :offending-list list1
-                         :datum rest1))
+                         :offending-list list1))
                 (unless (listp rest2)
                   (error 'list-must-be-proper
-                         :offending-list list2
-                         :datum rest2)))
+                         :offending-list list2)))
   list1)
 
 (declaim (notinline mapc2))
@@ -57,8 +54,7 @@
                     (let ((position (position-if-not #'listp local-lists)))
                       (unless (null position)
                         (error 'list-must-be-proper
-                               :offending-list (elt lists position)
-                               :datum (elt local-lists position))))))
+                               :offending-list (elt lists position))))))
          (first lists))))
 
 (declaim (notinline mapc))

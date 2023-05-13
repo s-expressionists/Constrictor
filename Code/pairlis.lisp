@@ -14,12 +14,10 @@
                         rest-keys rest-data)
                 (unless (listp rest-keys)
                   (error 'list-must-be-proper
-                         :offending-list keys
-                         :datum rest-keys))
+                         :offending-list keys))
                 (unless (listp rest-data)
                   (error 'list-must-be-proper
-                         :offending-list data
-                         :datum rest-data))
+                         :offending-list data))
                 (unless (and (null rest-keys) (null rest-data))
                   (error 'keys-and-data-must-have-the-same-length
                          :keys keys

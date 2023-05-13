@@ -22,8 +22,7 @@
            do ,@body
            finally (unless (null ,rest-variable)
                      (error 'list-must-be-proper
-                            :offending-list ,list-variable
-                            :datum ,rest-variable)))))
+                            :offending-list ,list-variable)))))
 
 ;;; This macro can be used to traverse a list that must be a proper
 ;;; list, when each tail of the list must be examined.  Client code
@@ -39,8 +38,7 @@
            do ,@body
            finally (unless (null ,rest-variable)
                      (error 'list-must-be-proper
-                            :offending-list ,list-variable
-                            :datum ,rest-variable)))))
+                            :offending-list ,list-variable)))))
 
 (defun read-new-cons ()
   (format *query-io*
