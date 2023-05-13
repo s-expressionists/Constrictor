@@ -54,4 +54,5 @@
     #:intersection #:nintersection
     #:set-difference #:nset-difference
     #:union #:nunion
+    #:set-exclusive-or #:nset-exclusive-or
     #:subsetp))
