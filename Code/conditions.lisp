@@ -104,7 +104,7 @@
                      (type-error-datum condition))))
   (:default-initargs :expected-type 'cl:list))
 
-(define-condition list-must-be-proper (type-error)
+(define-condition list-must-be-proper (cl:error)
   ((%offending-list
     :initarg :offending-list
     :reader offending-list))
@@ -113,8 +113,7 @@
                      "A proper list must be given, but the~@
                       following was found instead:~@
                       ~s"
-                     (offending-list condition))))
-  (:default-initargs :expected-type 'cl:list))
+                     (offending-list condition)))))
 
 (define-condition keys-and-data-must-have-the-same-length (cl:error)
   ((%keys :initarg :keys :reader keys)
