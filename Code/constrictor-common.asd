@@ -69,4 +69,5 @@
    (:file "nset-difference")
    (:file "union")
    (:file "nunion")
+   (:file "set-exclusive-or")
    (:file "subsetp")))

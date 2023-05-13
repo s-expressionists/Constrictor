@@ -55,7 +55,7 @@ get-properties
 * pushnew
 * set-difference
 * nset-difference
-set-exclusive-or
+* set-exclusive-or
 nset-exclusive-or
 * subsetp
 * union
