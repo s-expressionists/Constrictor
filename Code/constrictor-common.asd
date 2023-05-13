@@ -68,4 +68,5 @@
    (:file "set-difference")
    (:file "nset-difference")
    (:file "union")
+   (:file "nunion")
    (:file "subsetp")))
