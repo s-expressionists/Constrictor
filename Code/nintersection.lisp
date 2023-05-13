@@ -4,15 +4,14 @@
 
 (defun nintersection-core
     (list-1 list-2 key key-supplied-p test test-supplied-p test-not test-not-supplied-p)
+  (assert-proper-list list-1)
+  (assert-proper-list list-2)
   (when (null list-1)
     (return-from nintersection-core '()))
-  (when (atom list-1)
-    (error 'list-must-be-proper
-           :offending-list list-1))
   (with-key (key key-supplied-p)
     (with-test (test test-supplied-p test-not test-not-supplied-p)
       (loop with rest = list-1
-            until (atom (cdr rest))
+            until (null (cdr rest))
             do (loop with element-1 = (cadr rest)
                      for element-2 in list-2
                      when (apply-test (apply-key element-1)
@@ -20,10 +19,7 @@
                        ;; Exclude (CADR REST).
                        do (pop rest)
                        and return nil
-                     finally (setf (cdr rest) (cddr rest)))
-            finally (unless (null (cdr rest))
-                      (error 'list-must-be-proper
-                             :offending-list list-1)))
+                     finally (setf (cdr rest) (cddr rest))))
       ;; At this point, we have excluded every element in LIST-1 that
       ;; is also an element of LIST-1, except we haven't checked the
       ;; first element of LIST-1.

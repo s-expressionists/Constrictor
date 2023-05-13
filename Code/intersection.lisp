@@ -4,6 +4,8 @@
 
 (defun intersection-core
     (list-1 list-2 key key-supplied-p test test-supplied-p test-not test-not-supplied-p)
+  (assert-proper-list list-1)
+  (assert-proper-list list-2)
   (with-key (key key-supplied-p)
     (with-test (test test-supplied-p test-not test-not-supplied-p)
       (loop with result = '()
