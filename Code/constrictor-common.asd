@@ -6,6 +6,7 @@
   ((:file "documentation")
    (:file "error")
    (:file "conditions")
+   (:file "utilities")
    (:file "traversal-macros")
    (:file "push")
    (:file "pop")
