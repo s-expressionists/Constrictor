@@ -53,7 +53,11 @@
                this function should not be relied upon.  If there are~@
                duplicate elements in LIST-1, and there is no corresponding~@
                element in LIST-2 that satifies the test, then the return~@
-               value of this function will also contain duplicate elements."
+               value of this function will also contain duplicate elements.
+               Similarly, if there are duplicate elements in LIST-1, and~@
+               there is no corresponding element in LIST-2 that satifies~@
+               the test, then the return value of this function will also~@
+               contain duplicate elements."
               *list-1-and-list-2-must-be-proper*
               *key*
               *key-applied-to-elements-of-list-1-and-list-1*
