@@ -6,8 +6,7 @@
 (defparameter *list-1-and-list-2-must-be-proper*
   (format nil
           "LIST-1 and LIST-2 must be proper lists.  If either LIST-1~@
-           or LIST-2 is not a proper list, then an error of type~@
-           TYPE-ERROR is signaled."))
+           or LIST-2 is not a proper list, then an error is signaled."))
 
 (defparameter *key*
   (format nil
