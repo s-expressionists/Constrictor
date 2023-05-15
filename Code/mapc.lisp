@@ -13,7 +13,8 @@
         until (atom rest)
         do (funcall function (first rest))
         finally (unless (listp rest)
-                  (error 'list-must-be-proper
+                  (error 'list-must-not-be-dotted
+                         :datum rest
                          :offending-list list)))
   list)
 
@@ -27,10 +28,12 @@
         until (or (atom rest1) (atom rest2))
         do (funcall function (first rest1) (first rest2))
         finally (unless (listp rest1)
-                  (error 'list-must-be-proper
+                  (error 'list-must-not-be-dotted
+                         :datum rest1
                          :offending-list list1))
                 (unless (listp rest2)
-                  (error 'list-must-be-proper
+                  (error 'list-must-not-be-dotted
+                         :datum rest2
                          :offending-list list2)))
   list1)
 
@@ -53,7 +56,8 @@
                  finally
                     (let ((position (position-if-not #'listp local-lists)))
                       (unless (null position)
-                        (error 'list-must-be-proper
+                        (error 'list-must-not-be-dotted
+                               :datum (find-if-not #'listp local-lists)
                                :offending-list (elt lists position))))))
          (first lists))))
 

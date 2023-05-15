@@ -20,7 +20,8 @@
                  until (atom rest)
                  collect (funcall function (first rest))
                  finally (unless (listp rest)
-                           (error 'list-must-be-proper
+                           (error 'list-must-not-be-dotted
+                                  :datum rest
                                   :offending-list list)))))
         ((null (rest (rest lists)))
          ;; We have exactly two lists.  Another common special case.
@@ -31,10 +32,12 @@
                  until (or (atom rest1) (atom rest2))
                  collect (funcall function (first rest1) (first rest2))
                  finally (unless (listp rest1)
-                           (error 'list-must-be-proper
+                           (error 'list-must-not-be-dotted
+                                  :datum rest1
                                   :offending-list list1))
                          (unless (listp rest2)
-                           (error 'list-must-be-proper
+                           (error 'list-must-not-be-dottes
+                                  :datum rest2
                                   :offending-list list2)))))
         (t
          (let ((local-lists lists))
@@ -46,6 +49,7 @@
                       (let ((position (position-if-not #'listp local-lists)))
                         (unless (null position)
                           (error 'list-must-be-proper
+                                 :datum (find-if-not #'listp local-lists)
                                  :offending-list (elt lists position))))))))))
 
 (declaim (notinline mapcar))
