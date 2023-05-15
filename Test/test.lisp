@@ -6,4 +6,5 @@
   (test-last)
   (test-butlast)
   (test-mapcar)
+  (test-mapc)
   (values))

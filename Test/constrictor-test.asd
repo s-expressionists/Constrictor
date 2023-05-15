@@ -11,4 +11,5 @@
    (:file "assoc")
    (:file "last")
    (:file "mapcar")
+   (:file "mapc")
    (:file "test")))

@@ -42,7 +42,7 @@ c    nthcdr
 c    member
 c    member-if
 c    member-if-not
-cdm  mapc
+cdmt mapc
 cdnt mapcar
 cdn  mapcan
 cdm  mapl
