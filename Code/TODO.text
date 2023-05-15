@@ -2,6 +2,7 @@ c = code
 d = documentation
 m = compiler macro
 n = no compiler macro required.
+t = test
 
 cd   consp
 cd   atom
@@ -10,7 +11,7 @@ cd   first, second, ...
 c    copy-tree
 cd   sublis
 cd   nsublis
-cd   subst
+cdt  subst
 c    subst-if
 c    subst-if-not
 c    nsubst
@@ -34,7 +35,7 @@ cd   revappend
 cd   nreconc
 c    butlast
      nbutlast
-c    last
+ct   last
 c    ldiff
 c    tailp
 c    nthcdr
@@ -42,13 +43,13 @@ c    member
 c    member-if
 c    member-if-not
 cdm  mapc
-cdn  mapcar
+cdnt mapcar
 cdn  mapcan
 cdm  mapl
 cdn  maplist
 cdn  mapcon
 c    acons
-cm   assoc
+cmt  assoc
 cm   assoc-if
 c    assoc-if-not
 cd   copy-alist
