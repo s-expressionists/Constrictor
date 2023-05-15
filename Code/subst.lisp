@@ -34,6 +34,7 @@
 (setf (documentation 'subst 'function)
       (format nil
               "Syntax: subst new old tree &key key test test-not)~@
+               ~@
                TREE is a tree where the leaves are atoms and~@
                the other nodes are CONS cells.  This function~@
                traverses TREE, and if an occurrence of OLD is found,~@
