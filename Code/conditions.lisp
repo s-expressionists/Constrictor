@@ -115,6 +115,16 @@
                       ~s"
                      (offending-list condition)))))
 
+(define-condition list-must-not-be-dotted (list-must-be-proper type-error)
+  ()
+  (:report (lambda (condition stream)
+             (format stream
+                     "A proper list must be given, but the following~@
+                      dotted list was given instead:~@
+                      ~s"
+                     (offending-list condition))))
+  (:default-initargs :expected-type 'cl:list))
+
 (define-condition keys-and-data-must-have-the-same-length (cl:error)
   ((%keys :initarg :keys :reader keys)
    (%data :initarg :data :reader data))
