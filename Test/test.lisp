@@ -8,4 +8,5 @@
   (test-mapcar)
   (test-mapc)
   (test-mapl)
+  (test-mapcan)
   (values))

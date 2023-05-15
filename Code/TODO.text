@@ -44,7 +44,7 @@ c    member-if
 c    member-if-not
 cdmt mapc
 cdnt mapcar
-cdn  mapcan
+cdnt mapcan
 cdmt mapl
 cdn  maplist
 cdn  mapcon

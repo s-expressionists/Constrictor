@@ -13,4 +13,5 @@
    (:file "mapcar")
    (:file "mapc")
    (:file "mapl")
+   (:file "mapcan")
    (:file "test")))
