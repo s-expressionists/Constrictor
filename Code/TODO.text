@@ -1,6 +1,7 @@
 c = code
 d = documentation
 m = compiler macro
+n = no compiler macro required.
 
 cd consp
 cd atom
@@ -21,12 +22,12 @@ cd list
 c list*
 cd list-length
 cd listp
-c make-list
+cd make-list
 cd push
 cd pop
 cd nth
 c endp
-c null
+cdn null
 cd nconc
 c append
 cd revappend
