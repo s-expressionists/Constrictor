@@ -8,7 +8,7 @@
 * copy-tree
 ** sublis
 ** nsublis
-* subst
+** subst
 * subst-if
 * subst-if-not
 * nsubst
@@ -28,8 +28,8 @@
 * null
 ** nconc
 * append
-* revappend
-* nreconc
+** revappend
+** nreconc
 * butlast
 nbutlast
 * last
@@ -39,12 +39,12 @@ nbutlast
 * member
 * member-if
 * member-if-not
-* mapc...
+** mapc...
 * acons
 * assoc
 * assoc-if
 * assoc-if-not
-* copy-alist
+** copy-alist
 * pairlis
 * rassoc
 * rassoc-if
