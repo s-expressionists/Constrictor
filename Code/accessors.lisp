@@ -702,3 +702,31 @@
         caaaar caaadr caadar caaddr cadaar cadadr caddar cadddr
         cdaaar cdaadr cdadar cdaddr cddaar cddadr cdddar cddddr)
       do (c*r-documentation symbol))
+
+(defun integer-to-cl-symbol (integer)
+  (find-symbol (string-upcase (format nil "~:R" integer))
+               (find-package "CONSTRICTOR")))
+
+(defun set-first-to-tenth-documentation (n)
+  (setf (documentation (integer-to-cl-symbol n) 'function)
+        (format nil
+                "Syntax: ~a list~@
+                 ~@
+                 This function returns the same value as:~@
+                 (NTH ~a LIST)"
+                (format nil "~:R" n)
+                (1- n)))
+  (setf (documentation `(setf ,(integer-to-cl-symbol n)) 'function)
+        (format nil
+                "Syntax: (setf (~a list) new-object)~@
+                 ~@
+                 This function as the same effect and returns~@
+                 the same value as:~@
+                 (SETF (NTH ~a LIST) NEW-OBJECT)"
+                (format nil "~:R" n)
+                (1- n))))
+
+(loop for i from 1 to 10
+      do (set-first-to-tenth-documentation i))
+
+                       "
