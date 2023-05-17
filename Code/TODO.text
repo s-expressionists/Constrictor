@@ -46,8 +46,8 @@ cdmt mapc
 cdnt mapcar
 cdnt mapcan
 cdmt mapl
-cdn  maplist
-cdn  mapcon
+cdnt maplist
+cdnt mapcon
 c    acons
 cmt  assoc
 cm   assoc-if
