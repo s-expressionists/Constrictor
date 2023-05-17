@@ -9,4 +9,5 @@
   (test-mapc)
   (test-mapl)
   (test-mapcan)
+  (test-maplist)
   (values))
