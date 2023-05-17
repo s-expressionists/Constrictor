@@ -15,4 +15,5 @@
    (:file "mapl")
    (:file "mapcan")
    (:file "maplist")
+   (:file "mapcon")
    (:file "test")))

@@ -10,4 +10,5 @@
   (test-mapl)
   (test-mapcan)
   (test-maplist)
+  (test-mapcon)
   (values))
