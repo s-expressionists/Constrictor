@@ -48,7 +48,7 @@ cdnt mapcan
 cdmt mapl
 cdnt maplist
 cdnt mapcon
-c    acons
+cdnt acons
 cmt  assoc
 cm   assoc-if
 c    assoc-if-not
