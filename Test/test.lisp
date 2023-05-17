@@ -11,4 +11,5 @@
   (test-mapcan)
   (test-maplist)
   (test-mapcon)
+  (test-acons)
   (values))
