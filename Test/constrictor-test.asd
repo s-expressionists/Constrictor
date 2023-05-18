@@ -8,6 +8,7 @@
   ((:file "packages")
    (:file "prepare")
    (:file "subst")
+   (:file "subst-if")
    (:file "assoc")
    (:file "last")
    (:file "mapcar")
