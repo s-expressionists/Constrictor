@@ -12,7 +12,7 @@ c    copy-tree
 cd   sublis
 cd   nsublis
 cdt  subst
-c    subst-if
+cd   subst-if
 c    subst-if-not
 c    nsubst
 c    nsubst-if
