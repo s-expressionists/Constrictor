@@ -13,7 +13,7 @@ cd   sublis
 cd   nsublis
 cdt  subst
 cdt  subst-if
-c    subst-if-not
+cd   subst-if-not
 c    nsubst
 c    nsubst-if
 c    nsubst-if-not

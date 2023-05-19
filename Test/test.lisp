@@ -3,6 +3,7 @@
 (defun test ()
   (test-subst)
   (test-subst-if)
+  (test-subst-if-not)
   (test-assoc)
   (test-last)
   (test-butlast)

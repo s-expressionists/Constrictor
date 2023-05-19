@@ -9,6 +9,7 @@
    (:file "prepare")
    (:file "subst")
    (:file "subst-if")
+   (:file "subst-if-not")
    (:file "assoc")
    (:file "last")
    (:file "mapcar")
