@@ -1,0 +1,11 @@
+(cl:in-package #:constrictor-test)
+
+(defun test-endp ()
+  (rt:do-test 'cl-test::endp-nil)
+  (rt:do-test 'cl-test::endp-cons)
+  (rt:do-test 'cl-test::endp-singleton-list)
+  (rt:do-test 'cl-test::endp.order.1)
+  (rt:do-test 'cl-test::endp.error.1)
+  (rt:do-test 'cl-test::endp.error.4)
+  (rt:do-test 'cl-test::endp.error.5)
+  (rt:do-test 'cl-test::endp.error.6))
