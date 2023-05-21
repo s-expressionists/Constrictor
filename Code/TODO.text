@@ -53,7 +53,7 @@ cmt  assoc
 cm   assoc-if
 c    assoc-if-not
 cd   copy-alist
-c    pairlis
+cdn  pairlis
 c    rassoc
 c    rassoc-if
 c    rassoc-if-not
