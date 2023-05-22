@@ -32,3 +32,19 @@
                           (return head))))))
 
 (declaim (notinline last))
+
+(setf (documentation 'last 'function)
+      (format nil
+              "Syntax: last list &optional n~@
+               ~@
+               LIST must be a list that is either a proper list~@
+               or a dotted list.  This function returns the lst N~@
+               CONS cell of LIST.  The default value for N is 1.~@
+               If N is 0, then the atom that terminates the list is~@
+               returned.  If N greater than or equal to the number~@
+               of CONS cells in LIST, then this function returns LIST.~@
+               ~@
+               If N is not a non-negative integer, then an error of~@
+               type TYPE-ERROR is signaled.  If LIST is not a list,~@
+               then an error of type TYPE-ERROR is signaled.  If LIST~@
+               is a circular list, then an error is signaled."))
