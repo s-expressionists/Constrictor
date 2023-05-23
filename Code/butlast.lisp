@@ -38,7 +38,7 @@
 
 (setf (documentation 'butlast 'function)
       (format nil
-              "Syntax: nbutlast list &optional n~@
+              "Syntax: butlast list &optional n~@
                ~@
                LIST must be a list that is either a proper list~@
                or a dotted list.  This function returns a copy of~@
