@@ -35,3 +35,23 @@
                       :datum list)))))
 
 (declaim (notinline butlast))
+
+(setf (documentation 'butlast 'function)
+      (format nil
+              "Syntax: nbutlast list &optional n~@
+               ~@
+               LIST must be a list that is either a proper list~@
+               or a dotted list.  This function returns a copy of~@
+               LIST from which the last N CONS cells have been omitted.~@
+               The default value for N is 1. If N is 0, then if LIST~@
+               is a proper list, a copy of LIST is returned.  If N is 0~@
+               and LIST is a dotted list, a proper list is returned that
+               is like LIST, except that the CDR of the last CONS cell~@
+               is NIL rather than the atom of the last CONS cell of LIST.~@
+               If N greater than or equal to the number of CONS cells in~@
+               LIST, then this function returns the empty list.~@
+               ~@
+               If N is not a non-negative integer, then an error of~@
+               type TYPE-ERROR is signaled.  If LIST is not a list,~@
+               then an error of type TYPE-ERROR is signaled.  If LIST~@
+               is a circular list, then an error is signaled."))

@@ -33,9 +33,9 @@ cd   nconc
 c    append
 cd   revappend
 cd   nreconc
-c    butlast
+cdnt butlast
      nbutlast
-cdn  last
+cdnt last
 c    ldiff
 c    tailp
 c    nthcdr
