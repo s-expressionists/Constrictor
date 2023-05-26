@@ -15,4 +15,5 @@
   (test-maplist)
   (test-mapcon)
   (test-acons)
+  (test-nthcdr)
   (values))

@@ -20,4 +20,5 @@
    (:file "maplist")
    (:file "mapcon")
    (:file "acons")
+   (:file "nthcdr")
    (:file "test")))
