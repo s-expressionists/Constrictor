@@ -29,7 +29,7 @@
 
 (setf (documentation 'rassoc 'function)
       (format nil
-              "Syntax assoc item alist &key key test test-not~@
+              "Syntax rassoc item alist &key key test test-not~@
                ~@
                This function returns the first CONS cell in ALIST~@
                the CDR of which satisfies the test, i.e., that~@
