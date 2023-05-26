@@ -53,45 +53,49 @@
         (alist-variable (gensym))
         (position-variable (gensym))
         (new-cons-variable (gensym)))
-    `(loop with ,alist-variable = ,alist
-           for ,rest-variable on ,alist-variable
-           for ,position-variable from 0
-           do (let ((,element-variable (car ,rest-variable)))
-                #+sbcl
-                (declare (sb-ext:muffle-conditions sb-ext:compiler-note))
-                (cond ((null ,element-variable)
-                       ;; The standard says that NIL in an association
-                       ;; list is ignored.
-                       nil)
-                      ((consp ,element-variable)
-                       (progn ,@body))
-                      (t
-                       (loop until (consp ,element-variable)
-                             do (restart-case
-                                    (error 'invalid-alist-element
-                                           :datum ,element-variable
-                                           :offending-list ,alist-variable
-                                           :offending-element-position
-                                           ,position-variable)
-                                  (replace (,new-cons-variable)
-                                    :report "Supply a new CONS cell."
-                                    :interactive read-new-cons
-                                    (setf ,element-variable
-                                          ,new-cons-variable))
-                                  (ignore ()
-                                    :report "Ignore the element."
-                                    (return))
-                                  (use ()
-                                    :report "Use the element anyway."
-                                    (loop-finish)))
-                             finally (progn ,@body)))))
-           finally (unless (null ,rest-variable)
-                     (restart-case
-                         (error 'alist-must-not-be-a-dotted-list
-                                :datum ,rest-variable
-                                :offending-element ,alist-variable)
-                       (treat-as-nil ()
-                         :report "Treat the element as NIL."))))))
+    `(let ((,alist-variable ,alist))
+       (unless (listp ,alist-variable)
+         (error 'alist-must-be-list
+                :datum ,alist-variable))
+       (loop for ,rest-variable on ,alist-variable
+             for ,position-variable from 0
+             do (let ((,element-variable (car ,rest-variable)))
+                  #+sbcl
+                  (declare (sb-ext:muffle-conditions sb-ext:compiler-note))
+                  (cond ((null ,element-variable)
+                         ;; The standard says that NIL in an association
+                         ;; list is ignored.
+                         nil)
+                        ((consp ,element-variable)
+                         (progn ,@body))
+                        (t
+                         (loop until (consp ,element-variable)
+                               do (restart-case
+                                      (error 'invalid-alist-element
+                                             :datum ,element-variable
+                                             :offending-list ,alist-variable
+                                             :offending-element-position
+                                             ,position-variable)
+                                    (replace (,new-cons-variable)
+                                      :report "Supply a new CONS cell."
+                                      :interactive read-new-cons
+                                      (setf ,element-variable
+                                            ,new-cons-variable))
+                                    (ignore ()
+                                      :report "Ignore the element."
+                                      (return))
+                                    (use ()
+                                      :report "Use the element anyway."
+                                      (loop-finish)))
+                               finally (progn ,@body)))))
+             finally (unless (null ,rest-variable)
+                       (restart-case
+                           (error 'alist-must-not-be-a-dotted-list
+                                  :expected-type 'list
+                                  :datum ,rest-variable
+                                  :offending-element ,alist-variable)
+                         (treat-as-nil ()
+                           :report "Treat the element as NIL.")))))))
 
 (defmacro check-test-and-test-not
     (test-supplied-p-variable test-not-supplied-p-variable)
