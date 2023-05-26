@@ -30,6 +30,16 @@
                      (type-error-datum condition)
                      (offending-element-position condition)))))
 
+(define-condition alist-must-be-list (type-error)
+  ()
+  (:report (lambda (condition stream)
+             (format stream
+                     "An association list was required, but the~@
+                      following object was supplied instead:~@
+                      ~s."
+                     (type-error-datum condition))))
+  (:default-initargs :expected-type 'cl:list))
+
 (define-condition alist-must-not-be-a-dotted-list (type-error)
   ((%offending-list
     :initarg :offending-list
