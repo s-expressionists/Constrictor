@@ -49,7 +49,7 @@ cdmt mapl
 cdnt maplist
 cdnt mapcon
 cdnt acons
-cmt  assoc
+cdmt assoc
 cm   assoc-if
 c    assoc-if-not
 cd   copy-alist
