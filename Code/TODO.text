@@ -38,7 +38,7 @@ cdnt butlast
 cdnt last
 c    ldiff
 c    tailp
-c    nthcdr
+cd   nthcdr
 c    member
 c    member-if
 c    member-if-not
