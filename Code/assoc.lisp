@@ -52,10 +52,11 @@
               "Syntax assoc item alist &key key test test-not~@
                ~@
                This function returns the first CONS cell in ALIST~@
-               that satisfies the test, i.e., the CAR of which is~@
+               the CAR of which satisfies the test, i.e., that~@
                compares with ITEM to yield a true value, in terms~@
-               of KEY, TEST, and TEST-NOT.  If no CONS cell satisfies~@
-               the test, then this function returns NIL.~@
+               of KEY, TEST, and TEST-NOT.  If no CONS cell contains~@
+               a CAR that satisfies the test, then this function~@
+               returns NIL.~@
                ~@
                KEY must be NIL or a designator for a function of~@
                one argument.  If KEY is NIL, then it is as if the~@
