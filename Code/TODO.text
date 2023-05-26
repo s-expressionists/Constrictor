@@ -51,7 +51,7 @@ cdnt mapcon
 cdnt acons
 cdmt assoc
 cdm  assoc-if
-c    assoc-if-not
+cdm  assoc-if-not
 cd   copy-alist
 cdn  pairlis
 c    rassoc
