@@ -59,27 +59,32 @@
            do (let ((,element-variable (car ,rest-variable)))
                 #+sbcl
                 (declare (sb-ext:muffle-conditions sb-ext:compiler-note))
-                (if (consp ,element-variable)
-                    (progn ,@body)
-                    (loop until (consp ,element-variable)
-                          do (restart-case
-                                 (error 'invalid-alist-element
-                                        :datum ,element-variable
-                                        :offending-list ,alist-variable
-                                        :offending-element-position
-                                        ,position-variable)
-                               (replace (,new-cons-variable)
-                                 :report "Supply a new CONS cell."
-                                 :interactive read-new-cons
-                                 (setf ,element-variable
-                                       ,new-cons-variable))
-                               (ignore ()
-                                 :report "Ignore the element."
-                                 (return))
-                               (use ()
-                                 :report "Use the element anyway."
-                                 (loop-finish)))
-                          finally (progn ,@body))))
+                (cond ((null ,element-variable)
+                       ;; The standard says that NIL in an association
+                       ;; list is ignored.
+                       nil)
+                      ((consp ,element-variable)
+                       (progn ,@body))
+                      (t
+                       (loop until (consp ,element-variable)
+                             do (restart-case
+                                    (error 'invalid-alist-element
+                                           :datum ,element-variable
+                                           :offending-list ,alist-variable
+                                           :offending-element-position
+                                           ,position-variable)
+                                  (replace (,new-cons-variable)
+                                    :report "Supply a new CONS cell."
+                                    :interactive read-new-cons
+                                    (setf ,element-variable
+                                          ,new-cons-variable))
+                                  (ignore ()
+                                    :report "Ignore the element."
+                                    (return))
+                                  (use ()
+                                    :report "Use the element anyway."
+                                    (loop-finish)))
+                             finally (progn ,@body)))))
            finally (unless (null ,rest-variable)
                      (restart-case
                          (error 'alist-must-not-be-a-dotted-list
