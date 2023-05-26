@@ -56,7 +56,7 @@ cd   copy-alist
 cdn  pairlis
 cd   rassoc
 cd   rassoc-if
-c    rassoc-if-not
+cd   rassoc-if-not
      get-properties
 c    getf
 c    remf
