@@ -50,7 +50,7 @@ cdnt maplist
 cdnt mapcon
 cdnt acons
 cdmt assoc
-cm   assoc-if
+cdm  assoc-if
 c    assoc-if-not
 cd   copy-alist
 cdn  pairlis
