@@ -54,9 +54,9 @@ cdmt assoc-if
 cdmt assoc-if-not
 cd   copy-alist
 cdn  pairlis
-cd   rassoc
-cd   rassoc-if
-cd   rassoc-if-not
+cdmt rassoc
+cdmt rassoc-if
+cdmt rassoc-if-not
      get-properties
 c    getf
 c    remf
