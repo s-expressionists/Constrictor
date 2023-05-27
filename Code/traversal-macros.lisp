@@ -91,9 +91,9 @@
              finally (unless (null ,rest-variable)
                        (restart-case
                            (error 'alist-must-not-be-a-dotted-list
-                                  :expected-type 'list
+                                  :expected-type 'cl:list
                                   :datum ,rest-variable
-                                  :offending-element ,alist-variable)
+                                  :offending-list ,alist-variable)
                          (treat-as-nil ()
                            :report "Treat the element as NIL.")))))))
 
