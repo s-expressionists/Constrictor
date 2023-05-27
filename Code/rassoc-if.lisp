@@ -13,7 +13,7 @@
 (declaim (inline rassoc-if))
 
 (defun rassoc-if (predicate alist &key (key nil key-supplied-p))
-  (rassoc-core predicate alist key key-supplied-p))
+  (rassoc-if-core predicate alist key key-supplied-p))
 
 (declaim (notinline rassoc-if))
 
