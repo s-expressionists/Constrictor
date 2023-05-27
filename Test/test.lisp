@@ -5,6 +5,7 @@
   (test-subst)
   (test-subst-if)
   (test-subst-if-not)
+  (test-list-length)
   (test-assoc)
   (test-assoc-if)
   (test-assoc-if-not)
