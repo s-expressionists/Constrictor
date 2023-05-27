@@ -6,6 +6,8 @@
   (test-subst-if)
   (test-subst-if-not)
   (test-assoc)
+  (test-assoc-if)
+  (test-assoc-if-not)
   (test-last)
   (test-butlast)
   (test-mapcar)

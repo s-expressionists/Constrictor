@@ -12,6 +12,8 @@
    (:file "subst-if")
    (:file "subst-if-not")
    (:file "assoc")
+   (:file "assoc-if")
+   (:file "assoc-if-not")
    (:file "last")
    (:file "mapcar")
    (:file "mapc")
