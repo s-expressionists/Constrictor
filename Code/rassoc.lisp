@@ -27,6 +27,26 @@
 
 (declaim (notinline rassoc))
 
+(define-compiler-macro rassoc (&whole form &rest arguments)
+  (let ((lambda-list
+          '((item alist) ; required
+            ()           ; optional
+            nil          ; rest
+            ((:key key key-supplied-p)
+             (:test test test-supplied-p)
+             (:test-not test-not test-not-supplied-p))
+            nil)))
+    (unless (check-call-site arguments lambda-list)
+      (return-from rassoc form))
+    (compute-compiler-macro-body
+     arguments
+     (butlast lambda-list)
+     '(rassoc-core
+       item alist
+       key key-supplied-p
+       test test-supplied-p
+       test-not test-not-supplied-p))))
+
 (setf (documentation 'rassoc 'function)
       (format nil
               "Syntax rassoc item alist &key key test test-not~@

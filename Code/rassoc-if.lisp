@@ -17,6 +17,20 @@
 
 (declaim (notinline rassoc-if))
 
+(define-compiler-macro rassoc-if (&whole form &rest arguments)
+  (let ((lambda-list
+          '((predicate alist)
+            ()
+            nil
+            ((:key key key-supplied-p))
+            nil)))
+    (unless (check-call-site arguments lambda-list)
+      (return-from rassoc-if form))
+    (compute-compiler-macro-body
+     arguments
+     lambda-list
+     '(rassoc-if-core predicate alist key key-supplied-p))))
+
 (setf (documentation 'rassoc-if 'function)
       (format nil
               "Syntax rassoc-if predicate alist &key key~@
