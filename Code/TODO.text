@@ -21,7 +21,7 @@ c    tree-equal
 cd   copy-list
 cdm  list
 cm   list*
-cd   list-length
+cdnt list-length
 cd   listp
 cd   make-list
 cd   push
