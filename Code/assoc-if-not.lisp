@@ -17,6 +17,20 @@
 
 (declaim (notinline assoc-if-not))
 
+(define-compiler-macro assoc-if-not (&whole form &rest arguments)
+  (let ((lambda-list
+          '((predicate alist)
+            ()
+            nil
+            ((:key key key-supplied-p))
+            nil)))
+    (unless (check-call-site arguments lambda-list)
+      (return-from assoc-if-not form))
+    (compute-compiler-macro-body
+     arguments
+     lambda-list
+     '(assoc-if-not-core predicate alist key key-supplied-p))))
+
 (setf (documentation 'assoc-if-not 'function)
       (format nil
               "Syntax assoc-if-not predicate alist &key key~@
