@@ -13,7 +13,7 @@
 (declaim (inline assoc-if))
 
 (defun assoc-if (predicate alist &key (key nil key-supplied-p))
-  (assoc-core predicate alist key key-supplied-p))
+  (assoc-if-core predicate alist key key-supplied-p))
 
 (declaim (notinline assoc-if))
 
