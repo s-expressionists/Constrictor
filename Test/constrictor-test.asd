@@ -19,6 +19,8 @@
    (:file "rassoc-if")
    (:file "rassoc-if-not")
    (:file "last")
+   (:file "ldiff")
+   (:file "tailp")
    (:file "member")
    (:file "member-if")
    (:file "member-if-not")

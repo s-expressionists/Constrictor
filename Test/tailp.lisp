@@ -1,0 +1,13 @@
+(cl:in-package #:constrictor-test)
+
+(defun test-tailp ()
+  (rt:do-test 'cl-test::tailp.1)
+  (rt:do-test 'cl-test::tailp.2)
+  (rt:do-test 'cl-test::tailp.3)
+  (rt:do-test 'cl-test::tailp.4)
+  (rt:do-test 'cl-test::tailp.5)
+  (rt:do-test 'cl-test::tailp.error.5)
+  (rt:do-test 'cl-test::tailp.error.6)
+  (rt:do-test 'cl-test::tailp.error.7)
+  (rt:do-test 'cl-test::tailp.6)
+  (rt:do-test 'cl-test::tailp.order.1))

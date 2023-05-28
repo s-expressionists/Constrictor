@@ -14,6 +14,8 @@
   (test-rassoc-if-not)
   (test-last)
   (test-butlast)
+  (test-ldiff)
+  (test-tailp)
   (test-member)
   (test-member-if)
   (test-member-if-not)
