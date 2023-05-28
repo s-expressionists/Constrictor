@@ -39,9 +39,9 @@ cdnt last
 c    ldiff
 c    tailp
 cdnt nthcdr
-cd   member
-cd   member-if
-cd   member-if-not
+cdnt member
+cdnt member-if
+cdnt member-if-not
 cdmt mapc
 cdnt mapcar
 cdnt mapcan
