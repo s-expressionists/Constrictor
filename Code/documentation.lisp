@@ -3,6 +3,13 @@
 ;;; This file contains snippets of documentation strings that are
 ;;; common between several functions.
 
+(defparameter *list-should-be-proper*
+  (format nil
+          "LIST should be a proper list.  If LIST is not a list~@
+           or LIST is a dotted list, and no element of LIST~@
+           satisfies the test, then an error of type TYPE-ERROR~@
+           is signaled."))
+
 (defparameter *list-1-and-list-2-must-be-proper*
   (format nil
           "LIST-1 and LIST-2 must be proper lists.  If either LIST-1~@
@@ -21,6 +28,13 @@
            is typically used to extract a slot from an element of~@
            either LIST-1 or LIST-2 to be used for the test, but~@
            this is not a requirement."))
+
+(defparameter *key-applied-to-elements-of-list*
+  (format nil
+          "The function denoted by KEY is applied to each element~@
+           of LIST before the test is applied.  KEY is typically used~@
+           to extract a slot from an element of LIST to be used for~@
+           the test, but this is not a requirement."))
 
 (defparameter *test-and-test-not*
   (format nil
