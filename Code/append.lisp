@@ -12,15 +12,13 @@
               do (cond ((null object)
                         nil)
                        ((atom object)
-                        (error 'type-error
-                               :datum object
-                               :expected-type 'cl:list))
+                        (error 'list-expected :datum object))
                        (t
                         ;; At least we have a non-empty list.  But it
                         ;; could be dotted. It could also be circular,
                         ;; but we don't check for that.
-                        (let* ((copy (copy-list object))
-                               (last (last copy)))
+                        (multiple-value-bind (copy last)
+                            (copy-list-and-last object)
                           (if (null (cdr last))
                               (progn (rplacd last result)
                                      (setq result copy))
@@ -46,12 +44,10 @@
           (cond ((null ,first-form-variable)
                  ,second-form-variable)
                 ((atom ,first-form-variable)
-                 (error 'type-error
-                        :datum ,first-form-variable
-                        :expected-type 'cl:list))
+                 (error 'list-expected :datum ,first-form-variable))
                 (t
-                 (let* ((,copy-variable (copy-list ,first-form-variable))
-                        (,last-variable (last ,copy-variable)))
+                 (multiple-value-bind (,copy-variable ,last-variable)
+                     (copy-list-and-last ,first-form-variable)
                    (if (null (cdr ,last-variable))
                        (progn (rplacd ,last-variable ,second-form-variable)
                               ,copy-variable)
