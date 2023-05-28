@@ -30,7 +30,7 @@ cd   nth
 cdnt endp
 cdn  null
 cd   nconc
-c    append
+ct   append
 cd   revappend
 cd   nreconc
 cdnt butlast
