@@ -16,3 +16,15 @@
   (member-core predicate list key key-supplied-p))
 
 (declaim (notinline member-if-not))
+
+(setf (documentation 'member-if 'function)
+      (format nil
+              "Syntax: member-if predicate list &key key~@
+               ~%~a~%~%~a~%~@
+               PREDICATE is applied to the result of applying KEY~@
+               to an element of LIST, and if PREDICATE returns NIL~@
+               for that element, then the suffix of LIST starting at~@
+               that element is returned.~%~%~a"
+              *key*
+              *key-applied-to-elements-of-list*
+              *list-should-be-proper*))

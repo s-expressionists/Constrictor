@@ -39,4 +39,3 @@
               *key-applied-to-elements-of-list*
               *test-and-test-not*
               *list-should-be-proper*))
-
