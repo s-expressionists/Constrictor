@@ -26,3 +26,17 @@
                test-not test-not-supplied-p))
 
 (declaim (notinline member))
+
+(setf (documentation 'member 'function)
+      (format nil
+              "Syntax: member item list &key key test test-not~@
+               ~%~a~%~%~a~%~%~a~%~@
+               Either TEST or TEST-NOT is applied to the result of~@
+               applying KEY to an element of LIST, and if that element~@
+               satisfies the test, the suffix of LIST starting at that~@
+               element is returned.~%~%~a"
+              *key*
+              *key-applied-to-elements-of-list*
+              *test-and-test-not*
+              *list-should-be-proper*))
+
