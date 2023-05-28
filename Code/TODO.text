@@ -11,9 +11,9 @@ cd   first, second, ...
 c    copy-tree
 cd   sublis
 cd   nsublis
-cdt  subst
-cdt  subst-if
-cd   subst-if-not
+cdnt subst
+cdnt subst-if
+cdnt subst-if-not
 c    nsubst
 c    nsubst-if
 c    nsubst-if-not
