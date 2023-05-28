@@ -1,36 +1,27 @@
 (cl:in-package #:constrictor)
 
 (defun append (&rest lists)
-  (let ((remaining lists))
-    (loop until (or (null remaining)
-                    (consp (car remaining))
-                    (not (listp (car remaining))))
-          do (pop remaining))
-    (cond ((null remaining)
-           nil)
-          ((not (listp (car remaining)))
-           (error 'list-must-be-proper
-                  :offending-list (car remaining)))
-          (t
-           (let* ((list-to-copy (car remaining))
-                  (result (cons (car list-to-copy) nil))
-                  (tail result))
-             (pop list-to-copy)
-             (pop remaining)
-             (tagbody
-              copy-element
-                (cond ((consp list-to-copy)
-                       (rplacd tail (cons (car list-to-copy) nil))
-                       (pop tail)
-                       (pop list-to-copy))
-                      ((null list-to-copy)
-                       (if (null (cdr remaining))
-                           (progn (rplacd tail (car remaining))
-                                  (go done))
-                           (progn (setf list-to-copy (pop remaining))
-                                  (go copy-element))))
-                      (t
-                       (error 'list-must-be-proper
-                              :offending-list list-to-copy)))
-              done)
-             result)))))
+  (if (null lists)
+      '()
+      (let* ((reverse (reverse lists))
+             (result (first reverse))
+             (remaining (cdr reverse)))
+        (loop for object in remaining
+              do (cond ((null object)
+                        nil)
+                       ((atom object)
+                        (error 'type-error
+                               :datum object
+                               :expected-type 'cl:list))
+                       (t
+                        ;; At least we have a non-empty list.  But it
+                        ;; could be dotted. It could also be circular,
+                        ;; but we don't check for that.
+                        (let* ((copy (copy-list object))
+                               (last (last copy)))
+                          (if (null (cdr last))
+                              (progn (rplacd last result)
+                                     (setq result copy))
+                              (error 'list-must-be-proper
+                                     :offending-list object))))))
+        result)))
