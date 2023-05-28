@@ -28,4 +28,6 @@
   (test-acons)
   (test-nthcdr)
   (test-append)
+  (test-revappend)
+  (test-nreconc)
   (values))

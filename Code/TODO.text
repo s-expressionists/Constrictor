@@ -31,8 +31,8 @@ cdnt endp
 cdn  null
 cd   nconc
 cdmt append
-cd   revappend
-cd   nreconc
+cdnt revappend
+cdnt nreconc
 cdnt butlast
      nbutlast
 cdnt last

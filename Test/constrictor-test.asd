@@ -33,4 +33,6 @@
    (:file "acons")
    (:file "nthcdr")
    (:file "append")
+   (:file "revappend")
+   (:file "nreconc")
    (:file "test")))

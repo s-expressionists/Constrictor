@@ -1,0 +1,10 @@
+(cl:in-package #:constrictor-test)
+
+(defun test-nreconc ()
+  (rt:do-test 'cl-test::nreconc.1)
+  (rt:do-test 'cl-test::nreconc.2)
+  (rt:do-test 'cl-test::nreconc.order.1)
+  (rt:do-test 'cl-test::nreconc.error.1)
+  (rt:do-test 'cl-test::nreconc.error.2)
+  (rt:do-test 'cl-test::nreconc.error.3)
+  (rt:do-test 'cl-test::nreconc.error.4))

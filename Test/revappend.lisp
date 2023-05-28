@@ -1,0 +1,12 @@
+(cl:in-package #:constrictor-test)
+
+(defun test-revappend ()
+  (rt:do-test 'cl-test::revappend.1)
+  (rt:do-test 'cl-test::revappend.2)
+  (rt:do-test 'cl-test::revappend.3)
+  (rt:do-test 'cl-test::revappend.4)
+  (rt:do-test 'cl-test::revappend.order.1)
+  (rt:do-test 'cl-test::revappend.error.1)
+  (rt:do-test 'cl-test::revappend.error.2)
+  (rt:do-test 'cl-test::revappend.error.3)
+  (rt:do-test 'cl-test::revappend.error.4))
