@@ -27,4 +27,5 @@
    (:file "mapcon")
    (:file "acons")
    (:file "nthcdr")
+   (:file "append")
    (:file "test")))

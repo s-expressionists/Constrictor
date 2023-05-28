@@ -22,4 +22,5 @@
   (test-mapcon)
   (test-acons)
   (test-nthcdr)
+  (test-append)
   (values))
