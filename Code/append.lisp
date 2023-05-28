@@ -58,3 +58,21 @@
                        (error 'list-must-be-proper
                               :offending-list ,first-form-variable))))))))
     (otherwise form)))
+
+(setf (documentation 'append 'function)
+      (format nil
+              "Syntax: append &rest lists~@
+               ~@
+               This function creates a list obtained by concatenating~@
+               copies of the lists in LISTS, except for the last element~@
+               in LISTS which can be any object, and which becomes the~@
+               CDR of the last CONS cell of the resulting list.~@
+               ~@
+               The last element of LISTS can be any object.  Every other~@
+               element of LISTS must be a proper list.  If any element~@
+               of LISTS except the last one is an object other than a~@
+               list, then an error of type TYPE-ERROR is signaled. If any~@
+               element of LISTS except the last one is a dotted list,~@
+               then an error is signaled.  If any element of LISTS except~@
+               the last one is a circular list, then this function will~@
+               not terminate"))
