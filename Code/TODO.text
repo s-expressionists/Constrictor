@@ -14,9 +14,9 @@ cd__ nsublis
 cdnt subst
 cdnt subst-if
 cdnt subst-if-not
-c___ nsubst
-c___ nsubst-if
-c___ nsubst-if-not
+c__t nsubst
+c__t nsubst-if
+c__t nsubst-if-not
 c___ tree-equal
 cd__ copy-list
 cdm_ list
