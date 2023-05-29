@@ -7,6 +7,7 @@
   :components
   ((:file "packages")
    (:file "prepare")
+   (:file "nth")
    (:file "endp")
    (:file "subst")
    (:file "subst-if")

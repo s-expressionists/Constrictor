@@ -26,7 +26,7 @@ cd   listp
 cd   make-list
 cd   push
 cd   pop
-cd   nth
+cdnt nth
 cdnt endp
 cdn  null
 cd   nconc

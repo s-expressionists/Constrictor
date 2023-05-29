@@ -1,0 +1,11 @@
+(cl:in-package #:constrictor-test)
+
+(defun test-nth ()
+  (rt:do-test 'cl-test::nth.1)
+  (rt:do-test 'cl-test::nth.2)
+  (rt:do-test 'cl-test::nth.order.1)
+  (rt:do-test 'cl-test::nth.order.2)
+  (rt:do-test 'cl-test::nth.error.1)
+  (rt:do-test 'cl-test::nth.error.2)
+  (rt:do-test 'cl-test::nth.error.3)
+  (rt:do-test 'cl-test::nth.error.4))

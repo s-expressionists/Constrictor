@@ -1,6 +1,7 @@
 (cl:in-package #:constrictor-test)
 
 (defun test ()
+  (test-nth)
   (test-endp)
   (test-subst)
   (test-subst-if)
