@@ -29,7 +29,7 @@ cdn_ pop
 cdnt nth
 cdnt endp
 cdn_ null
-cd__ nconc
+cd_t nconc
 cdmt append
 cdnt revappend
 cdnt nreconc

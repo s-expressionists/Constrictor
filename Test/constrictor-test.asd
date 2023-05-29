@@ -39,6 +39,7 @@
    (:file "mapcon")
    (:file "acons")
    (:file "nthcdr")
+   (:file "nconc")
    (:file "append")
    (:file "revappend")
    (:file "nreconc")

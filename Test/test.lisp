@@ -34,6 +34,7 @@
   (test-mapcon)
   (test-acons)
   (test-nthcdr)
+  (test-nconc)
   (test-append)
   (test-revappend)
   (test-nreconc)
