@@ -36,7 +36,7 @@ cdnt nreconc
 cdnt butlast
 ____ nbutlast
 cdnt last
-c_nt ldiff
+cdnt ldiff
 c_nt tailp
 cdnt nthcdr
 cdnt member
