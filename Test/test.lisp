@@ -12,6 +12,7 @@
   (test-nsubst-if-not)
   (test-tree-equal)
   (test-list-length)
+  (test-copy-alist)
   (test-assoc)
   (test-assoc-if)
   (test-assoc-if-not)

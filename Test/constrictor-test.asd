@@ -18,6 +18,7 @@
    (:file "nsubst-if-not")
    (:file "tree-equal")
    (:file "list-length")
+   (:file "copy-alist")
    (:file "assoc")
    (:file "assoc-if")
    (:file "assoc-if-not")

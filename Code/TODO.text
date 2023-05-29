@@ -52,7 +52,7 @@ cdnt acons
 cdmt assoc
 cdmt assoc-if
 cdmt assoc-if-not
-cd__ copy-alist
+cdnt copy-alist
 cdn_ pairlis
 cdmt rassoc
 cdmt rassoc-if
