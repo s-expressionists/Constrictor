@@ -18,7 +18,7 @@ c__t nsubst
 c__t nsubst-if
 c__t nsubst-if-not
 c_mt tree-equal
-cd__ copy-list
+cdnt copy-list
 cdm_ list
 c_m_ list*
 cdnt list-length
