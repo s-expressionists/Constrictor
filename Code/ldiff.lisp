@@ -18,8 +18,9 @@
                If OBJECT is EQ to some top-level CONS cell of LIST,~@
                then this function returns a list consisting of copies~@
                of the CONS cells that precede OBJECT in LIST, with OBJECT~@
-               replaced by NIL.  If OBJECT is not EQ to some tail of LIST,~@
-               then a copy of LIST is returned.~@
+               replaced by NIL.  If OBJECT is not EQ to some top-level~@
+               CONS cell of LIST, and LIST is not a circular list, then~@
+               a copy of LIST is returned.~@
                ~@
                LIST must be a list that might be a dotted list.~@
                If LIST is not a list, then an error of type TYPE-ERROR~@
