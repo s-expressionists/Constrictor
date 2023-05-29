@@ -10,6 +10,7 @@
   (test-nsubst)
   (test-nsubst-if)
   (test-nsubst-if-not)
+  (test-tree-equal)
   (test-list-length)
   (test-assoc)
   (test-assoc-if)

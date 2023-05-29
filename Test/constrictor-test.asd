@@ -16,6 +16,7 @@
    (:file "nsubst")
    (:file "nsubst-if")
    (:file "nsubst-if-not")
+   (:file "tree-equal")
    (:file "list-length")
    (:file "assoc")
    (:file "assoc-if")
