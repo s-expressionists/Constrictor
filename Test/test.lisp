@@ -1,6 +1,7 @@
 (cl:in-package #:constrictor-test)
 
 (defun test ()
+  (test-copy-tree)
   (test-nth)
   (test-endp)
   (test-subst)

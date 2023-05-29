@@ -7,6 +7,7 @@
   :components
   ((:file "packages")
    (:file "prepare")
+   (:file "copy-tree")
    (:file "nth")
    (:file "endp")
    (:file "subst")
