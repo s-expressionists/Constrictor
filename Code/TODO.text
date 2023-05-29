@@ -22,10 +22,10 @@ cd__ copy-list
 cdm_ list
 c_m_ list*
 cdnt list-length
-cd__ listp
-cd__ make-list
-cd__ push
-cd__ pop
+cdn_ listp
+cdn_ make-list
+cdn_ push
+cdn_ pop
 cdnt nth
 cdnt endp
 cdn_ null
