@@ -8,7 +8,7 @@ cd__ consp
 cd__ atom
 c___ caar....
 cd__ first, second, ...
-c__t copy-tree
+cdnt copy-tree
 cd__ sublis
 cd__ nsublis
 cdnt subst
