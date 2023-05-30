@@ -45,4 +45,6 @@
    (:file "append")
    (:file "revappend")
    (:file "nreconc")
+   (:file "intersection")
+   (:file "union")
    (:file "test")))

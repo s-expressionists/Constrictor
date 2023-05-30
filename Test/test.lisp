@@ -40,4 +40,6 @@
   (test-append)
   (test-revappend)
   (test-nreconc)
+  (test-intersection)
+  (test-union)
   (values))
