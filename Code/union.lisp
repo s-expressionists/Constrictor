@@ -32,6 +32,26 @@
               test test-supplied-p
               test-not test-not-supplied-p))
 
+(define-compiler-macro union (&whole form &rest arguments)
+  (let ((lambda-list
+          '((list-1 list-2) ; required
+            ()           ; optional
+            nil          ; rest
+            ((:key key key-supplied-p)
+             (:test test test-supplied-p)
+             (:test-not test-not test-not-supplied-p))
+            nil)))
+    (unless (check-call-site arguments lambda-list)
+      (return-from union form))
+    (compute-compiler-macro-body
+     arguments
+     (butlast lambda-list)
+     '(union-core
+       list-1 list-2
+       key key-supplied-p
+       test test-supplied-p
+       test-not test-not-supplied-p))))
+
 (setf (documentation 'union 'function)
       (format nil
               "Syntax: union list-1 list-2 &key key test test-not~@

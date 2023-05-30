@@ -33,6 +33,26 @@
 
 (declaim (notinline intersection))
 
+(define-compiler-macro intersection (&whole form &rest arguments)
+  (let ((lambda-list
+          '((list-1 list-2) ; required
+            ()           ; optional
+            nil          ; rest
+            ((:key key key-supplied-p)
+             (:test test test-supplied-p)
+             (:test-not test-not test-not-supplied-p))
+            nil)))
+    (unless (check-call-site arguments lambda-list)
+      (return-from intersection form))
+    (compute-compiler-macro-body
+     arguments
+     (butlast lambda-list)
+     '(intersection-core
+       list-1 list-2
+       key key-supplied-p
+       test test-supplied-p
+       test-not test-not-supplied-p))))
+
 (setf (documentation 'intersection 'function)
       (format nil
               "Syntax: intersection list-1 list-2 &key key test test-not~@
