@@ -60,7 +60,7 @@ cdmt rassoc-if-not
 ____ get-properties
 c___ getf
 c___ remf
-cd__ intersection
+cdmt intersection
 cd__ nintersection
 c_m_ adjoin
 c___ pushnew
@@ -69,5 +69,5 @@ cd__ nset-difference
 c___ set-exclusive-or
 c___ nset-exclusive-or
 c___ subsetp
-cd__ union
+cdmt union
 c___ nunion
