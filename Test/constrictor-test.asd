@@ -48,4 +48,5 @@
    (:file "intersection")
    (:file "set-exclusive-or")
    (:file "union")
+   (:file "nunion")
    (:file "test")))

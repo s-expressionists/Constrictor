@@ -43,4 +43,5 @@
   (test-intersection)
   (test-set-exclusive-or)
   (test-union)
+  (test-nunion)
   (values))
