@@ -46,5 +46,6 @@
    (:file "revappend")
    (:file "nreconc")
    (:file "intersection")
+   (:file "set-exclusive-or")
    (:file "union")
    (:file "test")))
