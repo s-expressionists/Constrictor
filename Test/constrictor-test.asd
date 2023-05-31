@@ -47,6 +47,7 @@
    (:file "nreconc")
    (:file "intersection")
    (:file "nintersection")
+   (:file "adjoin")
    (:file "set-exclusive-or")
    (:file "union")
    (:file "nunion")

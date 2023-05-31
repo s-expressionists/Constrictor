@@ -42,6 +42,7 @@
   (test-nreconc)
   (test-intersection)
   (test-nintersection)
+  (test-adjoin)
   (test-set-exclusive-or)
   (test-union)
   (test-nunion)
