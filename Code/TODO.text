@@ -64,8 +64,8 @@ cdmt intersection
 cdmt nintersection
 cdmt adjoin
 c___ pushnew
-cd__ set-difference
-cd__ nset-difference
+cdm_ set-difference
+cdm_ nset-difference
 c__t set-exclusive-or
 c___ nset-exclusive-or
 c___ subsetp
