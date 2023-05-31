@@ -62,7 +62,7 @@ c___ getf
 c___ remf
 cdmt intersection
 cdmt nintersection
-c_m_ adjoin
+cdm_ adjoin
 c___ pushnew
 cd__ set-difference
 cd__ nset-difference
