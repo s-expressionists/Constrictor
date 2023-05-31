@@ -41,6 +41,7 @@
   (test-revappend)
   (test-nreconc)
   (test-intersection)
+  (test-nintersection)
   (test-set-exclusive-or)
   (test-union)
   (test-nunion)

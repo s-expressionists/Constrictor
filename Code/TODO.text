@@ -61,7 +61,7 @@ ____ get-properties
 c___ getf
 c___ remf
 cdmt intersection
-cd__ nintersection
+cdmt nintersection
 c_m_ adjoin
 c___ pushnew
 cd__ set-difference

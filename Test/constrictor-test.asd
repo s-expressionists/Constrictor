@@ -46,6 +46,7 @@
    (:file "revappend")
    (:file "nreconc")
    (:file "intersection")
+   (:file "nintersection")
    (:file "set-exclusive-or")
    (:file "union")
    (:file "nunion")
