@@ -43,6 +43,8 @@
   (test-intersection)
   (test-nintersection)
   (test-adjoin)
+  (test-set-difference)
+  (test-nset-difference)
   (test-set-exclusive-or)
   (test-union)
   (test-nunion)

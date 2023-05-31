@@ -48,6 +48,8 @@
    (:file "intersection")
    (:file "nintersection")
    (:file "adjoin")
+   (:file "set-difference")
+   (:file "nset-difference")
    (:file "set-exclusive-or")
    (:file "union")
    (:file "nunion")
