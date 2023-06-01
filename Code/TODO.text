@@ -66,8 +66,8 @@ cdmt adjoin
 c___ pushnew
 cdmt set-difference
 cdmt nset-difference
-c__t set-exclusive-or
-c___ nset-exclusive-or
+c_mt set-exclusive-or
+c_m_ nset-exclusive-or
 c___ subsetp
 cdmt union
 c_mt nunion
