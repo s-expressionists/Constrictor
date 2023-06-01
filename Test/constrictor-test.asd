@@ -51,6 +51,7 @@
    (:file "set-difference")
    (:file "nset-difference")
    (:file "set-exclusive-or")
+   (:file "nset-exclusive-or")
    (:file "union")
    (:file "nunion")
    (:file "test")))
