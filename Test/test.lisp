@@ -13,6 +13,7 @@
   (test-tree-equal)
   (test-copy-list)
   (test-list)
+  (test-list*)
   (test-list-length)
   (test-copy-alist)
   (test-assoc)

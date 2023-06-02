@@ -19,6 +19,7 @@
    (:file "tree-equal")
    (:file "copy-list")
    (:file "list")
+   (:file "liststar")
    (:file "list-length")
    (:file "copy-alist")
    (:file "assoc")
