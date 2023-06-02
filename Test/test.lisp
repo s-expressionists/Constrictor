@@ -18,6 +18,8 @@
   (test-list*)
   (test-list-length)
   (test-make-list)
+  (test-push)
+  (test-pop)
   (test-copy-alist)
   (test-assoc)
   (test-assoc-if)

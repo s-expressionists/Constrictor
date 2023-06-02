@@ -1,0 +1,11 @@
+(cl:in-package #:constrictor-test)
+
+(defun test-push ()
+  (rt:do-test 'cl-test::push.1)
+  (rt:do-test 'cl-test::push.2)
+  (rt:do-test 'cl-test::push.3)
+  (rt:do-test 'cl-test::push.4)
+  (rt:do-test 'cl-test::push.5)
+  (rt:do-test 'cl-test::push.order.1)
+  (rt:do-test 'cl-test::push.order.2)
+  (rt:do-test 'cl-test::push.order.3))

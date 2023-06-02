@@ -24,6 +24,8 @@
    (:file "liststar")
    (:file "list-length")
    (:file "make-list")
+   (:file "push")
+   (:file "pop")
    (:file "copy-alist")
    (:file "assoc")
    (:file "assoc-if")

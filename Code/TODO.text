@@ -24,8 +24,8 @@ c_mt list*
 cdnt list-length
 cdn_ listp
 cdnt make-list
-cdn_ push
-cdn_ pop
+cdnt push
+cdnt pop
 cdnt nth
 cdnt endp
 cdn_ null
