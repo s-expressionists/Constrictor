@@ -53,7 +53,7 @@ cdmt assoc
 cdmt assoc-if
 cdmt assoc-if-not
 cdnt copy-alist
-cdn_ pairlis
+cdnt pairlis
 cdmt rassoc
 cdmt rassoc-if
 cdmt rassoc-if-not
