@@ -1,0 +1,13 @@
+(cl:in-package #:constrictor-test)
+
+(defun test-remf ()
+  (rt:do-test 'cl-test::remf.1)
+  (rt:do-test 'cl-test::remf.2)
+  (rt:do-test 'cl-test::remf.3)
+  (rt:do-test 'cl-test::remf.4)
+  (rt:do-test 'cl-test::remf.5)
+  (rt:do-test 'cl-test::remf.6)
+  (rt:do-test 'cl-test::remf.7)
+  (rt:do-test 'cl-test::remf.order.1)
+  (rt:do-test 'cl-test::remf.order.2)
+  (rt:do-test 'cl-test::remf.order.3))

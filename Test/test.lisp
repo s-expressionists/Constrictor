@@ -41,6 +41,7 @@
   (test-revappend)
   (test-nreconc)
   (test-getf)
+  (test-remf)
   (test-intersection)
   (test-nintersection)
   (test-adjoin)

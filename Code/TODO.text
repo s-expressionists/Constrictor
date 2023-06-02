@@ -58,8 +58,8 @@ cdmt rassoc
 cdmt rassoc-if
 cdmt rassoc-if-not
 ____ get-properties
-c_n_ getf
-c_n_ remf
+c_nt getf
+c_nt remf
 cdmt intersection
 cdmt nintersection
 cdmt adjoin
