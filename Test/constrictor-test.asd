@@ -45,6 +45,7 @@
    (:file "append")
    (:file "revappend")
    (:file "nreconc")
+   (:file "getf")
    (:file "intersection")
    (:file "nintersection")
    (:file "adjoin")

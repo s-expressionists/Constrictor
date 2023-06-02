@@ -40,6 +40,7 @@
   (test-append)
   (test-revappend)
   (test-nreconc)
+  (test-getf)
   (test-intersection)
   (test-nintersection)
   (test-adjoin)
