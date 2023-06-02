@@ -4,6 +4,8 @@
   (test-copy-tree)
   (test-nth)
   (test-endp)
+  (test-sublis)
+  (test-nsublis)
   (test-subst)
   (test-subst-if)
   (test-subst-if-not)

@@ -9,8 +9,8 @@ cd__ atom
 c___ caar....
 cd__ first, second, ...
 cdnt copy-tree
-cd__ sublis
-cd__ nsublis
+cd_t sublis
+cd_t nsublis
 cdnt subst
 cdnt subst-if
 cdnt subst-if-not

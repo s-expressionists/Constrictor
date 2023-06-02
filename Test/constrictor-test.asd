@@ -10,6 +10,8 @@
    (:file "copy-tree")
    (:file "nth")
    (:file "endp")
+   (:file "sublis")
+   (:file "nsublis")
    (:file "subst")
    (:file "subst-if")
    (:file "subst-if-not")
