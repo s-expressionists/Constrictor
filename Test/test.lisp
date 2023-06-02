@@ -47,6 +47,7 @@
   (test-nset-difference)
   (test-set-exclusive-or)
   (test-nset-exclusive-or)
+  (test-subsetp)
   (test-union)
   (test-nunion)
   (values))
