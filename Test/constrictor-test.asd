@@ -27,6 +27,7 @@
    (:file "push")
    (:file "pop")
    (:file "copy-alist")
+   (:file "pairlis")
    (:file "assoc")
    (:file "assoc-if")
    (:file "assoc-if-not")

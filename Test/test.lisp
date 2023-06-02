@@ -21,6 +21,7 @@
   (test-push)
   (test-pop)
   (test-copy-alist)
+  (test-pairlis)
   (test-assoc)
   (test-assoc-if)
   (test-assoc-if-not)
