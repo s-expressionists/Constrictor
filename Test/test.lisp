@@ -17,6 +17,7 @@
   (test-list)
   (test-list*)
   (test-list-length)
+  (test-make-list)
   (test-copy-alist)
   (test-assoc)
   (test-assoc-if)

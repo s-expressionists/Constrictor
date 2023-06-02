@@ -23,7 +23,7 @@ cdmt list
 c_mt list*
 cdnt list-length
 cdn_ listp
-cdn_ make-list
+cdnt make-list
 cdn_ push
 cdn_ pop
 cdnt nth
