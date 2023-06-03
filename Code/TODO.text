@@ -6,7 +6,7 @@ n = no compiler macro required.
 t = test
 
 xd__ consp
-cd__ atom
+xd__ atom
 c___ caar....
 cd__ first, second, ...
 cdnt copy-tree
