@@ -27,6 +27,7 @@
 (setf (documentation 'nconc 'function)
       (format nil
               "Syntax: nconc &rest lists~@
+               ~@
                Concatenate the objects in LISTS by destructively~@
                modifying the last CONS cell of every object except~@
                the last one so that it refers to the next object in~@

@@ -17,6 +17,7 @@
 
 (setf (documentation 'pop 'function)
       (format nil "Syntax: pop place~@
+                   ~@
                    PLACE must be a CONS cell.  Modify PLACE so that~@
                    it contains what was previously the CDR of PLACE.~@
                    Return the CAR of PLACE before it was modified.~@

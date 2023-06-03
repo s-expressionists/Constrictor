@@ -23,6 +23,7 @@
 (setf (documentation 'nth 'function)
       (format nil
               "Syntax: nth n list~@
+               ~@
                Return the Nth element of LIST, where N=0~@
                means the first element of LIST.  LIST may be~@
                a dotted list or a circular list, but if LIST~@

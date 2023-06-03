@@ -20,6 +20,7 @@
 (setf (documentation 'copy-alist 'function)
       (format nil
               "Syntax: copy-alist alist~@
+               ~@
                Copy an association list.~@
                ~@
                The argument LIST much be an association list.~@

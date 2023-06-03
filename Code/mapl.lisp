@@ -66,6 +66,7 @@
 (setf (documentation 'mapl 'function)
       (format nil
               "Syntax: mapl function &rest lists~@
+               ~@
                Apply FUNCTION to first to each list in LISTS~@
                then to the REST of each list in LISTS, and so on.~@
                Return the first list in LISTS.~@

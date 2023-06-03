@@ -37,6 +37,7 @@
 (setf (documentation 'sublis 'function)
       (format nil
               "Syntax: sublis alist tree &key key test test-not)~@
+               ~@
                TREE is a tree where the leaves are atoms and~@
                the other nodes are CONS cells.  This function~@
                traverses TREE, and if an node is found that~@

@@ -52,5 +52,6 @@
 
 (setf (documentation 'list 'function)
       (format nil "Syntax: list &rest objects~@
+                   ~@
                    Return a proper list containing the objects given~@
                    as arguments in the same order as the arguments."))

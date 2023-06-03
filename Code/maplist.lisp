@@ -56,6 +56,7 @@
 (setf (documentation 'maplist 'function)
       (format nil
               "Syntax: maplist function &rest lists~@
+               ~@
                Apply FUNCTION to first to each list in LISTS~@
                then to the REST of each list in LISTS, and so on.~@
                Collect the results of these applications into~@

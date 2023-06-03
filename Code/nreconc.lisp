@@ -21,6 +21,7 @@
 (setf (documentation 'nreconc 'function)
       (format nil
               "Syntax: nreconc list tail~@
+               ~@
                Destructively modify LIST by prepending the~@
                CONS cells of LIST to TAIL in reverse order.~@
                If LIST is not a list, an error of type TYPE-ERROR~@

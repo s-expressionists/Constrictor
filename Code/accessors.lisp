@@ -691,6 +691,7 @@
     (setf (documentation symbol 'function)
           (format nil
                   "Syntax: c~ar list~@
+                   ~@
                    (C~aR LIST) is equivalent to ~s."
                   (string-downcase string)
                   string

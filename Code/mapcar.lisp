@@ -57,6 +57,7 @@
 (setf (documentation 'mapcar 'function)
       (format nil
               "Syntax: mapcar function &rest lists~@
+               ~@
                Apply FUNCTION to the FIRST of each LIST~@
                then to the SECOND of each LIST, and so on.~@
                Collect the results of these applications into~@
