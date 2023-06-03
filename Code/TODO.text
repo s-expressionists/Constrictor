@@ -1,10 +1,11 @@
 c = code
+x = not supplied
 d = documentation
 m = compiler macro
 n = no compiler macro required.
 t = test
 
-cd__ consp
+xd__ consp
 cd__ atom
 c___ caar....
 cd__ first, second, ...
