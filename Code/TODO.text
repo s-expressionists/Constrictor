@@ -35,7 +35,7 @@ cdmt append
 cdnt revappend
 cdnt nreconc
 cdnt butlast
-cdn_ nbutlast
+cdnt nbutlast
 cdnt last
 cdnt ldiff
 cdnt tailp

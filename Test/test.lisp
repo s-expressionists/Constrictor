@@ -30,6 +30,7 @@
   (test-rassoc-if-not)
   (test-last)
   (test-butlast)
+  (test-nbutlast)
   (test-ldiff)
   (test-tailp)
   (test-member)

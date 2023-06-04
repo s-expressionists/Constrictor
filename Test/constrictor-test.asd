@@ -52,6 +52,8 @@
    (:file "append")
    (:file "revappend")
    (:file "nreconc")
+   (:file "butlast")
+   (:file "nbutlast")
    (:file "getf")
    (:file "remf")
    (:file "intersection")
