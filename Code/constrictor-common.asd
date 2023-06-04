@@ -45,6 +45,7 @@
    (:file "rassoc")
    (:file "rassoc-if")
    (:file "rassoc-if-not")
+   (:file "get-properties")
    (:file "last")
    (:file "butlast")
    (:file "nbutlast")

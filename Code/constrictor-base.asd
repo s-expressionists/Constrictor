@@ -40,6 +40,7 @@
     #:member #:member-if #:member-if-not
     #:assoc #:assoc-if #:assoc-if-not
     #:rassoc #:rassoc-if #:rassoc-if-not
+    #:get-properties
     #:pairlis
     #:last #:butlast #:nbutlast
     #:acons
