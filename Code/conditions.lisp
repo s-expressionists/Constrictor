@@ -68,15 +68,16 @@
                       is a circular list."
                      (type-error-datum condition)))))
 
-(define-condition list-must-not-be-a-circular-list (type-error)
-  ()
-  (:default-initargs :expected-type 'cl:list)
+(define-condition list-must-not-be-a-circular-list (cl:error)
+  ((%offending-list
+    :initarg :offending-list
+    :reader offending-list))
   (:report (lambda (condition stream)
              (format stream
                      "A circular list was supplied where a proper list~@
                       or a dotted list is required:~@
                       ~s"
-                     (type-error-datum condition)))))
+                     (offending-list condition)))))
 
 (define-condition both-test-and-test-not-supplied (cl:error)
   ()
