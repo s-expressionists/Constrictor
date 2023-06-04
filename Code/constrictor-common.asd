@@ -47,6 +47,7 @@
    (:file "rassoc-if-not")
    (:file "last")
    (:file "butlast")
+   (:file "nbutlast")
    (:file "make-list")
    (:file "null")
    (:file "endp")
