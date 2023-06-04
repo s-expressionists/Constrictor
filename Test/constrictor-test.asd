@@ -60,6 +60,7 @@
    (:file "intersection")
    (:file "nintersection")
    (:file "adjoin")
+   (:file "pushnew")
    (:file "set-difference")
    (:file "nset-difference")
    (:file "set-exclusive-or")

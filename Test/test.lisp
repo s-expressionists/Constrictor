@@ -54,6 +54,7 @@
   (test-intersection)
   (test-nintersection)
   (test-adjoin)
+  (test-pushnew)
   (test-set-difference)
   (test-nset-difference)
   (test-set-exclusive-or)
