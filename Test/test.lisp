@@ -28,6 +28,7 @@
   (test-rassoc)
   (test-rassoc-if)
   (test-rassoc-if-not)
+  (test-get-properties)
   (test-last)
   (test-butlast)
   (test-nbutlast)

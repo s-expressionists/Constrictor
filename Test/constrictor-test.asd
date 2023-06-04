@@ -34,6 +34,7 @@
    (:file "rassoc")
    (:file "rassoc-if")
    (:file "rassoc-if-not")
+   (:file "get-properties")
    (:file "last")
    (:file "ldiff")
    (:file "tailp")
