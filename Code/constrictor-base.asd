@@ -20,7 +20,6 @@
     #:cddaar #:cddadr #:cdddar #:cddddr
     #:first #:second #:third #:fourth #:fifth
     #:sixth #:seventh #:eighth #:ninth #:tenth
-    #:consp #:atom #:listp
     #:nth #:nthcdr
     #:null
     #:endp
