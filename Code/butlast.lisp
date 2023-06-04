@@ -31,8 +31,8 @@
           collect (prog1 (car head) (pop head))
           do (when (eq slow tail)
                ;; we have a circular list
-               (error 'must-be-proper-or-dotted-list
-                      :datum list)))))
+               (error 'list-must-not-be-a-circular-list
+                      :offending-list list)))))
 
 (declaim (notinline butlast))
 
