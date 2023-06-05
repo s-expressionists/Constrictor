@@ -55,3 +55,14 @@
                    ~@
                    Return a proper list containing the objects given~@
                    as arguments in the same order as the arguments."))
+
+(setf (documentation 'list* 'function)
+      (format nil "Syntax: list* object &rest objects~@
+                   ~@
+                   Return a list of the supplied objects such that~@
+                   the last object supplied becomes the CDR of the ~@
+                   last CONS cell in the returned list.  So for the~@
+                   same number of arguments as for LIST, the return~@
+                   value of LIST* contains one fewer CONS cells.  If~@
+                   only one object is supplied, then that object is~@
+                   returned as the value of LIST*."))

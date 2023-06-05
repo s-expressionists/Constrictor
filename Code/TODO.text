@@ -21,7 +21,7 @@ c__t nsubst-if-not
 c_mt tree-equal
 cdnt copy-list
 cdmt list
-c_mt list*
+cdmt list*
 cdnt list-length
 xd__ listp
 cdnt make-list
