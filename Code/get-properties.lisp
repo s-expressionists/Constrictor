@@ -2,11 +2,20 @@
 
 (defun get-properties (property-list indicator-list)
   (loop for remaining on property-list by #'cddr
-        for indicator = (first remaining)
-        for value = (second remaining)
-        when (member indicator indicator-list :test #'eq)
-          return (values indicator value remaining)
-        finally (return nil)))
+        do (when (atom (cdr remaining))
+             (error 'type-error
+                    :datum (cdr remaining)
+                    :expected-type 'cons))
+           (destructuring-bind (indicator value &rest rest)
+               remaining
+             (declare (ignore rest))
+             (when (member indicator indicator-list :test #'eq)
+               (return (values indicator value remaining))))
+        finally (unless (null remaining)
+                  (error 'type-error
+                         :datum remaining
+                         :expected-type 'cl:null))
+                (return (values nil nil nil))))
 
 (setf (documentation 'get-properties 'function)
       (format nil
@@ -22,4 +31,9 @@
                ~@
                If there is no indicator in PLIST that is identical~@
                to one of the elements of INDICATOR-LIST, then this~@
-               function return the three values NIL, NIL, and NIL."))
+               function return the three values NIL, NIL, and NIL.~@
+               ~@
+               If PLIST is a dotted list, or contains an odd number~@
+               of elements, and no relevant indicator is found preceding~@
+               the last element of PLIST, then an error of type TYPE-ERROR~@
+               is signaled."))
