@@ -58,7 +58,7 @@ cdnt pairlis
 cdmt rassoc
 cdmt rassoc-if
 cdmt rassoc-if-not
-c__t get-properties
+cdnt get-properties
 c_nt getf
 c_nt remf
 cdmt intersection
