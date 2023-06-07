@@ -59,7 +59,8 @@ cdmt rassoc
 cdmt rassoc-if
 cdmt rassoc-if-not
 cdnt get-properties
-c_nt getf
+cdnt getf
+_d__ (setf getf)
 c_nt remf
 cdmt intersection
 cdmt nintersection
