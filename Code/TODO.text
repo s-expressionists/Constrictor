@@ -65,7 +65,7 @@ c_nt remf
 cdmt intersection
 cdmt nintersection
 cdmt adjoin
-c__t pushnew
+cd_t pushnew
 cdmt set-difference
 cdmt nset-difference
 c_mt set-exclusive-or
