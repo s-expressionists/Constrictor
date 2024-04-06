@@ -5,17 +5,9 @@
 (defun nthcdr (n list)
   (unless (listp list)
     (error 'list-expected :datum list))
-  (loop for result on list
+  (loop for result = list then (cdr result)
         repeat n
-        until (atom result)
-        count t into iteration-count
-        finally (cond ((= n iteration-count)
-                       (return result))
-                      ((null result)
-                       (return nil))
-                      (t (error 'dotted-list-with-too-few-cons-cells
-                                :minimum-cons-cell-count n
-                                :offending-list list)))))
+        until (null result) finally (return result)))
 
 (declaim (notinline nthcdr))
 
