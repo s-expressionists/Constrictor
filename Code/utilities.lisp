@@ -41,14 +41,13 @@
 
 (setf (documentation 'copy-list-and-last 'function)
       (format nil
-              "Syntax: copy-list-and-ast list~@
+              "Syntax: copy-list-and-last list~@
                ~@
                LIST must be a proper list or a dotted list.~@
                If a circular list is given as the value of LIST~@
                then this function will not terminate.  If LIST is~@
                an atom, then an error of type TYPE-ERROR will be~@
-               signaled.  If LIST is a circular list, this function~@
-               will not terminate.~@
+               signaled.~@
                ~@
                The list structure of LIST is copied, so that the~@
                return value of this function contains a copy of~@
