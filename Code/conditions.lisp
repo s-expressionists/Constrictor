@@ -158,22 +158,6 @@
                      (type-error-datum condition))))
   (:default-initargs :expected-type 'cl:list))
 
-(define-condition dotted-list-with-too-few-cons-cells (cl:error)
-  ((%minimum-cons-cell-count
-    :initarg :minimum-cons-cell-count
-    :reader minimum-cons-cell-count)
-   (%offending-list
-    :initarg :offending-list
-    :reader offending-list))
-  (:report (lambda (condition stream)
-             (format stream
-                     "Either a dotted list with at least ~s CONS~@
-                      cells, a proper list, or a circular list~@
-                      was expected but the following was given:~@
-                      ~s"
-                     (minimum-cons-cell-count condition)
-                     (offending-list condition)))))
-
 (define-condition must-be-property-list (type-error)
   ((%offending-list
     :initarg :offending-list
