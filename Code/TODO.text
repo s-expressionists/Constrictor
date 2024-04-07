@@ -28,6 +28,7 @@ cdnt make-list
 cdnt push
 cdnt pop
 cdnt nth
+cdn_ (setf nth)
 cdnt endp
 cdn_ null
 cd_t nconc

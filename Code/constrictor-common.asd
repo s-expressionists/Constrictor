@@ -36,6 +36,7 @@
    (:file "nsublis")
    (:file "nthcdr")
    (:file "nth")
+   (:file "setf-nth")
    (:file "member")
    (:file "member-if")
    (:file "member-if-not")
