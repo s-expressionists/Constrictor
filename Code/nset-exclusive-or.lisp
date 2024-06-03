@@ -4,8 +4,8 @@
 
 (defun nset-exclusive-or-core
     (list-1 list-2 key key-supplied-p test test-supplied-p test-not test-not-supplied-p)
-  (assert-proper-list list-1)
-  (assert-proper-list list-2)
+  (check-type list-1 proper-list)
+  (check-type list-2 proper-list)
   (cond ((null list-1)
          list-2)
         ((null list-2)

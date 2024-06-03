@@ -3,7 +3,7 @@
 (declaim (inline nth))
 
 (defun nth (n list)
-  (car (nthcr n list)))
+  (car (nthcdr n list)))
 
 (declaim (notinline nth))
 

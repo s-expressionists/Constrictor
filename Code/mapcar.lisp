@@ -36,7 +36,7 @@
                                   :datum rest1
                                   :offending-list list1))
                          (unless (listp rest2)
-                           (error 'list-must-not-be-dottes
+                           (error 'list-must-not-be-dotted
                                   :datum rest2
                                   :offending-list list2)))))
         (t
@@ -48,9 +48,9 @@
                    finally
                       (let ((position (position-if-not #'listp local-lists)))
                         (unless (null position)
-                          (error 'list-must-be-proper
-                                 :datum (find-if-not #'listp local-lists)
-                                 :offending-list (elt lists position))))))))))
+                          (error 'type-error
+                                 :datum (elt lists position)
+                                 :expected-type 'proper-list)))))))))
 
 (declaim (notinline mapcar))
 

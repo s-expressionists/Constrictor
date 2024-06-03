@@ -1,12 +1,36 @@
 (cl:in-package #:constrictor)
 
-(defun proper-list-p (list)
-  (numberp (ignore-errors (list-length list))))
+(defun proper-list-p (value)
+  (typecase value
+    (null
+     t)
+    (cons
+     (prog ((step1 (cdr value))
+            (step2 value))
+        (unless (consp (cdr step2))
+          (return (null (cdr step2))))
+        (setf step2 (cddr step2))
+      next
+        (unless (and (listp step2)
+                     (consp (cdr step2)))
+          (return (and (listp step2)
+                       (null (cdr step2)))))
+        (when (eq step2 step1)
+          (return nil))
+        (setf step1 (cdr step1)
+              step2 (cddr step2))
+        (go next)))
+    (t
+     nil)))
+
+(deftype proper-list ()
+  `(satisfies proper-list-p))
 
 (defun assert-proper-list (list)
   (unless (proper-list-p list)
-    (error 'list-must-be-proper
-           :offending-list list)))
+    (error 'type-error
+           :datum list
+           :expected-type 'proper-list)))
 
 (defun copy-list-and-last (list)
   (cond ((null list)

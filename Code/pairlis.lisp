@@ -10,11 +10,13 @@
         do (push (cons (first rest-keys) (first rest-data))
                  result)
         finally (unless (listp rest-keys)
-                  (error 'list-must-be-proper
-                         :offending-list keys))
+                  (error 'type-error
+                         :datum keys
+                         :expected-type 'proper-list))
                 (unless (listp rest-data)
-                  (error 'list-must-be-proper
-                         :offending-list data))
+                  (error 'type-error
+                         :datum data
+                         :expected-type 'proper-list))
                 (unless (and (null rest-keys) (null rest-data))
                   (error 'keys-and-data-must-have-the-same-length
                          :keys keys

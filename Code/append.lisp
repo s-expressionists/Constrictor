@@ -9,21 +9,12 @@
              (result (first reverse))
              (remaining (cdr reverse)))
         (loop for object in remaining
-              do (cond ((null object)
-                        nil)
-                       ((atom object)
-                        (error 'list-expected :datum object))
-                       (t
-                        ;; At least we have a non-empty list.  But it
-                        ;; could be dotted. It could also be circular,
-                        ;; but we don't check for that.
-                        (multiple-value-bind (copy last)
-                            (copy-list-and-last object)
-                          (if (null (cdr last))
-                              (progn (rplacd last result)
-                                     (setq result copy))
-                              (error 'list-must-be-proper
-                                     :offending-list object))))))
+              unless (null object)
+                do (assert-proper-list object)
+                   (multiple-value-bind (copy last)
+                       (copy-list-and-last object)
+                     (rplacd last result)
+                     (setq result copy)))
         result)))
 
 (declaim (notinline append))
@@ -43,16 +34,12 @@
               (,second-form-variable ,(second list-forms)))
           (cond ((null ,first-form-variable)
                  ,second-form-variable)
-                ((atom ,first-form-variable)
-                 (error 'list-expected :datum ,first-form-variable))
                 (t
+                 (assert-poper-list ,first-form-variable)
                  (multiple-value-bind (,copy-variable ,last-variable)
                      (copy-list-and-last ,first-form-variable)
-                   (if (null (cdr ,last-variable))
-                       (progn (rplacd ,last-variable ,second-form-variable)
-                              ,copy-variable)
-                       (error 'list-must-be-proper
-                              :offending-list ,first-form-variable))))))))
+                   (rplacd ,last-variable ,second-form-variable)
+                   ,copy-variable))))))
     (otherwise form)))
 
 (setf (documentation 'append 'function)

@@ -21,8 +21,9 @@
            until (atom ,rest-variable)
            do ,@body
            finally (unless (null ,rest-variable)
-                     (error 'list-must-be-proper
-                            :offending-list ,list-variable)))))
+                     (error 'type-error
+                            :datum ,list-variable
+                            :expected-type 'proper-list)))))
 
 ;;; This macro can be used to traverse a list that must be a proper
 ;;; list, when each tail of the list must be examined.  Client code
@@ -37,8 +38,9 @@
            until (atom ,rest-variable)
            do ,@body
            finally (unless (null ,rest-variable)
-                     (error 'list-must-be-proper
-                            :offending-list ,list-variable)))))
+                     (error 'type-error
+                            :datum ,list-variable
+                            :expected-type 'proper-list)))))
 
 (defun read-new-cons ()
   (format *query-io*
