@@ -3,9 +3,9 @@
 (defun ldiff (list object)
   (check-type list list)
   (loop for tail on list
-        until (eq object tail)
+        until (eql object tail)
         when (and (atom (cdr tail))
-                  (not (eq object (cdr tail))))
+                  (not (eql object (cdr tail))))
           nconc (cons (car tail)
                       (cdr tail))
         else
