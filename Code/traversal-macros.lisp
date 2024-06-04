@@ -48,7 +48,8 @@
   (finish-output *query-io*)
   (list (read *query-io*)))
 
-(defmacro with-alist-elements ((element-variable alist) &body body)
+(defmacro with-alist-elements ((element-variable alist &key preserve-nil)
+                               &body body)
   ;; We can use for ... on, because it uses atom to test the end
   ;; of the list
   (let ((rest-variable (gensym))
@@ -64,11 +65,12 @@
              do (let ((,element-variable (car ,rest-variable)))
                   #+sbcl
                   (declare (sb-ext:muffle-conditions sb-ext:compiler-note))
-                  (cond ((null ,element-variable)
-                         ;; The standard says that NIL in an association
-                         ;; list is ignored.
-                         nil)
-                        ((consp ,element-variable)
+                  (cond ,@(unless preserve-nil
+                            `(((null ,element-variable)
+                               ;; The standard says that NIL in an association
+                               ;; list is ignored.
+                               nil)))
+                        ((listp ,element-variable)
                          (progn ,@body))
                         (t
                          (loop until (consp ,element-variable)
