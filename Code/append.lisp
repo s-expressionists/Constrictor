@@ -35,7 +35,7 @@
           (cond ((null ,first-form-variable)
                  ,second-form-variable)
                 (t
-                 (assert-poper-list ,first-form-variable)
+                 (assert-proper-list ,first-form-variable)
                  (multiple-value-bind (,copy-variable ,last-variable)
                      (copy-list-and-last ,first-form-variable)
                    (rplacd ,last-variable ,second-form-variable)

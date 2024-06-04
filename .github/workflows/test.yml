@@ -16,6 +16,12 @@ jobs:
       fail-fast: false
       matrix:
         lisp:
+        - abcl
+        - acl
+        - ccl
+        - clasp
+        - cmucl
+        - ecl
         - sbcl
     runs-on: ubuntu-latest
     container:
