@@ -2,30 +2,21 @@
 
 (declaim (inline list-length))
 
-(defun list-length (list)
-  (cond ((null list)
-         0)
-        ((atom list)
-         (error 'list-must-be-proper-or-circular
-                :datum list))
-        (t
-         (let ((fast list)
-               (slow list)
-               (count 0))
-           (loop do (pop fast)
-                    (incf count)
-                 until (atom fast)
-                 do (pop fast)
-                    (incf count)
-                    (pop slow)
-                 until (or (atom fast) (eq fast slow))
-                 finally (cond ((null fast)
-                                (return count))
-                               ((eq fast slow)
-                                nil)
-                               (t
-                                (error 'list-must-be-proper-or-circular
-                                       :datum list))))))))
+(defun list-length (x)
+  (prog ((count 0)
+         (step2 x)
+         (step1 x))
+   next
+     (when (endp step2)
+       (return count))
+     (when (endp (cdr step2))
+       (return (+ count 1)))
+     (incf count 2)
+     (setf step2 (cddr step2)
+           step1 (cdr step1))
+     (unless (and (eq step2 step1)
+                  (plusp count))
+       (go next))))
 
 (declaim (notinline list-length))
 
