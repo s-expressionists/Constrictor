@@ -13,7 +13,7 @@
             do (loop for element-2 in list-2
                      when (apply-test (apply-key element-1)
                                       (apply-key element-2))
-                       do (push element-2 result))
+                       do (push element-1 result))
             finally (return result)))))
 
 (declaim (notinline intersection-core))

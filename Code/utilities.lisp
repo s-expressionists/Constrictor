@@ -2,7 +2,7 @@
 
 (defun proper-list-p (value)
   (typecase value
-    (null
+    (cl:null
      t)
     (cons
      (prog ((step1 (cdr value))
