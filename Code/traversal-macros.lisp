@@ -144,7 +144,7 @@
                        ,@body))
                     (t
                      (macrolet ((apply-test (form1 form2)
-                                  `(funcall ,',test ,form1 ,form2)))
+                                  `(values (funcall ,',test ,form1 ,form2))))
                        ,@body)))
               (cond ((or (eq ,test-not #'eql)
                          (eq ,test-not 'eql))
