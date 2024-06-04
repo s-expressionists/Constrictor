@@ -7,7 +7,7 @@
   (with-key (key key-supplied-p)
     (with-test (test test-supplied-p test-not test-not-supplied-p)
       (labels ((nsubst-local (tree)
-                 (cond ((apply-test (apply-key (car tree)) old)
+                 (cond ((apply-test old (apply-key (car tree)))
                         (rplaca tree new))
                        ((atom (car tree))
                         nil)
