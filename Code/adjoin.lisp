@@ -7,12 +7,13 @@
   (with-key (key key-supplied-p)
     (with-test (test test-supplied-p test-not test-not-supplied-p)
       (loop for remaining on list
-            when (apply-test item (apply-key (car remaining)))
+            when (apply-test (apply-key item) (apply-key (car remaining)))
               return list
             finally (if (null remaining)
                         (return (cons item list))
-                        (error 'list-must-be-proper
-                               :offending-list list))))))
+                        (error 'type-error
+                               :datum list
+                               :expected-type 'proper-list))))))
 
 (declaim (notinline adjoin-core))
 
@@ -42,7 +43,7 @@
      arguments
      (butlast lambda-list)
      '(adjoin-core
-       item alist
+       item list
        key key-supplied-p
        test test-supplied-p
        test-not test-not-supplied-p))))

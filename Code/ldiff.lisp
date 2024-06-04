@@ -1,15 +1,15 @@
 (cl:in-package #:constrictor)
 
-(defun copy-front (list object)
-  (loop for tail on list
-        until (eq object tail)
-        collect (car tail)))
-
 (defun ldiff (list object)
+  (check-type list list)
   (loop for tail on list
-        when (eq object tail)
-          return (copy-front list object)
-        finally (return (copy-list list))))
+        until (eql object tail)
+        when (and (atom (cdr tail))
+                  (not (eql object (cdr tail))))
+          nconc (cons (car tail)
+                      (cdr tail))
+        else
+          collect (car tail)))
 
 (setf (documentation 'ldiff 'function)
       (format nil

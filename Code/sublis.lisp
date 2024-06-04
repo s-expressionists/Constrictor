@@ -4,18 +4,19 @@
 
 (defun sublis-core
     (alist tree key key-supplied-p test test-supplied-p test-not test-not-supplied-p)
-  (labels ((sublis-local (tree)
-             (let ((entry (assoc-core tree alist
-                                      key key-supplied-p
-                                      test test-supplied-p
-                                      test-not test-not-supplied-p)))
-               (if (null entry)
-                   (if (atom tree)
-                       tree
-                       (cons (sublis-local (car tree))
-                             (sublis-local (cdr tree))))
-                   (cdr entry)))))
-    (sublis-local tree)))
+  (with-key (key key-supplied-p)
+    (labels ((sublis-local (tree)
+               (let ((entry (assoc-core (apply-key tree) alist
+                                        nil nil
+                                        test test-supplied-p
+                                        test-not test-not-supplied-p)))
+                 (if (null entry)
+                     (if (atom tree)
+                         tree
+                         (cons (sublis-local (car tree))
+                               (sublis-local (cdr tree))))
+                     (cdr entry)))))
+      (sublis-local tree))))
 
 (declaim (notinline sublis-core))
 
