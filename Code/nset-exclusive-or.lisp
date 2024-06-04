@@ -2,6 +2,8 @@
 
 (declaim (inline nset-exclusive-or-core))
 
+;;; This is seriously broken. Until it is fixed we'll just use
+;;; set-exclusive-or-core.
 (defun nset-exclusive-or-core
     (list-1 list-2 key key-supplied-p test test-supplied-p test-not test-not-supplied-p)
   (check-type list-1 proper-list)
@@ -46,10 +48,10 @@
        (key #'identity key-supplied-p)
        (test #'eql test-supplied-p)
        (test-not #'eql test-not-supplied-p))
-  (nset-exclusive-or-core list-1 list-2
-                          key key-supplied-p
-                          test test-supplied-p
-                          test-not test-not-supplied-p))
+  (set-exclusive-or-core list-1 list-2
+                         key key-supplied-p
+                         test test-supplied-p
+                         test-not test-not-supplied-p))
 
 (define-compiler-macro nset-exclusive-or (&whole form &rest arguments)
   (let ((lambda-list
@@ -65,7 +67,7 @@
     (compute-compiler-macro-body
      arguments
      (butlast lambda-list)
-     '(nset-exclusive-or-core
+     '(set-exclusive-or-core
        list-1 list-2
        key key-supplied-p
        test test-supplied-p
