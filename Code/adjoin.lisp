@@ -7,7 +7,7 @@
   (with-key (key key-supplied-p)
     (with-test (test test-supplied-p test-not test-not-supplied-p)
       (loop for remaining on list
-            when (apply-test item (apply-key (car remaining)))
+            when (apply-test (apply-key item) (apply-key (car remaining)))
               return list
             finally (if (null remaining)
                         (return (cons item list))
