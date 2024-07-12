@@ -4,8 +4,8 @@
 
 (defun intersection-core
     (list-1 list-2 key key-supplied-p test test-supplied-p test-not test-not-supplied-p)
-  (assert-proper-list list-1)
-  (assert-proper-list list-2)
+  (check-type list-1 proper-list)
+  (check-type list-2 proper-list)
   (with-key (key key-supplied-p)
     (with-test (test test-supplied-p test-not test-not-supplied-p)
       (loop with result = '()
@@ -13,7 +13,7 @@
             do (loop for element-2 in list-2
                      when (apply-test (apply-key element-1)
                                       (apply-key element-2))
-                       do (push element-2 result))
+                       do (push element-1 result))
             finally (return result)))))
 
 (declaim (notinline intersection-core))

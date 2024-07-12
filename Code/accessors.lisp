@@ -572,7 +572,7 @@
 
 (defun (setf first) (new-value cons)
   (declare (inline rplaca cdr))
-  (rplaca (cdr cons) new-value)
+  (rplaca cons new-value)
   new-value)
 
 (declaim (notinline (setf first)))

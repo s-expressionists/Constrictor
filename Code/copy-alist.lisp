@@ -4,7 +4,7 @@
 
 (defun copy-alist (alist)
   (let ((reversed-result '()))
-    (with-alist-elements (element alist)
+    (with-alist-elements (element alist :preserve-nil t)
       (push (if (consp element)
                 (cons (car element) (cdr element))
                 ;; The element is an atom only if the restart USE was

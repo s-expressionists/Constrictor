@@ -2,9 +2,9 @@
 
 (defun tailp (object list)
   (loop for tail on list
-        when (eq object tail)
+        when (eql object tail)
           return t
-        finally (return (eq object tail))))
+        finally (return (eql object tail))))
 
 (setf (documentation 'tailp 'function)
       (format nil

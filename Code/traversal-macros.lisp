@@ -21,8 +21,9 @@
            until (atom ,rest-variable)
            do ,@body
            finally (unless (null ,rest-variable)
-                     (error 'list-must-be-proper
-                            :offending-list ,list-variable)))))
+                     (error 'type-error
+                            :datum ,list-variable
+                            :expected-type 'proper-list)))))
 
 ;;; This macro can be used to traverse a list that must be a proper
 ;;; list, when each tail of the list must be examined.  Client code
@@ -37,8 +38,9 @@
            until (atom ,rest-variable)
            do ,@body
            finally (unless (null ,rest-variable)
-                     (error 'list-must-be-proper
-                            :offending-list ,list-variable)))))
+                     (error 'type-error
+                            :datum ,list-variable
+                            :expected-type 'proper-list)))))
 
 (defun read-new-cons ()
   (format *query-io*
@@ -46,7 +48,8 @@
   (finish-output *query-io*)
   (list (read *query-io*)))
 
-(defmacro with-alist-elements ((element-variable alist) &body body)
+(defmacro with-alist-elements ((element-variable alist &key preserve-nil)
+                               &body body)
   ;; We can use for ... on, because it uses atom to test the end
   ;; of the list
   (let ((rest-variable (gensym))
@@ -62,11 +65,12 @@
              do (let ((,element-variable (car ,rest-variable)))
                   #+sbcl
                   (declare (sb-ext:muffle-conditions sb-ext:compiler-note))
-                  (cond ((null ,element-variable)
-                         ;; The standard says that NIL in an association
-                         ;; list is ignored.
-                         nil)
-                        ((consp ,element-variable)
+                  (cond ,@(unless preserve-nil
+                            `(((null ,element-variable)
+                               ;; The standard says that NIL in an association
+                               ;; list is ignored.
+                               nil)))
+                        ((listp ,element-variable)
                          (progn ,@body))
                         (t
                          (loop until (consp ,element-variable)
@@ -142,7 +146,7 @@
                        ,@body))
                     (t
                      (macrolet ((apply-test (form1 form2)
-                                  `(funcall ,',test ,form1 ,form2)))
+                                  `(values (funcall ,',test ,form1 ,form2))))
                        ,@body)))
               (cond ((or (eq ,test-not #'eql)
                          (eq ,test-not 'eql))

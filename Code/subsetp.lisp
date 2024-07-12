@@ -4,14 +4,15 @@
 
 (defun subsetp-core
     (list-1 list-2 key key-supplied-p test test-supplied-p test-not test-not-supplied-p)
-  (loop for element-1 in list-1
-        unless (member-core
-                element-1 list-2
-                key key-supplied-p
-                test test-supplied-p
-                test-not test-not-supplied-p)
-          return nil
-        finally (return t)))
+  (with-key (key key-supplied-p)
+    (loop for element-1 in list-1
+          unless (member-core
+                  (apply-key element-1) list-2
+                  key key-supplied-p
+                  test test-supplied-p
+                  test-not test-not-supplied-p)
+            return nil
+          finally (return t))))
 
 (declaim (notinline subsetp-core))
 

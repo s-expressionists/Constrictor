@@ -4,36 +4,21 @@
 
 (defun nsublis-core
     (alist tree key key-supplied-p test test-supplied-p test-not test-not-supplied-p)
-  (labels ((nsublis-local (tree)
-             (let ((entry (assoc-core (car tree) alist
-                                      key key-supplied-p
-                                      test test-supplied-p
-                                      test-not test-not-supplied-p)))
-               (if (null entry)
-                   (if (atom (car tree))
-                       nil
-                       (nsublis-local (car tree)))
-                   (rplaca tree (cdr entry))))
-             (let ((entry (assoc-core (cdr tree) alist
-                                      key key-supplied-p
-                                      test test-supplied-p
-                                      test-not test-not-supplied-p)))
-               (if (null entry)
-                   (if (atom (cdr tree))
-                       nil
-                       (nsublis-local (cdr tree)))
-                   (rplacd tree (cdr entry))))))
-    (let ((entry (assoc-core tree alist
-                             key key-supplied-p
-                             test test-supplied-p
-                             test-not test-not-supplied-p)))
-      (if (null entry)
-          (if (atom tree)
-              tree
-              (progn (nsublis-local (car tree))
-                     (nsublis-local (cdr tree))
-                     tree))
-          (cdr entry)))))
+  (with-key (key key-supplied-p)
+    (labels ((nsublis-local (tree)
+               (let ((entry (assoc-core (apply-key tree) alist
+                                        nil nil
+                                        test test-supplied-p
+                                        test-not test-not-supplied-p)))
+                 (cond ((consp entry)
+                        (cdr entry))
+                       ((consp tree)
+                        (rplaca tree (nsublis-local (car tree)))
+                        (rplacd tree (nsublis-local (cdr tree)))
+                        tree)
+                       (t
+                        tree)))))
+      (nsublis-local tree))))
 
 (declaim (notinline nsublis-core))
 

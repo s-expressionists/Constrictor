@@ -13,7 +13,7 @@
 (declaim (inline member-if))
 
 (defun member-if (predicate list &key (key nil key-supplied-p))
-  (member-core predicate list key key-supplied-p))
+  (member-if-core predicate list key key-supplied-p))
 
 (declaim (notinline member-if))
 

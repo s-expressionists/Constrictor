@@ -4,8 +4,8 @@
 
 (defun nintersection-core
     (list-1 list-2 key key-supplied-p test test-supplied-p test-not test-not-supplied-p)
-  (assert-proper-list list-1)
-  (assert-proper-list list-2)
+  (check-type list-1 proper-list)
+  (check-type list-2 proper-list)
   (when (null list-1)
     (return-from nintersection-core '()))
   (with-key (key key-supplied-p)

@@ -3,6 +3,7 @@
 (declaim (inline nthcdr))
 
 (defun nthcdr (n list)
+  (check-type n (integer 0))
   (unless (listp list)
     (error 'list-expected :datum list))
   (loop for result = list then (cdr result)
