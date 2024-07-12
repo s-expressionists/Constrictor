@@ -304,15 +304,6 @@
 
 (declaim (notinline tenth))
 
-(eval-when (:compile-toplevel :load-toplevel :execute)
-  (defun make-setf-c*r-type-descriptor (string index)
-    (if (zerop index)
-        'cons
-        (let ((subtype (make-setf-c*r-type-descriptor string (1- index))))
-          (ecase (char string index)
-            (#\a `(cons ,subtype))
-            (#\d `(cons t ,subtype)))))))
-
 ;; (defun (setf car) (new-value cons)
 ;;   (declare (inline rplaca))
 ;;   (check-setf-c*r-type-for cons "a")
