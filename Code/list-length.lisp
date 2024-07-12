@@ -28,5 +28,3 @@
                Return NIL if LIST is a circular list.~@
                Signal an error of type TYPE-ERROR if LIST is either~@
                not a list, or if it is a dotted list."))
-
-
