@@ -688,12 +688,26 @@
                   string
                   (split string 0)))))
 
+(defun setf-c*r-documentation (symbol)
+  (let* ((name (symbol-name symbol))
+         (string (subseq name 1 (1- (length name)))))
+    (setf (documentation `(setf ,symbol) 'function)
+          (format nil
+                  "Syntax: (setf (c~ar list) object)~@
+                   ~@
+                   (SETF (C~aR LIST) OBJECT) is equivalent to~@
+                   (SETF ~s OBJECT)."
+                  (string-downcase string)
+                  string
+                  (split string 0)))))
+
 (loop for symbol in
       '(caar cadr cdar cddr
         caaar caadr cadar caddr cdaar cdadr cddar cdddr
         caaaar caaadr caadar caaddr cadaar cadadr caddar cadddr
         cdaaar cdaadr cdadar cdaddr cddaar cddadr cdddar cddddr)
-      do (c*r-documentation symbol))
+      do (c*r-documentation symbol)
+         (setf-c*r-documentation symbol))
 
 (defun integer-to-cl-symbol (integer)
   (find-symbol (string-upcase (format nil "~:R" integer))
