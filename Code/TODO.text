@@ -69,7 +69,7 @@ cdmt adjoin
 cd_t pushnew
 cdmt set-difference
 cdmt nset-difference
-c_mt set-exclusive-or
+cdmt set-exclusive-or
 c_mt nset-exclusive-or
 c_mt subsetp
 cdmt union
