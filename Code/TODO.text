@@ -70,7 +70,7 @@ cd_t pushnew
 cdmt set-difference
 cdmt nset-difference
 cdmt set-exclusive-or
-c_mt nset-exclusive-or
+cdmt nset-exclusive-or
 c_mt subsetp
 cdmt union
 cdmt nunion
