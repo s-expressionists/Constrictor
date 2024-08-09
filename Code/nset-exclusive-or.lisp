@@ -88,7 +88,7 @@
                ~@
                This function may modify either LIST-1 or LIST-1 or both~@
                in that elements may be removed or added.  The original~@
-               value of LIST-1 should not be used after a call to this~@
+               values of the lists should not be used after a call to this~@
                function.
                ~@
                The order of the elements in teh return value of this~@
