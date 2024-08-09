@@ -72,3 +72,34 @@
        key key-supplied-p
        test test-supplied-p
        test-not test-not-supplied-p))))
+
+(setf (documentation 'nset-exclusive-or 'function)
+      (format nil
+              "Syntax: nset-exclusive-or list-1 list-2 &key key test test-not~@
+               ~%~a~%~%~a~%~%~a~%~%~a~%~@
+               Either TEST or TEST-NOT is applied to the result of~@
+               applying KEY to an element of LIST-1 and and the result~@
+               of applying KEY to an element of LIST-2 in that order.~@
+               If for some elements E1 of LIST-1 and E2 of LIST-2, the~@
+               test is satisfied, neither E1 nor E2 is included in the~@
+               return value of this function.  All other elements of~@
+               LIST-1 and LIST-2 are included in the return value of~@
+               this function.~@
+               ~@
+               This function may modify either LIST-1 or LIST-1 or both~@
+               in that elements may be removed or added.  The original~@
+               value of LIST-1 should not be used after a call to this~@
+               function.
+               ~@
+               The order of the elements in teh return value of this~@
+               function should not be relied upon.  If there are duplicate~@
+               elements E1 and E2 in LIST-1 for which there is no element~@
+               in LIST-2 that satisfies the test, then both E1 and E2 might~@
+               be included in the result.  If there are duplicate elements~@
+               E1 and E2 of LIST-2 for which there is no element in LIST-1~@
+               that satisfies the test, then both E1 and #2 might be~@
+               included in the result."
+              *list-1-and-list-2-must-be-proper*
+              *key*
+              *key-applied-to-elements-of-list-1-and-list-1*
+              *test-and-test-not*))
