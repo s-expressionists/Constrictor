@@ -83,5 +83,3 @@
               *key*
               *key-applied-to-elements-of-list-1-and-list-1*
               *test-and-test-not*))
-
-               
