@@ -708,7 +708,7 @@
         (format nil
                 "Syntax: (setf (~a list) new-object)~@
                  ~@
-                 This function as the same effect and returns~@
+                 This function has the same effect and returns~@
                  the same value as:~@
                  (SETF (NTH ~a LIST) NEW-OBJECT)"
                 (format nil "~:R" n)
