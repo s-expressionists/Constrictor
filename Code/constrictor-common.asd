@@ -12,6 +12,7 @@
    (:file "pop")
    (:file "compiler-macro-support")
    (:file "caar")
+   (:file "cadr")
    (:file "accessors")
    (:file "consp")
    (:file "atom")

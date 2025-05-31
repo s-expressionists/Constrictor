@@ -8,6 +8,7 @@ t = test
 xd__ consp
 xd__ atom
 cdnt caar
+cdnt cadr
 c___ caar....
 cd__ first, second, ...
 cdnt copy-tree
