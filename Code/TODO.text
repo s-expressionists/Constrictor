@@ -9,6 +9,7 @@ xd__ consp
 xd__ atom
 cdnt caar
 cdnt cadr
+cdnt cdar
 c___ caar....
 cd__ first, second, ...
 cdnt copy-tree

@@ -13,6 +13,7 @@
    (:file "compiler-macro-support")
    (:file "caar")
    (:file "cadr")
+   (:file "cdar")
    (:file "accessors")
    (:file "consp")
    (:file "atom")
