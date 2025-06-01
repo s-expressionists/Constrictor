@@ -1,11 +1,5 @@
 (cl:in-package #:constrictor)
 
-(defun cdar (list)
-  (declare (inline car cdr))
-  (cdr (car list)))
-
-(declaim (notinline cdar))
-
 (declaim (inline cddr))
 
 (defun cddr (list)
