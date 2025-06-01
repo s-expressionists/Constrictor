@@ -10,6 +10,7 @@ xd__ atom
 cdnt caar
 cdnt cadr
 cdnt cdar
+cdnt cddr
 c___ caar....
 cd__ first, second, ...
 cdnt copy-tree
