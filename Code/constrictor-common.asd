@@ -18,6 +18,7 @@
    (:file "caaar")
    (:file "caadr")
    (:file "cadar")
+   (:file "caddr")
    (:file "accessors")
    (:file "consp")
    (:file "atom")
