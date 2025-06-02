@@ -11,6 +11,7 @@ cdnt caar
 cdnt cadr
 cdnt cdar
 cdnt cddr
+cdnt caaar
 c___ caar....
 cd__ first, second, ...
 cdnt copy-tree

@@ -1,13 +1,5 @@
 (cl:in-package #:constrictor)
 
-(declaim (inline caaar))
-
-(defun caaar (list)
-  (declare (inline car caar))
-  (car (caar list)))
-
-(declaim (notinline caaar))
-
 (declaim (inline caadr))
 
 (defun caadr (list)

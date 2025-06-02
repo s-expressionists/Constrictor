@@ -15,6 +15,7 @@
    (:file "cadr")
    (:file "cdar")
    (:file "cddr")
+   (:file "caaar")
    (:file "accessors")
    (:file "consp")
    (:file "atom")
