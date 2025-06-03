@@ -24,6 +24,7 @@
    (:file "cddar")
    (:file "cdddr")
    (:file "caaaar")
+   (:file "caaadr")
    (:file "accessors")
    (:file "consp")
    (:file "atom")
