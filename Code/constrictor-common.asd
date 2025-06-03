@@ -22,6 +22,7 @@
    (:file "cdaar")
    (:file "cdadr")
    (:file "cddar")
+   (:file "cdddr")
    (:file "accessors")
    (:file "consp")
    (:file "atom")

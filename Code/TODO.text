@@ -18,6 +18,7 @@ cdnt caddr
 cdnt cdaar
 cdnt cdadr
 cdnt cddar
+cdnt cdddr
 c___ caar....
 cd__ first, second, ...
 cdnt copy-tree
