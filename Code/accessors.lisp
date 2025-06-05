@@ -1,13 +1,5 @@
 (cl:in-package #:constrictor)
 
-(declaim (inline cdaaar))
-
-(defun cdaaar (list)
-  (declare (inline cdr caaar))
-  (cdr (caaar list)))
-
-(declaim (notinline cdaaar))
-
 (declaim (inline cdaadr))
 
 (defun cdaadr (list)
