@@ -32,6 +32,7 @@
    (:file "caddar")
    (:file "cadddr")
    (:file "cdaaar")
+   (:file "cdaadr")
    (:file "accessors")
    (:file "consp")
    (:file "atom")
