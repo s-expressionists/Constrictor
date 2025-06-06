@@ -34,6 +34,7 @@
    (:file "cdaaar")
    (:file "cdaadr")
    (:file "cdadar")
+   (:file "cdaddr")
    (:file "accessors")
    (:file "consp")
    (:file "atom")
