@@ -92,15 +92,6 @@
 ;;   (rplacd cons new-value)
 ;;   new-value)
 
-(declaim (inline (setf caar)))
-
-(defun (setf caar) (new-value cons)
-  (declare (inline rplaca car ))
-  (rplaca (car cons) new-value)
-  new-value)
-
-(declaim (notinline (setf caar)))
-
 (declaim (inline (setf cadr)))
 
 (defun (setf cadr) (new-value cons)

@@ -8,6 +8,15 @@
 
 (declaim (notinline caar))
 
+(declaim (inline (setf caar)))
+
+(defun (setf caar) (new-value cons)
+  (declare (inline rplaca car ))
+  (rplaca (car cons) new-value)
+  new-value)
+
+(declaim (notinline (setf caar)))
+
 (setf (documentation 'caar 'function)
       (format nil
               "Syntax: caar list~@
